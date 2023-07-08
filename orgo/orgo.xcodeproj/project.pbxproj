@@ -13,6 +13,7 @@
 		0E6FC9222A585277001DD709 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E6FC9202A585277001DD709 /* Main.storyboard */; };
 		0E6FC9242A585278001DD709 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E6FC9232A585278001DD709 /* Assets.xcassets */; };
 		0E6FC9272A585278001DD709 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E6FC9252A585278001DD709 /* LaunchScreen.storyboard */; };
+		DBDB3429A16521871435E852 /* Pods_orgo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6DA5098F6D9C50633E2F56E /* Pods_orgo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,9 @@
 		0E6FC9232A585278001DD709 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0E6FC9262A585278001DD709 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0E6FC9282A585278001DD709 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		654C8E589BE281BAFA8FDF33 /* Pods-orgo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-orgo.debug.xcconfig"; path = "Target Support Files/Pods-orgo/Pods-orgo.debug.xcconfig"; sourceTree = "<group>"; };
+		699FEC91BE114E2CAC1E314D /* Pods-orgo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-orgo.release.xcconfig"; path = "Target Support Files/Pods-orgo/Pods-orgo.release.xcconfig"; sourceTree = "<group>"; };
+		D6DA5098F6D9C50633E2F56E /* Pods_orgo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_orgo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBDB3429A16521871435E852 /* Pods_orgo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +47,8 @@
 			children = (
 				0E6FC9192A585277001DD709 /* orgo */,
 				0E6FC9182A585277001DD709 /* Products */,
+				5790C6D43082154B51C810A3 /* Pods */,
+				8B1399B6362DEA6183F2EB0B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +74,24 @@
 			path = orgo;
 			sourceTree = "<group>";
 		};
+		5790C6D43082154B51C810A3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				654C8E589BE281BAFA8FDF33 /* Pods-orgo.debug.xcconfig */,
+				699FEC91BE114E2CAC1E314D /* Pods-orgo.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		8B1399B6362DEA6183F2EB0B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D6DA5098F6D9C50633E2F56E /* Pods_orgo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +99,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0E6FC92B2A585278001DD709 /* Build configuration list for PBXNativeTarget "orgo" */;
 			buildPhases = (
+				33FE69F1990191755B6CD76E /* [CP] Check Pods Manifest.lock */,
 				0E6FC9132A585277001DD709 /* Sources */,
 				0E6FC9142A585277001DD709 /* Frameworks */,
 				0E6FC9152A585277001DD709 /* Resources */,
+				745C2634687BC3B2DE2E1C9F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,6 +159,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		33FE69F1990191755B6CD76E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-orgo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		745C2634687BC3B2DE2E1C9F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-orgo/Pods-orgo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-orgo/Pods-orgo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-orgo/Pods-orgo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0E6FC9132A585277001DD709 /* Sources */ = {
@@ -282,6 +351,7 @@
 		};
 		0E6FC92C2A585278001DD709 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 654C8E589BE281BAFA8FDF33 /* Pods-orgo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -310,6 +380,7 @@
 		};
 		0E6FC92D2A585278001DD709 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 699FEC91BE114E2CAC1E314D /* Pods-orgo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
