@@ -17,8 +17,13 @@ class OrgoTabBarVC: BaseViewController {
     
     // MARK: - UI components
     
+    private let tabBarView: TabBarView = TabBarView()
+    
     
     // MARK: - Variables and Properties
+    
+    private let tabBarItems: [TabBarItem] = TabBarItem.allCases
+    private let vcList: [BaseNavigationController] = []
     
     
     // MARK: - Life Cycle

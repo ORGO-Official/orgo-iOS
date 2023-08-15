@@ -11,6 +11,7 @@
 		0E57C15D2A8BB7A400BFF482 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E57C15C2A8BB7A400BFF482 /* BaseNavigationController.swift */; };
 		0E57C1652A8BBC4300BFF482 /* OrgoTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E57C1642A8BBC4300BFF482 /* OrgoTabBarVC.swift */; };
 		0E57C1682A8BBCC900BFF482 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E57C1672A8BBCC900BFF482 /* TabBarView.swift */; };
+		0E57C16B2A8BBE8300BFF482 /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E57C16A2A8BBE8300BFF482 /* TabBarItem.swift */; };
 		0E6793362A639433000FBE1A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6793352A639433000FBE1A /* BaseViewController.swift */; };
 		0E6793392A63946F000FBE1A /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6793382A63946F000FBE1A /* UIViewController+Ext.swift */; };
 		0E67933B2A63956B000FBE1A /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E67933A2A63956B000FBE1A /* BaseView.swift */; };
@@ -38,6 +39,7 @@
 		0E57C15C2A8BB7A400BFF482 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		0E57C1642A8BBC4300BFF482 /* OrgoTabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrgoTabBarVC.swift; sourceTree = "<group>"; };
 		0E57C1672A8BBCC900BFF482 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		0E57C16A2A8BBE8300BFF482 /* TabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
 		0E6793352A639433000FBE1A /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		0E6793382A63946F000FBE1A /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		0E67933A2A63956B000FBE1A /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
@@ -134,9 +136,18 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		0E57C1692A8BBE7B00BFF482 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				0E57C16A2A8BBE8300BFF482 /* TabBarItem.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
 		0E6793332A63941A000FBE1A /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				0E57C1692A8BBE7B00BFF482 /* Enum */,
 				0E6793372A63945B000FBE1A /* Extension */,
 				0E6793342A639426000FBE1A /* Class */,
 				0E67933E2A6395F0000FBE1A /* Protocol */,
@@ -364,6 +375,7 @@
 				0E67934E2A63979C000FBE1A /* BaseCollectionViewCell.swift in Sources */,
 				0E6793522A639A11000FBE1A /* UIView+Ext.swift in Sources */,
 				0E6793562A63C276000FBE1A /* String+Ext.swift in Sources */,
+				0E57C16B2A8BBE8300BFF482 /* TabBarItem.swift in Sources */,
 				0E6FC91F2A585277001DD709 /* ViewController.swift in Sources */,
 				0E6793362A639433000FBE1A /* BaseViewController.swift in Sources */,
 				0E57C15D2A8BB7A400BFF482 /* BaseNavigationController.swift in Sources */,
