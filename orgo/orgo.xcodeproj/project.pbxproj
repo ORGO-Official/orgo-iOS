@@ -14,6 +14,7 @@
 		0E57C16B2A8BBE8300BFF482 /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E57C16A2A8BBE8300BFF482 /* TabBarItem.swift */; };
 		0E57C16F2A8BC18700BFF482 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E57C16E2A8BC18700BFF482 /* NavigationBar.swift */; };
 		0E57C1712A8BC33F00BFF482 /* NavigationBarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E57C1702A8BC33F00BFF482 /* NavigationBarStyle.swift */; };
+		0E57C1732A8BC4AB00BFF482 /* BaseNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E57C1722A8BC4AB00BFF482 /* BaseNavigationViewController.swift */; };
 		0E6793362A639433000FBE1A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6793352A639433000FBE1A /* BaseViewController.swift */; };
 		0E6793392A63946F000FBE1A /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6793382A63946F000FBE1A /* UIViewController+Ext.swift */; };
 		0E67933B2A63956B000FBE1A /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E67933A2A63956B000FBE1A /* BaseView.swift */; };
@@ -44,6 +45,7 @@
 		0E57C16A2A8BBE8300BFF482 /* TabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
 		0E57C16E2A8BC18700BFF482 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		0E57C1702A8BC33F00BFF482 /* NavigationBarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarStyle.swift; sourceTree = "<group>"; };
+		0E57C1722A8BC4AB00BFF482 /* BaseNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationViewController.swift; sourceTree = "<group>"; };
 		0E6793352A639433000FBE1A /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		0E6793382A63946F000FBE1A /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		0E67933A2A63956B000FBE1A /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				0E6793352A639433000FBE1A /* BaseViewController.swift */,
+				0E57C1722A8BC4AB00BFF482 /* BaseNavigationViewController.swift */,
 				0E57C15C2A8BB7A400BFF482 /* BaseNavigationController.swift */,
 				0E67933A2A63956B000FBE1A /* BaseView.swift */,
 				0E67933C2A6395A1000FBE1A /* BaseViewModel.swift */,
@@ -406,6 +409,7 @@
 				0E6793392A63946F000FBE1A /* UIViewController+Ext.swift in Sources */,
 				0E67933D2A6395A1000FBE1A /* BaseViewModel.swift in Sources */,
 				0E67933B2A63956B000FBE1A /* BaseView.swift in Sources */,
+				0E57C1732A8BC4AB00BFF482 /* BaseNavigationViewController.swift in Sources */,
 				0E6793542A639AB6000FBE1A /* UIImageView+Ext.swift in Sources */,
 				0E6793452A63963D000FBE1A /* APIService.swift in Sources */,
 				0E67934A2A639687000FBE1A /* URLResource.swift in Sources */,
