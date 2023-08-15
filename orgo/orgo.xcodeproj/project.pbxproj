@@ -40,6 +40,7 @@
 		0E9B77362A8BF13B00F2117B /* APISession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9B77352A8BF13B00F2117B /* APISession.swift */; };
 		0E9B77382A8BF17D00F2117B /* AuthInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9B77372A8BF17D00F2117B /* AuthInterceptor.swift */; };
 		0E9B773A2A8BF1AE00F2117B /* APIToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9B77392A8BF1AE00F2117B /* APIToken.swift */; };
+		0E9B773D2A8BF25E00F2117B /* UpdateTokenResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9B773C2A8BF25E00F2117B /* UpdateTokenResponseModel.swift */; };
 		0EEB3EC02A8BDA8300615A4C /* ImageAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEB3EBF2A8BDA8300615A4C /* ImageAssets.swift */; };
 		DBDB3429A16521871435E852 /* Pods_orgo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6DA5098F6D9C50633E2F56E /* Pods_orgo.framework */; };
 /* End PBXBuildFile section */
@@ -80,6 +81,7 @@
 		0E9B77352A8BF13B00F2117B /* APISession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APISession.swift; sourceTree = "<group>"; };
 		0E9B77372A8BF17D00F2117B /* AuthInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInterceptor.swift; sourceTree = "<group>"; };
 		0E9B77392A8BF1AE00F2117B /* APIToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIToken.swift; sourceTree = "<group>"; };
+		0E9B773C2A8BF25E00F2117B /* UpdateTokenResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTokenResponseModel.swift; sourceTree = "<group>"; };
 		0EEB3EBF2A8BDA8300615A4C /* ImageAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAssets.swift; sourceTree = "<group>"; };
 		654C8E589BE281BAFA8FDF33 /* Pods-orgo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-orgo.debug.xcconfig"; path = "Target Support Files/Pods-orgo/Pods-orgo.debug.xcconfig"; sourceTree = "<group>"; };
 		699FEC91BE114E2CAC1E314D /* Pods-orgo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-orgo.release.xcconfig"; path = "Target Support Files/Pods-orgo/Pods-orgo.release.xcconfig"; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 		0E6793332A63941A000FBE1A /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				0E9B773B2A8BF24B00F2117B /* Model */,
 				0EEB3EBE2A8BDA7B00615A4C /* Assets */,
 				0E57C1692A8BBE7B00BFF482 /* Enum */,
 				0E6793372A63945B000FBE1A /* Extension */,
@@ -324,6 +327,14 @@
 				0E9B77332A8BF0A800F2117B /* LoginVM.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		0E9B773B2A8BF24B00F2117B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0E9B773C2A8BF25E00F2117B /* UpdateTokenResponseModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		0EEB3EBE2A8BDA7B00615A4C /* Assets */ = {
@@ -486,6 +497,7 @@
 				0E67934A2A639687000FBE1A /* URLResource.swift in Sources */,
 				0E57C1762A8BC70B00BFF482 /* HomeVC.swift in Sources */,
 				0E9B77342A8BF0A800F2117B /* LoginVM.swift in Sources */,
+				0E9B773D2A8BF25E00F2117B /* UpdateTokenResponseModel.swift in Sources */,
 				0E57C1652A8BBC4300BFF482 /* OrgoTabBarVC.swift in Sources */,
 				0E57C1802A8BC9E500BFF482 /* TabBarItemButton.swift in Sources */,
 				0E6793422A639608000FBE1A /* Input.swift in Sources */,
