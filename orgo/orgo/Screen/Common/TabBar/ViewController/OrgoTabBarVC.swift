@@ -23,7 +23,7 @@ class OrgoTabBarVC: BaseViewController {
     // MARK: - Variables and Properties
     
     private let tabBarItems: [TabBarItem] = TabBarItem.allCases
-    private let vcList: [BaseNavigationController] = []
+    private var vcList: [BaseNavigationController] = []
     
     
     // MARK: - Life Cycle
@@ -58,6 +58,12 @@ class OrgoTabBarVC: BaseViewController {
 extension OrgoTabBarVC {
     
     private func configureInnerVC() {
+        tabBarItems.forEach {
+            vcList.append(BaseNavigationController(rootViewController: $0.createTabBarInnerVC()))
+        }
+    }
+    
+    private func configureTabBarView() {
         
     }
     
