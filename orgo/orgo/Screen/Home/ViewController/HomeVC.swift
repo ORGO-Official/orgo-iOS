@@ -1,11 +1,11 @@
 //
-//  LoginVC.swift
+//  HomeVC.swift
 //  orgo
 //
 //  Created by 김태현 on 2023/08/15.
 //
 
-import UIKit
+import Foundation
 
 import RxSwift
 import RxCocoa
@@ -13,8 +13,7 @@ import RxCocoa
 import Then
 import SnapKit
 
-
-class LoginVC: BaseViewController {
+class HomeVC: BaseViewController {
     
     // MARK: - UI components
     
@@ -27,7 +26,7 @@ class LoginVC: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .gray
+        view.backgroundColor = .blue
     }
     
     override func configureView() {
