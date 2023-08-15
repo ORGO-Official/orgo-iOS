@@ -73,6 +73,12 @@ class LoginVC: BaseViewController {
         configureLayout()
     }
     
+    override func bindInput() {
+        super.bindInput()
+        
+        bindBtn()
+    }
+    
     // MARK: - Functions
     
 }
@@ -119,6 +125,22 @@ extension LoginVC {
         loginBorder.snp.makeConstraints {
             $0.height.equalTo(stackView.snp.width).dividedBy(19.13)
         }
+    }
+    
+}
+
+
+// MARK: - Input
+
+extension LoginVC {
+    
+    private func bindBtn() {
+        kakaoLoginBtn.rx.tap
+            .bind(onNext: { [weak self] _ in
+                guard let self = self else { return }
+                
+            })
+            .disposed(by: bag)
     }
     
 }
