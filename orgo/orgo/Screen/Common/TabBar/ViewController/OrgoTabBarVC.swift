@@ -36,13 +36,45 @@ class OrgoTabBarVC: BaseViewController {
     override func configureView() {
         super.configureView()
         
+        configureInnerVC()
     }
     
     override func layoutView() {
         super.layoutView()
         
+        configureLayout()
     }
     
+    
     // MARK: - Functions
+    
+    
+    
+}
+
+
+// MARK: - Configure
+
+extension OrgoTabBarVC {
+    
+    private func configureInnerVC() {
+        
+    }
+    
+}
+
+
+// MARK: - Layout
+
+extension OrgoTabBarVC {
+    
+    private func configureLayout() {
+        view.addSubview(tabBarView)
+        
+        tabBarView.snp.makeConstraints {
+            $0.horizontalEdges.equalTo(view)
+            $0.bottom.equalTo(view.safeAreaLayoutGuide)
+        }
+    }
     
 }
