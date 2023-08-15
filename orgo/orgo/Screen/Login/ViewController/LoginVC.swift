@@ -53,6 +53,7 @@ class LoginVC: BaseViewController {
     
     // MARK: - Variables and Properties
     
+    private let viewModel: LoginVM = LoginVM()
     
     // MARK: - Life Cycle
     
@@ -139,6 +140,7 @@ extension LoginVC {
             .bind(onNext: { [weak self] _ in
                 guard let self = self else { return }
                 
+                self.viewModel.requestKakaoLogin()
             })
             .disposed(by: bag)
     }
