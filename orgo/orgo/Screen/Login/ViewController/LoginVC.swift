@@ -13,6 +13,8 @@ import RxCocoa
 import Then
 import SnapKit
 
+import NaverThirdPartyLogin
+
 
 class LoginVC: BaseViewController {
     
@@ -54,12 +56,15 @@ class LoginVC: BaseViewController {
     // MARK: - Variables and Properties
     
     private let viewModel: LoginVM = LoginVM()
+    private let naverLoginInstance = NaverThirdPartyLoginConnection.getSharedInstance()
+    
     
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        naverLoginInstance?.delegate = self
     }
     
     override func configureView() {
@@ -143,6 +148,39 @@ extension LoginVC {
                 self.viewModel.requestKakaoLogin()
             })
             .disposed(by: bag)
+        
+        naverLoginBtn.rx.tap
+            .bind(onNext: { [weak self] _ in
+                guard let self = self else { return }
+                
+                self.naverLoginInstance?.requestThirdPartyLogin()
+            })
+            .disposed(by: bag)
     }
     
+}
+
+
+// MARK: - 네이버 로그인
+
+extension LoginVC: NaverThirdPartyLoginConnectionDelegate {
+    func oauth20ConnectionDidFinishRequestACTokenWithAuthCode() {
+        print("login success")
+        print(naverLoginInstance?.accessToken)
+        print(naverLoginInstance?.refreshToken)
+    }
+    
+    func oauth20ConnectionDidFinishRequestACTokenWithRefreshToken() {
+        print("second success")
+        print(naverLoginInstance?.accessToken)
+        print(naverLoginInstance?.refreshToken)
+    }
+    
+    func oauth20ConnectionDidFinishDeleteToken() {
+        print("Log out")
+    }
+    
+    func oauth20Connection(_ oauthConnection: NaverThirdPartyLoginConnection!, didFailWithError error: Error!) {
+        print(error)
+    }
 }

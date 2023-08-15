@@ -23,6 +23,9 @@ target 'orgo' do
   pod 'KakaoSDKAuth', '<= 2.16'
   pod 'KakaoSDKUser', '<= 2.16'
 
+  # Naver Login
+  pod 'naveridlogin-sdk-ios'
+
 end
 
 post_install do |installer|
