@@ -54,6 +54,7 @@ class TabBarItemButton: UIButton {
     func setButtonStatus(isSelected: Bool) {
         let toSetColor = isSelected ? UIColor.black : UIColor.gray
         iconImageView.image = itemType.iconImage?.withTintColor(toSetColor)
+        tintColor = toSetColor
     }
     
 }
@@ -79,13 +80,9 @@ extension TabBarItemButton {
         }
         
         stackView.snp.makeConstraints {
-            $0.top.equalTo(self).offset(6)
-            $0.horizontalEdges.equalTo(self)
-            $0.bottom.equalTo(self).inset(6)
-        }
-        
-        iconImageView.snp.makeConstraints {
-            $0.width.height.equalTo(24)
+            $0.top.equalTo(self).offset(6.0)
+            $0.leading.trailing.equalToSuperview()
+            $0.bottom.equalTo(self).inset(6.0)
         }
     }
     
