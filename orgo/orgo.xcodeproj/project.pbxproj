@@ -38,6 +38,7 @@
 		0E6FC9272A585278001DD709 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E6FC9252A585278001DD709 /* LaunchScreen.storyboard */; };
 		0E9B77342A8BF0A800F2117B /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9B77332A8BF0A800F2117B /* LoginVM.swift */; };
 		0E9B77362A8BF13B00F2117B /* APISession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9B77352A8BF13B00F2117B /* APISession.swift */; };
+		0E9B77382A8BF17D00F2117B /* AuthInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9B77372A8BF17D00F2117B /* AuthInterceptor.swift */; };
 		0EEB3EC02A8BDA8300615A4C /* ImageAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEB3EBF2A8BDA8300615A4C /* ImageAssets.swift */; };
 		DBDB3429A16521871435E852 /* Pods_orgo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6DA5098F6D9C50633E2F56E /* Pods_orgo.framework */; };
 /* End PBXBuildFile section */
@@ -76,6 +77,7 @@
 		0E6FC9282A585278001DD709 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0E9B77332A8BF0A800F2117B /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
 		0E9B77352A8BF13B00F2117B /* APISession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APISession.swift; sourceTree = "<group>"; };
+		0E9B77372A8BF17D00F2117B /* AuthInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInterceptor.swift; sourceTree = "<group>"; };
 		0EEB3EBF2A8BDA8300615A4C /* ImageAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAssets.swift; sourceTree = "<group>"; };
 		654C8E589BE281BAFA8FDF33 /* Pods-orgo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-orgo.debug.xcconfig"; path = "Target Support Files/Pods-orgo/Pods-orgo.debug.xcconfig"; sourceTree = "<group>"; };
 		699FEC91BE114E2CAC1E314D /* Pods-orgo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-orgo.release.xcconfig"; path = "Target Support Files/Pods-orgo/Pods-orgo.release.xcconfig"; sourceTree = "<group>"; };
@@ -266,6 +268,7 @@
 			children = (
 				0E6793442A63963D000FBE1A /* APIService.swift */,
 				0E9B77352A8BF13B00F2117B /* APISession.swift */,
+				0E9B77372A8BF17D00F2117B /* AuthInterceptor.swift */,
 				0E6793462A639656000FBE1A /* APIError.swift */,
 				0E6793492A639687000FBE1A /* URLResource.swift */,
 			);
@@ -484,6 +487,7 @@
 				0E6793422A639608000FBE1A /* Input.swift in Sources */,
 				0E6FC91B2A585277001DD709 /* AppDelegate.swift in Sources */,
 				0E57C1682A8BBCC900BFF482 /* TabBarView.swift in Sources */,
+				0E9B77382A8BF17D00F2117B /* AuthInterceptor.swift in Sources */,
 				0E57C15B2A8BB63F00BFF482 /* LoginVC.swift in Sources */,
 				0E6FC91D2A585277001DD709 /* SceneDelegate.swift in Sources */,
 				0E67934C2A63978F000FBE1A /* BaseTableViewCell.swift in Sources */,
