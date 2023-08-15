@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0E57C15B2A8BB63F00BFF482 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E57C15A2A8BB63F00BFF482 /* LoginVC.swift */; };
+		0E57C15D2A8BB7A400BFF482 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E57C15C2A8BB7A400BFF482 /* BaseNavigationController.swift */; };
 		0E6793362A639433000FBE1A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6793352A639433000FBE1A /* BaseViewController.swift */; };
 		0E6793392A63946F000FBE1A /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6793382A63946F000FBE1A /* UIViewController+Ext.swift */; };
 		0E67933B2A63956B000FBE1A /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E67933A2A63956B000FBE1A /* BaseView.swift */; };
@@ -32,6 +33,7 @@
 
 /* Begin PBXFileReference section */
 		0E57C15A2A8BB63F00BFF482 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		0E57C15C2A8BB7A400BFF482 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		0E6793352A639433000FBE1A /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		0E6793382A63946F000FBE1A /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		0E67933A2A63956B000FBE1A /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				0E6793352A639433000FBE1A /* BaseViewController.swift */,
+				0E57C15C2A8BB7A400BFF482 /* BaseNavigationController.swift */,
 				0E67933A2A63956B000FBE1A /* BaseView.swift */,
 				0E67933C2A6395A1000FBE1A /* BaseViewModel.swift */,
 				0E67934B2A63978F000FBE1A /* BaseTableViewCell.swift */,
@@ -325,6 +328,7 @@
 				0E6793562A63C276000FBE1A /* String+Ext.swift in Sources */,
 				0E6FC91F2A585277001DD709 /* ViewController.swift in Sources */,
 				0E6793362A639433000FBE1A /* BaseViewController.swift in Sources */,
+				0E57C15D2A8BB7A400BFF482 /* BaseNavigationController.swift in Sources */,
 				0E6793392A63946F000FBE1A /* UIViewController+Ext.swift in Sources */,
 				0E67933D2A6395A1000FBE1A /* BaseViewModel.swift in Sources */,
 				0E67933B2A63956B000FBE1A /* BaseView.swift in Sources */,
