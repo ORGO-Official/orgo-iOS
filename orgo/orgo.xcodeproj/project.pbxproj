@@ -16,6 +16,7 @@
 		0E57C1712A8BC33F00BFF482 /* NavigationBarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E57C1702A8BC33F00BFF482 /* NavigationBarStyle.swift */; };
 		0E57C1732A8BC4AB00BFF482 /* BaseNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E57C1722A8BC4AB00BFF482 /* BaseNavigationViewController.swift */; };
 		0E57C1762A8BC70B00BFF482 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E57C1752A8BC70B00BFF482 /* HomeVC.swift */; };
+		0E57C17C2A8BC85600BFF482 /* MyPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E57C17B2A8BC85600BFF482 /* MyPageVC.swift */; };
 		0E6793362A639433000FBE1A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6793352A639433000FBE1A /* BaseViewController.swift */; };
 		0E6793392A63946F000FBE1A /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6793382A63946F000FBE1A /* UIViewController+Ext.swift */; };
 		0E67933B2A63956B000FBE1A /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E67933A2A63956B000FBE1A /* BaseView.swift */; };
@@ -48,6 +49,7 @@
 		0E57C1702A8BC33F00BFF482 /* NavigationBarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarStyle.swift; sourceTree = "<group>"; };
 		0E57C1722A8BC4AB00BFF482 /* BaseNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationViewController.swift; sourceTree = "<group>"; };
 		0E57C1752A8BC70B00BFF482 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		0E57C17B2A8BC85600BFF482 /* MyPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageVC.swift; sourceTree = "<group>"; };
 		0E6793352A639433000FBE1A /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		0E6793382A63946F000FBE1A /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		0E67933A2A63956B000FBE1A /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				0E57C15E2A8BBBF900BFF482 /* Common */,
 				0E57C1572A8BB55300BFF482 /* Login */,
 				0E57C1742A8BC6F200BFF482 /* Home */,
+				0E57C1792A8BC84000BFF482 /* MyPage */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
@@ -183,6 +186,22 @@
 			isa = PBXGroup;
 			children = (
 				0E57C1752A8BC70B00BFF482 /* HomeVC.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		0E57C1792A8BC84000BFF482 /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				0E57C17A2A8BC84E00BFF482 /* ViewController */,
+			);
+			path = MyPage;
+			sourceTree = "<group>";
+		};
+		0E57C17A2A8BC84E00BFF482 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0E57C17B2A8BC85600BFF482 /* MyPageVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -419,6 +438,7 @@
 				0E57C1712A8BC33F00BFF482 /* NavigationBarStyle.swift in Sources */,
 				0E67934E2A63979C000FBE1A /* BaseCollectionViewCell.swift in Sources */,
 				0E6793522A639A11000FBE1A /* UIView+Ext.swift in Sources */,
+				0E57C17C2A8BC85600BFF482 /* MyPageVC.swift in Sources */,
 				0E6793562A63C276000FBE1A /* String+Ext.swift in Sources */,
 				0E57C16B2A8BBE8300BFF482 /* TabBarItem.swift in Sources */,
 				0E6FC91F2A585277001DD709 /* ViewController.swift in Sources */,
