@@ -39,3 +39,17 @@ class LoginVM: BaseViewModel {
         bag = DisposeBag()
     }
 }
+
+
+// MARK: - Input
+
+extension LoginVM: Input {
+    func bindInput() {}
+}
+
+// MARK: - Output
+
+extension LoginVM: Output {
+    func bindOutput() {}
+}
+

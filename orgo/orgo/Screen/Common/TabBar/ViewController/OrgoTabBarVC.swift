@@ -77,6 +77,16 @@ class OrgoTabBarVC: BaseViewController {
         }
     }
     
+    func getTabBarInnerInstance(targetItemType: TabBarItem) -> BaseNavigationController? {
+        for index in 0..<vcList.count {
+            if index == targetItemType.index {
+                return vcList[index]
+            }
+        }
+        
+        return nil
+    }
+    
 }
 
 
