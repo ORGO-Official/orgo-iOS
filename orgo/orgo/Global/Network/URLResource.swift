@@ -11,13 +11,10 @@ struct URLResource<T: Decodable> {
     
     // MARK: - Variables and Properties
     
-    // TODO: - baseURL 변경
-    let baseURL = URL(string: "https://temp")
+    let baseURL = URL(string: "http://34.64.36.223:8080")
     let path: String
     var resultURL: URL {
-        return path.contains("https")
-        ? URL(string: path)!
-        : baseURL.flatMap { URL(string: $0.absoluteString + path.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!) }!
+        baseURL.flatMap { URL(string: $0.absoluteString + path.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!) }!
     }
     
     // MARK: - Functions
