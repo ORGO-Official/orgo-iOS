@@ -31,6 +31,10 @@ extension TabBarItem {
         }
     }
     
+    var index: Int? {
+        TabBarItem.allCases.firstIndex(of: self)
+    }
+    
 }
 
 
