@@ -98,6 +98,7 @@ extension LoginVM {
                                   headers: headers)
                 .validate(statusCode: 200...399)
                 .responseDecodable(of: T.self) { response in
+                    debugPrint(response)
                     switch response.result {
                     case .success(let data):
                         observer.onNext(.success(data))
@@ -157,8 +158,8 @@ extension LoginVM {
 
 extension LoginVM {
     
-    func requestNaverLogin() {
-        
+    func requestNaverLogin(token: String) {
+        requestSocialLogin(loginType: .naver, token: token)
     }
     
 }

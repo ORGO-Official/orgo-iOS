@@ -166,14 +166,23 @@ extension LoginVC {
 extension LoginVC: NaverThirdPartyLoginConnectionDelegate {
     func oauth20ConnectionDidFinishRequestACTokenWithAuthCode() {
         print("login success")
-        print(naverLoginInstance?.accessToken)
-        print(naverLoginInstance?.refreshToken)
+        guard let instance = naverLoginInstance else {
+            print("ERROR - naver login instance error")
+            return
+        }
+        
+        viewModel.requestNaverLogin(token: instance.accessToken)
     }
     
     func oauth20ConnectionDidFinishRequestACTokenWithRefreshToken() {
         print("second success")
-        print(naverLoginInstance?.accessToken)
-        print(naverLoginInstance?.refreshToken)
+        guard let instance = naverLoginInstance else {
+            print("ERROR - naver login instance error")
+            return
+        }
+        
+        viewModel.requestNaverLogin(token: instance.accessToken)
+
     }
     
     func oauth20ConnectionDidFinishDeleteToken() {
@@ -181,6 +190,6 @@ extension LoginVC: NaverThirdPartyLoginConnectionDelegate {
     }
     
     func oauth20Connection(_ oauthConnection: NaverThirdPartyLoginConnection!, didFailWithError error: Error!) {
-        print(error)
+        print(error!)
     }
 }
