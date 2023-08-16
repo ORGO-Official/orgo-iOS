@@ -163,6 +163,14 @@ extension LoginVC {
                 self.naverLoginInstance?.requestThirdPartyLogin()
             })
             .disposed(by: bag)
+        
+        loginNextBtn.rx.tap
+            .bind(onNext: { [weak self] _ in
+                guard let self = self else { return }
+                
+                (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootVCToHome()
+            })
+            .disposed(by: bag)
     }
     
 }
