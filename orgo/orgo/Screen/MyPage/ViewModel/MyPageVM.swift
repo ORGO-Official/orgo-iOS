@@ -29,6 +29,8 @@ final class MyPageVM: BaseViewModel {
             accessToken.map { $0 != nil }
         }
         
+        var isLogoutSuccess = PublishRelay<Bool>()
+        var isWithdrawalSuccess = PublishRelay<Bool>()
     }
     
     // MARK: - Life Cycle
@@ -72,6 +74,7 @@ extension MyPageVM {
                 case .success:
                     KeychainManager.shared.removeAllKeys()
                     owner.output.accessToken.accept(KeychainManager.shared.read(for: .accessToken))
+                    owner.output.isLogoutSuccess.accept(true)
                 case .failure(let error):
                     owner.apiError.onNext(error)
                 }

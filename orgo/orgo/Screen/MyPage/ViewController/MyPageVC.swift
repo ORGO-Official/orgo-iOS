@@ -65,6 +65,12 @@ class MyPageVC: BaseViewController {
         bindBtn()
     }
     
+    override func bindOutput() {
+        super.bindOutput()
+        
+        bindLogoutSuccess()
+    }
+    
     // MARK: - Functions
     
 }
@@ -122,6 +128,29 @@ extension MyPageVC {
                 guard let self = self else { return }
                 
                 self.viewModel.requestWithdrawal()
+            })
+            .disposed(by: bag)
+    }
+    
+}
+
+
+// MARK: - Output
+
+extension MyPageVC {
+    
+    /// 로그아우 성공 감지
+    private func bindLogoutSuccess() {
+        viewModel.output.isLogoutSuccess
+            .asDriver(onErrorJustReturn: false)
+            .drive(onNext: { [weak self] isLogoutSuccess in
+                guard let self = self else { return }
+                
+                if isLogoutSuccess {
+                    (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootVCToHome()
+                } else {
+                    self.showErrorAlert("로그아웃 실패")
+                }
             })
             .disposed(by: bag)
     }

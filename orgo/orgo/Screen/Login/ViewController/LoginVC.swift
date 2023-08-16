@@ -85,6 +85,13 @@ class LoginVC: BaseViewController {
         bindBtn()
     }
     
+    override func bindOutput() {
+        super.bindOutput()
+        
+        bindLoginSuccess()
+    }
+    
+    
     // MARK: - Functions
     
 }
@@ -160,6 +167,28 @@ extension LoginVC {
     
 }
 
+
+// MARK: - Output
+
+extension LoginVC {
+    
+    /// 로그인 성공 감지
+    private func bindLoginSuccess() {
+        viewModel.output.isLoginSuccess
+            .asDriver(onErrorJustReturn: false)
+            .drive(onNext: { [weak self] isLoginSuccess in
+                guard let self = self else { return }
+                
+                if isLoginSuccess {
+                    (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootVCToHome()
+                } else {
+                    self.showErrorAlert("LoginFailMessage".localized)
+                }
+            })
+            .disposed(by: bag)
+    }
+    
+}
 
 // MARK: - 네이버 로그인
 
