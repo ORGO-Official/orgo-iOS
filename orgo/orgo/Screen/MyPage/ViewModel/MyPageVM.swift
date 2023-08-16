@@ -5,9 +5,12 @@
 //  Created by 김태현 on 2023/08/16.
 //
 
+import Foundation
+
 import RxSwift
 import RxCocoa
-import RxDataSources
+
+import Alamofire
 
 final class MyPageVM: BaseViewModel {
     
@@ -58,16 +61,19 @@ extension MyPageVM {
     func bindOutput() {}
 }
 
-// MARK: - Networking
+// MARK: - Networking - Logout
 
 extension MyPageVM {
     
-    /// 서버에 로그아웃 요청
+    /// 로그아웃 요청
     func requestLogout() {
         let path = "/api/auth/logout"
         let resource = URLResource<EmptyResponseModel>(path: path)
         
-        apiSession.requestPost(urlResource: resource, parameter: nil)
+        APIToken.refreshSocialToken()
+        guard let socialToken = KeychainManager.shared.read(for: .identifier) else { return }
+        
+        requestLogout(urlResource: resource, socialToken: socialToken)
             .withUnretained(self)
             .subscribe(onNext: { owner, result in
                 switch result {
@@ -77,10 +83,48 @@ extension MyPageVM {
                     owner.output.isLogoutSuccess.accept(true)
                 case .failure(let error):
                     owner.apiError.onNext(error)
-                }
-            })
-            .disposed(by: bag)
+            }
+        })
+        .disposed(by: bag)
     }
+    
+    /// 서버로 로그아웃 요청
+    private func requestLogout<T: Decodable>(urlResource: URLResource<T>, socialToken: String) -> Observable<Result<T, APIError>> {
+        Observable<Result<T, APIError>>.create { observer in
+            var headers = HTTPHeaders()
+            headers.add(.accept("*/*"))
+            headers.add(.contentType("application/x-www-form-urlencoded"))
+            headers.add(name: "social", value: socialToken)
+            
+            let task = AF.request(urlResource.resultURL,
+                                  method: .post,
+                                  encoding: JSONEncoding.default,
+                                  headers: headers,
+                                  interceptor: AuthInterceptor())
+                .validate(statusCode: 200...399)
+                .responseDecodable(of: T.self) { response in
+                    debugPrint(response)
+                    switch response.result {
+                    case .success(let data):
+                        observer.onNext(.success(data))
+                    case .failure(let error):
+                        dump(error)
+                        guard let error = response.response else { return }
+                        observer.onNext(urlResource.judgeError(statusCode: error.statusCode))
+                    }
+                }
+            
+            return Disposables.create {
+                task.cancel()
+            }
+        }
+    }
+}
+
+
+// MARK: - Networking - Withdrawal
+
+extension MyPageVM {
     
     /// 서버에 회원탈퇴 요청
     func requestWithdrawal() {
@@ -88,4 +132,3 @@ extension MyPageVM {
     }
     
 }
-

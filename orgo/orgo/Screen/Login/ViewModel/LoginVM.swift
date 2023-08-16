@@ -71,6 +71,7 @@ extension LoginVM {
                     KeychainManager.shared.save(key: .accessToken, value: data.accessToken)
                     KeychainManager.shared.save(key: .refreshToken, value: data.refreshToken)
                     KeychainManager.shared.save(key: .identifier, value: token)
+                    KeychainManager.shared.save(key: .loginType, value: loginType.description)
                     
                     print("\(loginType.description) 로그인 성공")
                     
