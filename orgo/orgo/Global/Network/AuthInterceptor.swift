@@ -20,7 +20,7 @@ class AuthInterceptor: RequestInterceptor {
         guard let accessToken = KeychainManager.shared.read(for: .accessToken) else { return }
         
         var urlRequest = urlRequest
-        urlRequest.headers.add(.authorization(bearerToken: accessToken))
+        urlRequest.headers.add(name: "auth", value: accessToken)
         completion(.success(urlRequest))
     }
     
