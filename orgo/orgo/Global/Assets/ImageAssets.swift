@@ -18,4 +18,6 @@ enum ImageAssets {
     static let loginNext = UIImage(named: "LoginNext")?.withRenderingMode(.alwaysOriginal)
     static let loginBorder = UIImage(named: "LoginBorder")?.withRenderingMode(.alwaysOriginal)
     
+    static let mountainMarker = UIImage(named: "MountainMarker")?.withRenderingMode(.alwaysOriginal)
+    
 }
