@@ -24,6 +24,7 @@ final class HomeVM: BaseViewModel {
     struct Output {
         var loading = BehaviorRelay<Bool>(value: false)
         
+        var mountainList = BehaviorRelay<Array<MountainListResponseModel>>(value: [])
     }
     
     // MARK: - Life Cycle
@@ -53,6 +54,24 @@ extension HomeVM: Output {
 // MARK: - Networking
 
 extension HomeVM {
+    
+    /// 서버에 산 목록 조회 요청
+    func requestGetMountainList() {
+        let path = "/api/mountains"
+        let resource = URLResource<Array<MountainListResponseModel>>(path: path)
+        
+        apiSession.requestGet(urlResource: resource)
+            .withUnretained(self)
+            .subscribe(onNext: { owner, result in
+                switch result {
+                case .success(let data):
+                    owner.output.mountainList.accept(data)
+                case .failure(let error):
+                    owner.apiError.onNext(error)
+                }
+            })
+            .disposed(by: bag)
+    }
     
 }
 

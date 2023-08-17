@@ -20,6 +20,8 @@ class HomeVC: BaseViewController {
     
     // MARK: - Variables and Properties
     
+    private let viewModel: HomeVM = HomeVM()
+    
     var mapView: MTMapView = MTMapView()
     
     
@@ -28,6 +30,7 @@ class HomeVC: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        viewModel.requestGetMountainList()
     }
     
     override func configureView() {
@@ -42,6 +45,12 @@ class HomeVC: BaseViewController {
         super.layoutView()
         
         configureLayout()
+    }
+    
+    override func bindOutput() {
+        super.bindOutput()
+        
+        bindMountainList()
     }
     
     // MARK: - Functions
@@ -81,6 +90,24 @@ extension HomeVC {
         mapView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
+    }
+    
+}
+
+
+// MARK: - Output
+
+extension HomeVC {
+    
+    private func bindMountainList() {
+        viewModel.output.mountainList
+            .filter({ !$0.isEmpty })
+            .withUnretained(self)
+            .subscribe { owner, mountainList in
+                print(mountainList[0])
+                
+            }
+            .disposed(by: bag)
     }
     
 }
