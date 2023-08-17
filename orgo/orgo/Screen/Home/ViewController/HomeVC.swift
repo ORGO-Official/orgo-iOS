@@ -34,6 +34,8 @@ class HomeVC: BaseViewController {
         super.configureView()
         
         configureInnerView()
+        configureMap()
+        configureMarker()
     }
     
     override func layoutView() {
@@ -52,6 +54,10 @@ class HomeVC: BaseViewController {
 extension HomeVC {
     
     private func configureInnerView() {
+        view.addSubviews([mapView])
+    }
+    
+    private func configureMap() {
         mapView.delegate = self
         mapView.baseMapType = .standard
         
@@ -73,8 +79,41 @@ extension HomeVC {
     
 }
 
+
 // MARK: - MTMapViewDelegate
 
 extension HomeVC: MTMapViewDelegate {
+    
+    /// 마커 선택되었을 때
+    func mapView(_ mapView: MTMapView!, selectedPOIItem poiItem: MTMapPOIItem!) -> Bool {
+        print(poiItem.tag)
+        return false
+    }
+    
+    // 줌 레벨이 변경될 때 호출되는 delegate 메서드
+    func mapView(_ mapView: MTMapView!, zoomLevelChangedTo zoomLevel: MTMapZoomLevel) {
+
+    }
+    
+}
+
+
+// MARK: - 마커
+
+extension HomeVC {
+    
+    private func configureMarker() {
+        let lat: Double = 37.5666805
+        let lon: Double = 126.9784147
+        
+        let testPoiItem = MTMapPOIItem()
+        testPoiItem.markerType = .customImage
+        testPoiItem.mapPoint = .init(geoCoord: .init(latitude: lat, longitude: lon))
+        testPoiItem.customImageName = "OrgoLogoGreen"
+        testPoiItem.tag = 1
+        
+        
+        mapView.addPOIItems([testPoiItem])
+    }
     
 }
