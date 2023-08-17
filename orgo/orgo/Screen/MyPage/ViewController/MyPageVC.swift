@@ -147,9 +147,22 @@ extension MyPageVC {
                 guard let self = self else { return }
                 
                 if isLogoutSuccess {
-                    (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootVCToHome()
+                    (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootVCToLogin()
                 } else {
                     self.showErrorAlert("로그아웃 실패")
+                }
+            })
+            .disposed(by: bag)
+        
+        viewModel.output.isWithdrawalSuccess
+            .asDriver(onErrorJustReturn: false)
+            .drive(onNext: { [weak self] isWithdrawalSuccess in
+                guard let self = self else { return }
+                
+                if isWithdrawalSuccess {
+                    (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootVCToLogin()
+                } else {
+                    self.showErrorAlert("회원탈퇴 실패")
                 }
             })
             .disposed(by: bag)

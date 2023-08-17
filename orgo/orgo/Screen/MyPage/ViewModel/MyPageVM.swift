@@ -73,7 +73,7 @@ extension MyPageVM {
         APIToken.refreshSocialToken()
         guard let socialToken = KeychainManager.shared.read(for: .identifier) else { return }
         
-        requestLogout(urlResource: resource, socialToken: socialToken)
+        requestLogoutOrWithdrawal(urlResource: resource, socialToken: socialToken)
             .withUnretained(self)
             .subscribe(onNext: { owner, result in
                 switch result {
@@ -89,7 +89,7 @@ extension MyPageVM {
     }
     
     /// 서버로 로그아웃 요청
-    private func requestLogout<T: Decodable>(urlResource: URLResource<T>, socialToken: String) -> Observable<Result<T, APIError>> {
+    private func requestLogoutOrWithdrawal<T: Decodable>(urlResource: URLResource<T>, socialToken: String) -> Observable<Result<T, APIError>> {
         Observable<Result<T, APIError>>.create { observer in
             var headers = HTTPHeaders()
             headers.add(.accept("*/*"))
@@ -128,7 +128,25 @@ extension MyPageVM {
     
     /// 서버에 회원탈퇴 요청
     func requestWithdrawal() {
+        let path = "/api/auth/withdraw"
+        let resource = URLResource<EmptyResponseModel>(path: path)
         
+        APIToken.refreshSocialToken()
+        guard let socialToken = KeychainManager.shared.read(for: .identifier) else { return }
+        
+        requestLogoutOrWithdrawal(urlResource: resource, socialToken: socialToken)
+            .withUnretained(self)
+            .subscribe(onNext: { owner, result in
+                switch result {
+                case .success:
+                    KeychainManager.shared.removeAllKeys()
+                    owner.output.accessToken.accept(KeychainManager.shared.read(for: .accessToken))
+                    owner.output.isWithdrawalSuccess.accept(true)
+                case .failure(let error):
+                    owner.apiError.onNext(error)
+            }
+        })
+        .disposed(by: bag)
     }
     
 }

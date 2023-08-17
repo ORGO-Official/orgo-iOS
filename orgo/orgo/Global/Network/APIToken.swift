@@ -86,8 +86,9 @@ extension APIToken {
     
     private static func refreshNaverToken() {
         guard let naverLoginInstance = NaverThirdPartyLoginConnection.getSharedInstance() else { return }
+        print("previous : \(naverLoginInstance.accessToken)")
         naverLoginInstance.requestAccessTokenWithRefreshToken()
-        
+        print("after : \(naverLoginInstance.accessToken)")
         KeychainManager.shared.save(key: .identifier, value: naverLoginInstance.accessToken)
     }
     

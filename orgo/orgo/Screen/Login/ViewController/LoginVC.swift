@@ -219,7 +219,6 @@ extension LoginVC: NaverThirdPartyLoginConnectionDelegate {
         }
         
         viewModel.requestNaverLogin(token: instance.accessToken)
-
     }
     
     func oauth20ConnectionDidFinishDeleteToken() {

@@ -98,4 +98,12 @@ extension SceneDelegate {
         UIView.transition(with: window, duration: 0.2, options: [.transitionCrossDissolve], animations: nil, completion: nil)
     }
     
+    /// RootVC를 홈 화면으로 변경하면서 VC 스택 초기화
+    func changeRootVCToLogin() {
+        guard let window = self.window else { return }
+        window.rootViewController = LoginVC()
+                
+        UIView.transition(with: window, duration: 0.2, options: [.transitionCrossDissolve], animations: nil, completion: nil)
+    }
+    
 }
