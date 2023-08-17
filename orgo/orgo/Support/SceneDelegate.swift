@@ -7,6 +7,9 @@
 
 import UIKit
 
+import KakaoSDKAuth
+import NaverThirdPartyLogin
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
@@ -24,6 +27,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
 //        window?.rootViewController = BaseNavigationController(rootViewController: OrgoTabBarVC())
         window?.rootViewController = LoginVC()
+        
+//        if KeychainManager.shared.read(for: .accessToken) == nil { // 회원인지 확인
+//            window?.rootViewController = LoginVC()
+//        } else {
+//            window?.rootViewController = BaseNavigationController(rootViewController: OrgoTabBarVC())
+//        }
         window?.makeKeyAndVisible()
         
     }
@@ -59,3 +68,42 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 }
 
+
+// MARK: - 카카오 로그인 설정
+
+extension SceneDelegate {
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        if let url = URLContexts.first?.url {
+            if (AuthApi.isKakaoTalkLoginUrl(url)) {
+                _ = AuthController.handleOpenUrl(url: url)
+            } else {
+                NaverThirdPartyLoginConnection
+                    .getSharedInstance()
+                    .receiveAccessToken(url)
+            }
+        }
+    }
+}
+
+
+// MARK: - Custom Method
+
+extension SceneDelegate {
+    
+    /// RootVC를 홈 화면으로 변경하면서 VC 스택 초기화
+    func changeRootVCToHome() {
+        guard let window = self.window else { return }
+        window.rootViewController = BaseNavigationController(rootViewController: OrgoTabBarVC())
+                
+        UIView.transition(with: window, duration: 0.2, options: [.transitionCrossDissolve], animations: nil, completion: nil)
+    }
+    
+    /// RootVC를 홈 화면으로 변경하면서 VC 스택 초기화
+    func changeRootVCToLogin() {
+        guard let window = self.window else { return }
+        window.rootViewController = LoginVC()
+                
+        UIView.transition(with: window, duration: 0.2, options: [.transitionCrossDissolve], animations: nil, completion: nil)
+    }
+    
+}

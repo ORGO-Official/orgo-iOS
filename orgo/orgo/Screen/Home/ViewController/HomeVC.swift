@@ -20,25 +20,61 @@ class HomeVC: BaseViewController {
     
     // MARK: - Variables and Properties
     
+    var mapView: MTMapView = MTMapView()
+    
     
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .blue
     }
     
     override func configureView() {
         super.configureView()
         
+        configureInnerView()
     }
     
     override func layoutView() {
         super.layoutView()
         
+        configureLayout()
     }
     
     // MARK: - Functions
+    
+}
+
+
+// MARK: - Configure
+
+extension HomeVC {
+    
+    private func configureInnerView() {
+        mapView.delegate = self
+        mapView.baseMapType = .standard
+        
+        view.addSubviews([mapView])
+    }
+    
+}
+
+
+// MARK: - Layout
+
+extension HomeVC {
+    
+    private func configureLayout() {
+        mapView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+    }
+    
+}
+
+// MARK: - MTMapViewDelegate
+
+extension HomeVC: MTMapViewDelegate {
     
 }

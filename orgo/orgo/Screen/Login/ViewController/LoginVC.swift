@@ -13,6 +13,8 @@ import RxCocoa
 import Then
 import SnapKit
 
+import NaverThirdPartyLogin
+
 
 class LoginVC: BaseViewController {
     
@@ -53,12 +55,16 @@ class LoginVC: BaseViewController {
     
     // MARK: - Variables and Properties
     
+    private let viewModel: LoginVM = LoginVM()
+    private let naverLoginInstance = NaverThirdPartyLoginConnection.getSharedInstance()
+    
     
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        naverLoginInstance?.delegate = self
     }
     
     override func configureView() {
@@ -72,6 +78,19 @@ class LoginVC: BaseViewController {
         
         configureLayout()
     }
+    
+    override func bindInput() {
+        super.bindInput()
+        
+        bindBtn()
+    }
+    
+    override func bindOutput() {
+        super.bindOutput()
+        
+        bindLoginSuccess()
+    }
+    
     
     // MARK: - Functions
     
@@ -121,4 +140,92 @@ extension LoginVC {
         }
     }
     
+}
+
+
+// MARK: - Input
+
+extension LoginVC {
+    
+    private func bindBtn() {
+        kakaoLoginBtn.rx.tap
+            .bind(onNext: { [weak self] _ in
+                guard let self = self else { return }
+                
+                self.viewModel.requestKakaoLogin()
+            })
+            .disposed(by: bag)
+        
+        naverLoginBtn.rx.tap
+            .bind(onNext: { [weak self] _ in
+                guard let self = self else { return }
+                
+                self.naverLoginInstance?.requestThirdPartyLogin()
+            })
+            .disposed(by: bag)
+        
+        loginNextBtn.rx.tap
+            .bind(onNext: { [weak self] _ in
+                guard let self = self else { return }
+                
+                (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootVCToHome()
+            })
+            .disposed(by: bag)
+    }
+    
+}
+
+
+// MARK: - Output
+
+extension LoginVC {
+    
+    /// 로그인 성공 감지
+    private func bindLoginSuccess() {
+        viewModel.output.isLoginSuccess
+            .asDriver(onErrorJustReturn: false)
+            .drive(onNext: { [weak self] isLoginSuccess in
+                guard let self = self else { return }
+                
+                if isLoginSuccess {
+                    (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootVCToHome()
+                } else {
+                    self.showErrorAlert("LoginFailMessage".localized)
+                }
+            })
+            .disposed(by: bag)
+    }
+    
+}
+
+// MARK: - 네이버 로그인
+
+extension LoginVC: NaverThirdPartyLoginConnectionDelegate {
+    func oauth20ConnectionDidFinishRequestACTokenWithAuthCode() {
+        print("login success")
+        guard let instance = naverLoginInstance else {
+            print("ERROR - naver login instance error")
+            return
+        }
+        
+        viewModel.requestNaverLogin(token: instance.accessToken)
+    }
+    
+    func oauth20ConnectionDidFinishRequestACTokenWithRefreshToken() {
+        print("second success")
+        guard let instance = naverLoginInstance else {
+            print("ERROR - naver login instance error")
+            return
+        }
+        
+        viewModel.requestNaverLogin(token: instance.accessToken)
+    }
+    
+    func oauth20ConnectionDidFinishDeleteToken() {
+        print("Log out")
+    }
+    
+    func oauth20Connection(_ oauthConnection: NaverThirdPartyLoginConnection!, didFailWithError error: Error!) {
+        print(error!)
+    }
 }

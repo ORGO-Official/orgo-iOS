@@ -82,4 +82,15 @@ extension UIViewController {
         embededViewController.removeFromParent()
     }
     
+    /// 최상위 RootViewController 반환
+    static func getRootViewController() -> BaseNavigationController? {
+        guard let rootVC = UIApplication.shared.windows.first?.rootViewController as? BaseNavigationController
+        else {
+            print("Cannot Find RootViewController!")
+            return nil
+        }
+        
+        return rootVC
+    }
+    
 }
