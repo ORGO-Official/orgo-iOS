@@ -38,7 +38,6 @@ class HomeVC: BaseViewController {
         
         configureInnerView()
         configureMap()
-        configureMarker()
     }
     
     override func layoutView() {
@@ -104,8 +103,9 @@ extension HomeVC {
             .filter({ !$0.isEmpty })
             .withUnretained(self)
             .subscribe { owner, mountainList in
-                print(mountainList[0])
-                
+                for (id, mountainInfo) in mountainList.enumerated() {
+                    owner.createMarker(id: id, location: mountainInfo.location)
+                }
             }
             .disposed(by: bag)
     }
@@ -119,7 +119,7 @@ extension HomeVC: MTMapViewDelegate {
     
     /// 마커 선택되었을 때
     func mapView(_ mapView: MTMapView!, selectedPOIItem poiItem: MTMapPOIItem!) -> Bool {
-        print(poiItem.tag)
+        print(viewModel.output.mountainList.value[poiItem.tag])
         
         showBottomSheet()
         
@@ -138,18 +138,14 @@ extension HomeVC: MTMapViewDelegate {
 
 extension HomeVC {
     
-    private func configureMarker() {
-        let lat: Double = 37.5666805
-        let lon: Double = 126.9784147
+    private func createMarker(id: Int, location: Location) {
+        let markerPoiItem = MTMapPOIItem()
+        markerPoiItem.markerType = .customImage
+        markerPoiItem.mapPoint = .init(geoCoord: .init(latitude: location.latitude, longitude: location.longitude))
+        markerPoiItem.customImageName = "MountainMarker"
+        markerPoiItem.tag = id
         
-        let testPoiItem = MTMapPOIItem()
-        testPoiItem.markerType = .customImage
-        testPoiItem.mapPoint = .init(geoCoord: .init(latitude: lat, longitude: lon))
-        testPoiItem.customImageName = "OrgoLogoGreen"
-        testPoiItem.tag = 1
-        
-        
-        mapView.addPOIItems([testPoiItem])
+        mapView.addPOIItems([markerPoiItem])
     }
     
 }
