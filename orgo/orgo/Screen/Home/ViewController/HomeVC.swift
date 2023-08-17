@@ -46,6 +46,12 @@ class HomeVC: BaseViewController {
     
     // MARK: - Functions
     
+    func showBottomSheet() {
+        let bottomSheetVC = OrgoBottomSheet()
+        
+        bottomSheetVC.modalPresentationStyle = .overFullScreen
+        present(bottomSheetVC, animated: false)
+    }
 }
 
 
@@ -87,6 +93,9 @@ extension HomeVC: MTMapViewDelegate {
     /// 마커 선택되었을 때
     func mapView(_ mapView: MTMapView!, selectedPOIItem poiItem: MTMapPOIItem!) -> Bool {
         print(poiItem.tag)
+        
+        showBottomSheet()
+        
         return false
     }
     
