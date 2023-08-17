@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0E502B552A8E7079002C71F2 /* OrgoBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E502B542A8E7079002C71F2 /* OrgoBottomSheet.swift */; };
 		0E502B582A8E8204002C71F2 /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E502B572A8E8204002C71F2 /* HomeVM.swift */; };
+		0E502B5B2A8E82A3002C71F2 /* MountainListResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E502B5A2A8E82A3002C71F2 /* MountainListResponseModel.swift */; };
 		0E57C15B2A8BB63F00BFF482 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E57C15A2A8BB63F00BFF482 /* LoginVC.swift */; };
 		0E57C15D2A8BB7A400BFF482 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E57C15C2A8BB7A400BFF482 /* BaseNavigationController.swift */; };
 		0E57C1652A8BBC4300BFF482 /* OrgoTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E57C1642A8BBC4300BFF482 /* OrgoTabBarVC.swift */; };
@@ -90,6 +91,7 @@
 /* Begin PBXFileReference section */
 		0E502B542A8E7079002C71F2 /* OrgoBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrgoBottomSheet.swift; sourceTree = "<group>"; };
 		0E502B572A8E8204002C71F2 /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
+		0E502B5A2A8E82A3002C71F2 /* MountainListResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainListResponseModel.swift; sourceTree = "<group>"; };
 		0E57C15A2A8BB63F00BFF482 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		0E57C15C2A8BB7A400BFF482 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		0E57C1642A8BBC4300BFF482 /* OrgoTabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrgoTabBarVC.swift; sourceTree = "<group>"; };
@@ -217,6 +219,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		0E502B592A8E8294002C71F2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0E502B5A2A8E82A3002C71F2 /* MountainListResponseModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		0E57C1562A8BB52800BFF482 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
@@ -311,6 +321,7 @@
 		0E57C1742A8BC6F200BFF482 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				0E502B592A8E8294002C71F2 /* Model */,
 				0E502B562A8E81FC002C71F2 /* ViewModel */,
 				0E57C1772A8BC80900BFF482 /* ViewController */,
 			);
@@ -724,6 +735,7 @@
 				0E57C1712A8BC33F00BFF482 /* NavigationBarStyle.swift in Sources */,
 				0E67934E2A63979C000FBE1A /* BaseCollectionViewCell.swift in Sources */,
 				0E6793522A639A11000FBE1A /* UIView+Ext.swift in Sources */,
+				0E502B5B2A8E82A3002C71F2 /* MountainListResponseModel.swift in Sources */,
 				0E9B773A2A8BF1AE00F2117B /* APIToken.swift in Sources */,
 				0E57C17C2A8BC85600BFF482 /* MyPageVC.swift in Sources */,
 				0E9B77362A8BF13B00F2117B /* APISession.swift in Sources */,
