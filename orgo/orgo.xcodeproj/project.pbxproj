@@ -12,6 +12,7 @@
 		0E502B5B2A8E82A3002C71F2 /* MountainListResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E502B5A2A8E82A3002C71F2 /* MountainListResponseModel.swift */; };
 		0E502B622A90C7D4002C71F2 /* UIFont+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E502B612A90C7D4002C71F2 /* UIFont+Ext.swift */; };
 		0E502B662A90EA2E002C71F2 /* PretendardWeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E502B652A90EA2E002C71F2 /* PretendardWeight.swift */; };
+		0E502B692A90F25D002C71F2 /* MountainBottomSheetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E502B682A90F25D002C71F2 /* MountainBottomSheetVC.swift */; };
 		0E57C15B2A8BB63F00BFF482 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E57C15A2A8BB63F00BFF482 /* LoginVC.swift */; };
 		0E57C15D2A8BB7A400BFF482 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E57C15C2A8BB7A400BFF482 /* BaseNavigationController.swift */; };
 		0E57C1652A8BBC4300BFF482 /* OrgoTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E57C1642A8BBC4300BFF482 /* OrgoTabBarVC.swift */; };
@@ -100,6 +101,7 @@
 		0E502B602A90C39D002C71F2 /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-Medium.otf"; path = "../../../../../dnd-8th-2-frontend/Reet-Place/Reet-Place/Global/Font/Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		0E502B612A90C7D4002C71F2 /* UIFont+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Ext.swift"; sourceTree = "<group>"; };
 		0E502B652A90EA2E002C71F2 /* PretendardWeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PretendardWeight.swift; sourceTree = "<group>"; };
+		0E502B682A90F25D002C71F2 /* MountainBottomSheetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainBottomSheetVC.swift; sourceTree = "<group>"; };
 		0E57C15A2A8BB63F00BFF482 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		0E57C15C2A8BB7A400BFF482 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		0E57C1642A8BBC4300BFF482 /* OrgoTabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrgoTabBarVC.swift; sourceTree = "<group>"; };
@@ -246,6 +248,13 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		0E502B672A90F248002C71F2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		0E57C1562A8BB52800BFF482 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
@@ -341,6 +350,7 @@
 		0E57C1742A8BC6F200BFF482 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				0E502B672A90F248002C71F2 /* View */,
 				0E502B592A8E8294002C71F2 /* Model */,
 				0E502B562A8E81FC002C71F2 /* ViewModel */,
 				0E57C1772A8BC80900BFF482 /* ViewController */,
@@ -352,6 +362,7 @@
 			isa = PBXGroup;
 			children = (
 				0E57C1752A8BC70B00BFF482 /* HomeVC.swift */,
+				0E502B682A90F25D002C71F2 /* MountainBottomSheetVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -776,6 +787,7 @@
 				0E6793542A639AB6000FBE1A /* UIImageView+Ext.swift in Sources */,
 				0E6793452A63963D000FBE1A /* APIService.swift in Sources */,
 				0E67934A2A639687000FBE1A /* URLResource.swift in Sources */,
+				0E502B692A90F25D002C71F2 /* MountainBottomSheetVC.swift in Sources */,
 				0E57C1762A8BC70B00BFF482 /* HomeVC.swift in Sources */,
 				0E9B77342A8BF0A800F2117B /* LoginVM.swift in Sources */,
 				0E9B773D2A8BF25E00F2117B /* UpdateTokenResponseModel.swift in Sources */,
