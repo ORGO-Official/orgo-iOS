@@ -54,8 +54,9 @@ class HomeVC: BaseViewController {
     
     // MARK: - Functions
     
-    func showBottomSheet() {
-        let bottomSheetVC = OrgoBottomSheet()
+    func showBottomSheet(mountainInfo: MountainListResponseModel) {
+        let bottomSheetVC = MountainBottomSheetVC()
+        bottomSheetVC.configureInfo(from: mountainInfo)
         
         bottomSheetVC.modalPresentationStyle = .overFullScreen
         present(bottomSheetVC, animated: false)
@@ -119,9 +120,7 @@ extension HomeVC: MTMapViewDelegate {
     
     /// 마커 선택되었을 때
     func mapView(_ mapView: MTMapView!, selectedPOIItem poiItem: MTMapPOIItem!) -> Bool {
-        print(viewModel.output.mountainList.value[poiItem.tag])
-        
-        showBottomSheet()
+        showBottomSheet(mountainInfo: viewModel.output.mountainList.value[poiItem.tag])
         
         return false
     }

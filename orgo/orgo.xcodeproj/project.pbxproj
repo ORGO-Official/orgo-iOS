@@ -14,6 +14,10 @@
 		0E502B662A90EA2E002C71F2 /* PretendardWeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E502B652A90EA2E002C71F2 /* PretendardWeight.swift */; };
 		0E502B692A90F25D002C71F2 /* MountainBottomSheetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E502B682A90F25D002C71F2 /* MountainBottomSheetVC.swift */; };
 		0E502B6B2A90F2A3002C71F2 /* MountainInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E502B6A2A90F2A3002C71F2 /* MountainInfoView.swift */; };
+		0E502B6C2A90FE8B002C71F2 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0E502B5E2A90C39D002C71F2 /* Pretendard-Bold.otf */; };
+		0E502B6D2A90FE8D002C71F2 /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0E502B602A90C39D002C71F2 /* Pretendard-Medium.otf */; };
+		0E502B6E2A90FE8F002C71F2 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0E502B5F2A90C39D002C71F2 /* Pretendard-SemiBold.otf */; };
+		0E502B6F2A90FE91002C71F2 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0E502B5D2A90C39D002C71F2 /* Pretendard-Regular.otf */; };
 		0E57C15B2A8BB63F00BFF482 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E57C15A2A8BB63F00BFF482 /* LoginVC.swift */; };
 		0E57C15D2A8BB7A400BFF482 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E57C15C2A8BB7A400BFF482 /* BaseNavigationController.swift */; };
 		0E57C1652A8BBC4300BFF482 /* OrgoTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E57C1642A8BBC4300BFF482 /* OrgoTabBarVC.swift */; };
@@ -686,10 +690,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E9B77842A8D0D7100F2117B /* info_box_tail.png in Resources */,
+				0E502B6C2A90FE8B002C71F2 /* Pretendard-Bold.otf in Resources */,
 				0E9B77792A8D0D7100F2117B /* map_pin_shadow@3x.png in Resources */,
 				0E9B77872A8D0D7100F2117B /* map_pin.png in Resources */,
 				0E9B77802A8D0D7100F2117B /* map_pin_red.png in Resources */,
 				0E9B77782A8D0D7100F2117B /* map_pinup@3x.png in Resources */,
+				0E502B6D2A90FE8D002C71F2 /* Pretendard-Medium.otf in Resources */,
 				0E9B77822A8D0D7100F2117B /* point_sprite.png in Resources */,
 				0E9B777E2A8D0D7100F2117B /* map_pin@3x.png in Resources */,
 				0E9B77852A8D0D7100F2117B /* noimage256.png in Resources */,
@@ -702,6 +708,8 @@
 				0E9B77832A8D0D7100F2117B /* map_pinup_custom.png in Resources */,
 				0E6FC9272A585278001DD709 /* LaunchScreen.storyboard in Resources */,
 				0E9B778B2A8D0D7100F2117B /* daum_th_line.png in Resources */,
+				0E502B6F2A90FE91002C71F2 /* Pretendard-Regular.otf in Resources */,
+				0E502B6E2A90FE8F002C71F2 /* Pretendard-SemiBold.otf in Resources */,
 				0E9B77722A8D0D7100F2117B /* map_pinup_custom@3x.png in Resources */,
 				0E6FC9242A585278001DD709 /* Assets.xcassets in Resources */,
 				0E9B777F2A8D0D7100F2117B /* map_present_tracking.png in Resources */,

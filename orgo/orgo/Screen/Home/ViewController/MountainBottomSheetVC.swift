@@ -18,6 +18,8 @@ class MountainBottomSheetVC: OrgoBottomSheet {
     
     // MARK: - UI components
     
+    let mountainInfoView: MountainInfoView = MountainInfoView()
+    
     
     // MARK: - Variables and Properties
     
@@ -32,13 +34,44 @@ class MountainBottomSheetVC: OrgoBottomSheet {
     override func configureView() {
         super.configureView()
         
+        configureBottomSheet()
     }
     
     override func layoutView() {
         super.layoutView()
         
+        configureBottomSheetLayout()
     }
     
     // MARK: - Functions
+    
+    func configureInfo(from mountainInfo: MountainListResponseModel) {
+        mountainInfoView.configureInfo(from: mountainInfo)
+    }
+}
+
+
+// MARK: - Configure
+
+extension MountainBottomSheetVC {
+    
+    private func configureBottomSheet() {
+        view.addSubviews([mountainInfoView])
+    }
+    
+}
+
+
+// MARK: - Layout
+
+extension MountainBottomSheetVC {
+ 
+    private func configureBottomSheetLayout() {
+        mountainInfoView.snp.makeConstraints {
+            $0.leading.equalTo(bottomSheetView.snp.leading).offset(16.0)
+            $0.trailing.equalTo(bottomSheetView.snp.trailing).offset(-16.0)
+            $0.top.equalTo(bottomSheetView.snp.top).offset(28.0)
+        }
+    }
     
 }

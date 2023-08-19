@@ -8,16 +8,16 @@
 import Foundation
 
 enum PretendardWeight: String {
-    case bold
-    case semibold
-    case medium
-    case regular
+    case bold = "Bold"
+    case semibold = "SemiBold"
+    case medium = "Medium"
+    case regular = "Regular"
 }
 
 extension PretendardWeight {
     
     func fontName() -> String {
-        "Pretendard-\(rawValue.capitalized)"
+        return "Pretendard-\(self.rawValue)"
     }
     
 }
