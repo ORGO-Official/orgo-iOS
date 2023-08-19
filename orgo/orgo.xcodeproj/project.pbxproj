@@ -92,6 +92,10 @@
 		0E502B542A8E7079002C71F2 /* OrgoBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrgoBottomSheet.swift; sourceTree = "<group>"; };
 		0E502B572A8E8204002C71F2 /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
 		0E502B5A2A8E82A3002C71F2 /* MountainListResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainListResponseModel.swift; sourceTree = "<group>"; };
+		0E502B5D2A90C39D002C71F2 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-Regular.otf"; path = "../../../../../dnd-8th-2-frontend/Reet-Place/Reet-Place/Global/Font/Pretendard-Regular.otf"; sourceTree = "<group>"; };
+		0E502B5E2A90C39D002C71F2 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-Bold.otf"; path = "../../../../../dnd-8th-2-frontend/Reet-Place/Reet-Place/Global/Font/Pretendard-Bold.otf"; sourceTree = "<group>"; };
+		0E502B5F2A90C39D002C71F2 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-SemiBold.otf"; path = "../../../../../dnd-8th-2-frontend/Reet-Place/Reet-Place/Global/Font/Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
+		0E502B602A90C39D002C71F2 /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-Medium.otf"; path = "../../../../../dnd-8th-2-frontend/Reet-Place/Reet-Place/Global/Font/Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		0E57C15A2A8BB63F00BFF482 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		0E57C15C2A8BB7A400BFF482 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		0E57C1642A8BBC4300BFF482 /* OrgoTabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrgoTabBarVC.swift; sourceTree = "<group>"; };
@@ -227,6 +231,17 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		0E502B5C2A90C36E002C71F2 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				0E502B5E2A90C39D002C71F2 /* Pretendard-Bold.otf */,
+				0E502B602A90C39D002C71F2 /* Pretendard-Medium.otf */,
+				0E502B5D2A90C39D002C71F2 /* Pretendard-Regular.otf */,
+				0E502B5F2A90C39D002C71F2 /* Pretendard-SemiBold.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		0E57C1562A8BB52800BFF482 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
@@ -356,6 +371,7 @@
 		0E6793332A63941A000FBE1A /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				0E502B5C2A90C36E002C71F2 /* Fonts */,
 				0E9B773E2A8BF28900F2117B /* Manager */,
 				0E9B773B2A8BF24B00F2117B /* Model */,
 				0EEB3EBE2A8BDA7B00615A4C /* Assets */,
