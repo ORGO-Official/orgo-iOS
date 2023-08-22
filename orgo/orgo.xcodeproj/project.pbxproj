@@ -264,6 +264,38 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		0E502B7C2A94E5B6002C71F2 /* MountainBottomSheet */ = {
+			isa = PBXGroup;
+			children = (
+				0E502B7F2A94E5E3002C71F2 /* ViewController */,
+			);
+			path = MountainBottomSheet;
+			sourceTree = "<group>";
+		};
+		0E502B7D2A94E5C9002C71F2 /* MountainDetail */ = {
+			isa = PBXGroup;
+			children = (
+				0E502B7E2A94E5D7002C71F2 /* ViewController */,
+			);
+			path = MountainDetail;
+			sourceTree = "<group>";
+		};
+		0E502B7E2A94E5D7002C71F2 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0E502B7A2A93B0B3002C71F2 /* MountainDetailVC.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		0E502B7F2A94E5E3002C71F2 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0E502B682A90F25D002C71F2 /* MountainBottomSheetVC.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		0E57C1562A8BB52800BFF482 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
@@ -363,6 +395,8 @@
 				0E502B592A8E8294002C71F2 /* Model */,
 				0E502B562A8E81FC002C71F2 /* ViewModel */,
 				0E57C1772A8BC80900BFF482 /* ViewController */,
+				0E502B7D2A94E5C9002C71F2 /* MountainDetail */,
+				0E502B7C2A94E5B6002C71F2 /* MountainBottomSheet */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -371,8 +405,6 @@
 			isa = PBXGroup;
 			children = (
 				0E57C1752A8BC70B00BFF482 /* HomeVC.swift */,
-				0E502B682A90F25D002C71F2 /* MountainBottomSheetVC.swift */,
-				0E502B7A2A93B0B3002C71F2 /* MountainDetailVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
