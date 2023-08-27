@@ -22,6 +22,7 @@
 		0E502B812A9B40F2002C71F2 /* UIButton+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E502B802A9B40F2002C71F2 /* UIButton+Ext.swift */; };
 		0E502B832A9B4193002C71F2 /* ColorAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E502B822A9B4193002C71F2 /* ColorAssets.swift */; };
 		0E502B862A9B9D2A002C71F2 /* MountainDetailInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E502B852A9B9D2A002C71F2 /* MountainDetailInfoView.swift */; };
+		0E502B892A9BA31E002C71F2 /* MountainDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E502B882A9BA31E002C71F2 /* MountainDetailVM.swift */; };
 		0E57C15B2A8BB63F00BFF482 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E57C15A2A8BB63F00BFF482 /* LoginVC.swift */; };
 		0E57C15D2A8BB7A400BFF482 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E57C15C2A8BB7A400BFF482 /* BaseNavigationController.swift */; };
 		0E57C1652A8BBC4300BFF482 /* OrgoTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E57C1642A8BBC4300BFF482 /* OrgoTabBarVC.swift */; };
@@ -116,6 +117,7 @@
 		0E502B802A9B40F2002C71F2 /* UIButton+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Ext.swift"; sourceTree = "<group>"; };
 		0E502B822A9B4193002C71F2 /* ColorAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorAssets.swift; sourceTree = "<group>"; };
 		0E502B852A9B9D2A002C71F2 /* MountainDetailInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainDetailInfoView.swift; sourceTree = "<group>"; };
+		0E502B882A9BA31E002C71F2 /* MountainDetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainDetailVM.swift; sourceTree = "<group>"; };
 		0E57C15A2A8BB63F00BFF482 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		0E57C15C2A8BB7A400BFF482 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		0E57C1642A8BBC4300BFF482 /* OrgoTabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrgoTabBarVC.swift; sourceTree = "<group>"; };
@@ -282,6 +284,7 @@
 			isa = PBXGroup;
 			children = (
 				0E502B842A9B9D1F002C71F2 /* View */,
+				0E502B872A9BA309002C71F2 /* ViewModel */,
 				0E502B7E2A94E5D7002C71F2 /* ViewController */,
 			);
 			path = MountainDetail;
@@ -309,6 +312,14 @@
 				0E502B852A9B9D2A002C71F2 /* MountainDetailInfoView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		0E502B872A9BA309002C71F2 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0E502B882A9BA31E002C71F2 /* MountainDetailVM.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		0E57C1562A8BB52800BFF482 /* Screen */ = {
@@ -834,6 +845,7 @@
 				0E67934E2A63979C000FBE1A /* BaseCollectionViewCell.swift in Sources */,
 				0E6793522A639A11000FBE1A /* UIView+Ext.swift in Sources */,
 				0E502B5B2A8E82A3002C71F2 /* MountainListResponseModel.swift in Sources */,
+				0E502B892A9BA31E002C71F2 /* MountainDetailVM.swift in Sources */,
 				0E9B773A2A8BF1AE00F2117B /* APIToken.swift in Sources */,
 				0E57C17C2A8BC85600BFF482 /* MyPageVC.swift in Sources */,
 				0E9B77362A8BF13B00F2117B /* APISession.swift in Sources */,
