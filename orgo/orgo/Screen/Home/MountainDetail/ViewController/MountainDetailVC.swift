@@ -50,6 +50,8 @@ class MountainDetailVC: BaseNavigationViewController {
 extension MountainDetailVC {
     
     private func configureInnerView() {
+        title = "산 상세 페이지"
+        navigationBar.style = .left
         
     }
     

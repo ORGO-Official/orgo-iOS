@@ -19,6 +19,8 @@
 		0E502B6E2A90FE8F002C71F2 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0E502B5F2A90C39D002C71F2 /* Pretendard-SemiBold.otf */; };
 		0E502B6F2A90FE91002C71F2 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0E502B5D2A90C39D002C71F2 /* Pretendard-Regular.otf */; };
 		0E502B7B2A93B0B3002C71F2 /* MountainDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E502B7A2A93B0B3002C71F2 /* MountainDetailVC.swift */; };
+		0E502B812A9B40F2002C71F2 /* UIButton+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E502B802A9B40F2002C71F2 /* UIButton+Ext.swift */; };
+		0E502B832A9B4193002C71F2 /* ColorAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E502B822A9B4193002C71F2 /* ColorAssets.swift */; };
 		0E57C15B2A8BB63F00BFF482 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E57C15A2A8BB63F00BFF482 /* LoginVC.swift */; };
 		0E57C15D2A8BB7A400BFF482 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E57C15C2A8BB7A400BFF482 /* BaseNavigationController.swift */; };
 		0E57C1652A8BBC4300BFF482 /* OrgoTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E57C1642A8BBC4300BFF482 /* OrgoTabBarVC.swift */; };
@@ -110,6 +112,8 @@
 		0E502B682A90F25D002C71F2 /* MountainBottomSheetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainBottomSheetVC.swift; sourceTree = "<group>"; };
 		0E502B6A2A90F2A3002C71F2 /* MountainInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainInfoView.swift; sourceTree = "<group>"; };
 		0E502B7A2A93B0B3002C71F2 /* MountainDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainDetailVC.swift; sourceTree = "<group>"; };
+		0E502B802A9B40F2002C71F2 /* UIButton+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Ext.swift"; sourceTree = "<group>"; };
+		0E502B822A9B4193002C71F2 /* ColorAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorAssets.swift; sourceTree = "<group>"; };
 		0E57C15A2A8BB63F00BFF482 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		0E57C15C2A8BB7A400BFF482 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		0E57C1642A8BBC4300BFF482 /* OrgoTabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrgoTabBarVC.swift; sourceTree = "<group>"; };
@@ -464,6 +468,7 @@
 				0E6793512A639A11000FBE1A /* UIView+Ext.swift */,
 				0E6793532A639AB6000FBE1A /* UIImageView+Ext.swift */,
 				0E6793552A63C276000FBE1A /* String+Ext.swift */,
+				0E502B802A9B40F2002C71F2 /* UIButton+Ext.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -635,6 +640,7 @@
 			isa = PBXGroup;
 			children = (
 				0EEB3EBF2A8BDA8300615A4C /* ImageAssets.swift */,
+				0E502B822A9B4193002C71F2 /* ColorAssets.swift */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -839,8 +845,10 @@
 				0E9B773D2A8BF25E00F2117B /* UpdateTokenResponseModel.swift in Sources */,
 				0E57C1652A8BBC4300BFF482 /* OrgoTabBarVC.swift in Sources */,
 				0E9B774A2A8C765200F2117B /* EmptyResponseModel.swift in Sources */,
+				0E502B832A9B4193002C71F2 /* ColorAssets.swift in Sources */,
 				0E9B77452A8BF8DF00F2117B /* LoginResponseModel.swift in Sources */,
 				0E9B77482A8C762100F2117B /* MyPageVM.swift in Sources */,
+				0E502B812A9B40F2002C71F2 /* UIButton+Ext.swift in Sources */,
 				0E9B77402A8BF29500F2117B /* KeychainManager.swift in Sources */,
 				0E57C1802A8BC9E500BFF482 /* TabBarItemButton.swift in Sources */,
 				0E502B7B2A93B0B3002C71F2 /* MountainDetailVC.swift in Sources */,

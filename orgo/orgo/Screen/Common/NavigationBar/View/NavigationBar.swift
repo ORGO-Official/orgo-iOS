@@ -15,14 +15,20 @@ class NavigationBar: UIView {
     // MARK: - UI components
     
     let titleLabel: UILabel = UILabel()
+        .then {
+            $0.font = UIFont.pretendard(size: 20.0, weight: .medium)
+            $0.textColor = .black
+        }
     
     let leftBtn: UIButton = UIButton(type: .system)
         .then {
+            $0.tintColor = .black
             $0.setImage(UIImage(systemName: "chevron.left"), for: .normal)
         }
     
     let rightBtn: UIButton = UIButton(type: .system)
         .then {
+            $0.tintColor = .black
             $0.setImage(UIImage(systemName: "xmark"), for: .normal)
         }
     

@@ -20,6 +20,20 @@ class MountainBottomSheetVC: OrgoBottomSheet {
     
     let mountainInfoView: MountainInfoView = MountainInfoView()
     
+    private let authenticateBtn = UIButton(type: .system)
+        .then {
+            $0.titleLabel?.font = UIFont.pretendard(size: 14.0, weight: .bold)
+            $0.setTitle("완등 인증하기", for: .normal)
+            $0.setTitleColor(.white, for: .normal)
+            $0.setTitleColor(.gray, for: .disabled)
+            
+            $0.setBackgroundColor(ColorAssets.mainGreen, for: .normal)
+            $0.setBackgroundColor(.lightGray, for: .disabled)
+            
+            $0.layer.cornerRadius = 5.0
+            $0.layer.masksToBounds = true
+        }
+    
     
     // MARK: - Variables and Properties
     
@@ -62,7 +76,7 @@ class MountainBottomSheetVC: OrgoBottomSheet {
 extension MountainBottomSheetVC {
     
     private func configureBottomSheet() {
-        view.addSubviews([mountainInfoView])
+        view.addSubviews([mountainInfoView, authenticateBtn])
     }
     
 }
@@ -77,6 +91,13 @@ extension MountainBottomSheetVC {
             $0.leading.equalTo(bottomSheetView.snp.leading).offset(16.0)
             $0.trailing.equalTo(bottomSheetView.snp.trailing).offset(-16.0)
             $0.top.equalTo(bottomSheetView.snp.top).offset(28.0)
+        }
+        
+        authenticateBtn.snp.makeConstraints {
+            $0.top.equalTo(bottomSheetView.snp.top).offset(182.0)
+            $0.leading.equalTo(bottomSheetView.snp.leading).offset(16.0)
+            $0.trailing.equalTo(bottomSheetView.snp.trailing).offset(-16.0)
+            $0.height.equalTo(36.0)
         }
     }
     
