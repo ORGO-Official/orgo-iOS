@@ -46,6 +46,8 @@ class MountainDetailVC: BaseNavigationViewController {
     
     // MARK: - Variables and Properties
     
+    private let viewModel: MountainDetailVM = MountainDetailVM()
+    
     var mountainInformation: MountainListResponseModel?
     
     
@@ -76,6 +78,7 @@ class MountainDetailVC: BaseNavigationViewController {
         mountainInfoView.configureInfo(from: mountainInfo)
         
         mountainInformation = mountainInfo
+        viewModel.requestGetRestaurantList(mountainId: mountainInfo.id)
     }
     
 }

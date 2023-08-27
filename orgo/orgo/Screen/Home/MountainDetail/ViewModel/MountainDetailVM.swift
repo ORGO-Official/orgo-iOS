@@ -24,7 +24,7 @@ final class MountainDetailVM: BaseViewModel {
     struct Output {
         var loading = BehaviorRelay<Bool>(value: false)
         
-        var restaurantList = BehaviorRelay<Array<MountainListResponseModel>>(value: [])
+        var restaurantList = BehaviorRelay<Array<RestaurantListResponseModel>>(value: [])
     }
     
     // MARK: - Life Cycle
@@ -56,8 +56,22 @@ extension MountainDetailVM: Output {
 
 extension MountainDetailVM {
     
-    func requestGetRestaurantList() {
+    /// 서버에 근처 식당 목록 조회 요청
+    func requestGetRestaurantList(mountainId: Int) {
+        let path = "/api/mountains/\(mountainId)/restaurants"
+        let resource = URLResource<Array<RestaurantListResponseModel>>(path: path)
         
+        apiSession.requestGet(urlResource: resource)
+            .withUnretained(self)
+            .subscribe(onNext: { owner, result in
+                switch result {
+                case .success(let data):
+                    owner.output.restaurantList.accept(data)
+                case .failure(let error):
+                    owner.apiError.onNext(error)
+                }
+            })
+            .disposed(by: bag)
     }
     
 }
