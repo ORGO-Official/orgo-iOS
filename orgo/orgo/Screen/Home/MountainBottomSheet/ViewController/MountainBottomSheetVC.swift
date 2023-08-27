@@ -43,6 +43,12 @@ class MountainBottomSheetVC: OrgoBottomSheet {
         configureBottomSheetLayout()
     }
     
+    override func bindInput() {
+        super.bindInput()
+        
+        bindTap()
+    }
+    
     // MARK: - Functions
     
     func configureInfo(from mountainInfo: MountainListResponseModel) {
@@ -72,6 +78,24 @@ extension MountainBottomSheetVC {
             $0.trailing.equalTo(bottomSheetView.snp.trailing).offset(-16.0)
             $0.top.equalTo(bottomSheetView.snp.top).offset(28.0)
         }
+    }
+    
+}
+
+// MARK: - Input
+
+extension MountainBottomSheetVC {
+    
+    private func bindTap() {
+        bottomSheetView.rx.tapGesture()
+            .when(.recognized)
+            .withUnretained(self)
+            .subscribe(onNext: { owner, _ in
+                let mountainDetailVC = MountainDetailVC()
+                
+                owner.navigationController?.pushViewController(mountainDetailVC, animated: true)
+            })
+            .disposed(by: bag)
     }
     
 }

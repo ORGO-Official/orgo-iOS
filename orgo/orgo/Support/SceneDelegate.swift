@@ -26,13 +26,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 
         window = UIWindow(windowScene: windowScene)
 //        window?.rootViewController = BaseNavigationController(rootViewController: OrgoTabBarVC())
-        window?.rootViewController = LoginVC()
+//        window?.rootViewController = LoginVC()
         
-//        if KeychainManager.shared.read(for: .accessToken) == nil { // 회원인지 확인
-//            window?.rootViewController = LoginVC()
-//        } else {
-//            window?.rootViewController = BaseNavigationController(rootViewController: OrgoTabBarVC())
-//        }
+        if KeychainManager.shared.read(for: .accessToken) == nil { // 회원인지 확인
+            window?.rootViewController = LoginVC()
+        } else {
+            window?.rootViewController = BaseNavigationController(rootViewController: OrgoTabBarVC())
+        }
         window?.makeKeyAndVisible()
         
     }

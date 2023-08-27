@@ -13,7 +13,7 @@ import RxCocoa
 import Then
 import SnapKit
 
-class MountainDetailVC: BaseViewController {
+class MountainDetailVC: BaseNavigationViewController {
     
     // MARK: - UI components
     

@@ -58,8 +58,10 @@ class HomeVC: BaseViewController {
         let bottomSheetVC = MountainBottomSheetVC()
         bottomSheetVC.configureInfo(from: mountainInfo)
         
-        bottomSheetVC.modalPresentationStyle = .overFullScreen
-        present(bottomSheetVC, animated: false)
+        let bottomSheetWithNavigation = BaseNavigationController(rootViewController: bottomSheetVC)
+        
+        bottomSheetWithNavigation.modalPresentationStyle = .overFullScreen
+        present(bottomSheetWithNavigation, animated: false)
     }
 }
 

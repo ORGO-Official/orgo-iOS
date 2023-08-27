@@ -49,6 +49,11 @@ class BaseViewController: UIViewController {
     
     // MARK: - Functions
     
+    func pushWithHideTabBar() {
+        guard let rootVC = UIViewController.getRootViewController() else { return }
+        rootVC.pushViewController(self, animated: true)
+    }
+    
     
     // MARK: - Configure
     
