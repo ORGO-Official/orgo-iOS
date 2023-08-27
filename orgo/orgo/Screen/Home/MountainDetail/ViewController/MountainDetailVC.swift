@@ -17,8 +17,24 @@ class MountainDetailVC: BaseNavigationViewController {
     
     // MARK: - UI components
     
+    let backgroundImageView = UIImageView()
+        .then {
+            $0.contentMode = .scaleToFill
+        }
+    
+    let mainImageView = UIImageView()
+        .then {
+            $0.contentMode = .scaleAspectFill
+            $0.layer.cornerRadius = 48.0
+            $0.layer.masksToBounds = true
+        }
+    
+    let mountainInfoView: MountainDetailInfoView = MountainDetailInfoView()
+    
     
     // MARK: - Variables and Properties
+    
+    var mountainInformation: MountainListResponseModel?
     
     
     // MARK: - Life Cycle
@@ -42,6 +58,14 @@ class MountainDetailVC: BaseNavigationViewController {
     
     // MARK: - Functions
     
+    func configureInfo(from mountainInfo: MountainListResponseModel) {
+        backgroundImageView.setImage(with: mountainInfo.backgroundImage)
+        mainImageView.setImage(with: mountainInfo.mainImage)
+        mountainInfoView.configureInfo(from: mountainInfo)
+        
+        mountainInformation = mountainInfo
+    }
+    
 }
 
 
@@ -50,9 +74,12 @@ class MountainDetailVC: BaseNavigationViewController {
 extension MountainDetailVC {
     
     private func configureInnerView() {
-        title = "산 상세 페이지"
+        title = mountainInformation?.name
         navigationBar.style = .left
         
+        view.addSubviews([backgroundImageView,
+                          mainImageView,
+                          mountainInfoView])
     }
     
 }
@@ -63,7 +90,23 @@ extension MountainDetailVC {
 extension MountainDetailVC {
     
     private func configureLayout() {
+        backgroundImageView.snp.makeConstraints {
+            $0.top.equalTo(navigationBar.snp.bottom)
+            $0.leading.trailing.equalTo(view.safeAreaLayoutGuide)
+            $0.height.equalToSuperview().dividedBy(2.8)
+        }
         
+        mainImageView.snp.makeConstraints {
+            $0.top.equalTo(navigationBar.snp.bottom).offset(screenHeight / 4.0)
+            $0.height.width.equalTo(screenHeight / 7.0)
+            $0.centerX.equalToSuperview()
+        }
+        
+        mountainInfoView.snp.makeConstraints {
+            $0.top.equalTo(mainImageView.snp.bottom).offset(28.0)
+            $0.leading.equalTo(view.safeAreaLayoutGuide).offset(16.0)
+            $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-16.0)
+        }
     }
     
 }

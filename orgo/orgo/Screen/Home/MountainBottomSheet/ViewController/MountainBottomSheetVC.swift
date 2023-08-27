@@ -37,6 +37,8 @@ class MountainBottomSheetVC: OrgoBottomSheet {
     
     // MARK: - Variables and Properties
     
+    var mountainInformation: MountainListResponseModel?
+    
     
     // MARK: - Life Cycle
     
@@ -67,6 +69,7 @@ class MountainBottomSheetVC: OrgoBottomSheet {
     
     func configureInfo(from mountainInfo: MountainListResponseModel) {
         mountainInfoView.configureInfo(from: mountainInfo)
+        mountainInformation = mountainInfo
     }
 }
 
@@ -113,6 +116,10 @@ extension MountainBottomSheetVC {
             .withUnretained(self)
             .subscribe(onNext: { owner, _ in
                 let mountainDetailVC = MountainDetailVC()
+                
+                if let mountainInfo = owner.mountainInformation {
+                    mountainDetailVC.configureInfo(from: mountainInfo)
+                }
                 
                 owner.navigationController?.pushViewController(mountainDetailVC, animated: true)
             })
