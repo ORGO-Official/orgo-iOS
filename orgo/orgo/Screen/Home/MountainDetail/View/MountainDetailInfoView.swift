@@ -158,13 +158,13 @@ extension MountainDetailInfoView {
         }
 
         leftStackView.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(16.0)
+            $0.top.equalToSuperview()
             $0.leading.equalTo(self)
             $0.width.equalTo(60.0)
         }
 
         rightStackView.snp.makeConstraints {
-            $0.top.equalTo(leftStackView.snp.top)
+            $0.top.equalToSuperview()
             $0.leading.equalTo(leftStackView.snp.trailing).offset(56.0)
             $0.trailing.equalTo(self)
         }

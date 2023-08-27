@@ -31,6 +31,18 @@ class MountainDetailVC: BaseNavigationViewController {
     
     let mountainInfoView: MountainDetailInfoView = MountainDetailInfoView()
     
+    let upperBorder = UIView()
+        .then {
+            $0.layer.cornerRadius = 1.0
+            $0.backgroundColor = .lightGray
+        }
+    
+    let lowerBorder = UIView()
+        .then {
+            $0.layer.cornerRadius = 1.0
+            $0.backgroundColor = .lightGray
+        }
+    
     
     // MARK: - Variables and Properties
     
@@ -79,7 +91,9 @@ extension MountainDetailVC {
         
         view.addSubviews([backgroundImageView,
                           mainImageView,
-                          mountainInfoView])
+                          mountainInfoView,
+                          upperBorder,
+                          lowerBorder])
     }
     
 }
@@ -106,7 +120,15 @@ extension MountainDetailVC {
             $0.top.equalTo(mainImageView.snp.bottom).offset(28.0)
             $0.leading.equalTo(view.safeAreaLayoutGuide).offset(16.0)
             $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-16.0)
+            $0.height.equalTo(104.0)
         }
+        
+        upperBorder.snp.makeConstraints {
+            $0.top.equalTo(mountainInfoView.snp.bottom).offset(16.0)
+            $0.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(16.0)
+            $0.height.equalTo(1.0)
+        }
+        
     }
     
 }
