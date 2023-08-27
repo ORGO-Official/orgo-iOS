@@ -13,6 +13,9 @@ struct MountainListResponseModel: Codable {
     let description: String
     let address: String
     let contact: String
+    let mainImage: String
+    let backgroundImage: String
+    let requiredTime: String
     let difficulty: String
     let location: Location
     let featureTag: FeatureTag

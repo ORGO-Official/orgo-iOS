@@ -122,7 +122,7 @@ class MountainInfoView: BaseView {
         mountainName.text = mountainInfo.name
         address.text = mountainInfo.address
         altitude.text = "\(Int(mountainInfo.location.altitude))m"
-        requiredTime.text = "데이터 필요"
+        requiredTime.text = mountainInfo.requiredTime
         contact.text = mountainInfo.contact
     }
     
