@@ -5,7 +5,7 @@
 //  Created by 김태현 on 2023/08/21.
 //
 
-import Foundation
+import UIKit
 
 import RxSwift
 import RxCocoa
@@ -43,6 +43,15 @@ class MountainDetailVC: BaseNavigationViewController {
             $0.backgroundColor = .lightGray
         }
     
+    let restaurantCV: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 12.0
+        layout.scrollDirection = .horizontal
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+                
+        return collectionView
+    }()
+    
     
     // MARK: - Variables and Properties
     
@@ -68,6 +77,12 @@ class MountainDetailVC: BaseNavigationViewController {
         super.layoutView()
         
         configureLayout()
+    }
+    
+    override func bindOutput() {
+        super.bindOutput()
+        
+        bindRestaurantList()
     }
     
     // MARK: - Functions
@@ -96,7 +111,13 @@ extension MountainDetailVC {
                           mainImageView,
                           mountainInfoView,
                           upperBorder,
-                          lowerBorder])
+                          lowerBorder,
+                          restaurantCV])
+        
+        restaurantCV.backgroundColor = .white
+        restaurantCV.register(RestaurantCVC.self, forCellWithReuseIdentifier: RestaurantCVC.className)
+        restaurantCV.delegate = self
+        restaurantCV.dataSource = self
     }
     
 }
@@ -132,6 +153,85 @@ extension MountainDetailVC {
             $0.height.equalTo(1.0)
         }
         
+        lowerBorder.snp.makeConstraints {
+            $0.top.equalTo(upperBorder.snp.bottom).offset(screenHeight / 8.7)
+            $0.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(16.0)
+            $0.height.equalTo(1.0)
+        }
+        
+        restaurantCV.snp.makeConstraints {
+            $0.top.equalTo(lowerBorder.snp.bottom).offset(24.0)
+            $0.bottom.leading.trailing.equalToSuperview()
+        }
+        
+    }
+    
+}
+
+// MARK: - Output
+
+extension MountainDetailVC {
+    
+    private func bindRestaurantList() {
+        viewModel.output.restaurantList
+            .filter({ !$0.isEmpty })
+            .withUnretained(self)
+            .subscribe { owner, restaurantList in
+                print(restaurantList)
+                owner.restaurantCV.reloadData()
+            }
+            .disposed(by: bag)
+    }
+    
+}
+
+
+// MARK: - UICollectionViewDelegate
+
+extension MountainDetailVC: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let restaurantList = viewModel.output.restaurantList.value
+        print(restaurantList[indexPath.row])
+    }
+    
+}
+
+
+// MARK: - UICollectionViewDataSource
+
+extension MountainDetailVC: UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        viewModel.output.restaurantList.value.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RestaurantCVC.className,
+                                                            for: indexPath) as? RestaurantCVC else {
+            return UICollectionViewCell()
+        }
+        
+        let restaurantList = viewModel.output.restaurantList.value
+        cell.configureData(from: restaurantList[indexPath.row])
+        
+        return cell
+    }
+    
+}
+
+
+// MARK: - UICollectionViewDelegateFlowLayout
+
+extension MountainDetailVC: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let cellWidth = (screenWidth - 80.0) / 5
+        let cellHeight = cellWidth
+        
+        return CGSize(width: cellWidth, height: cellHeight)
     }
     
 }
