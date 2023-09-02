@@ -7,6 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E502B552A8E7079002C71F2 /* OrgoBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E502B542A8E7079002C71F2 /* OrgoBottomSheet.swift */; };
+		0E502B582A8E8204002C71F2 /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E502B572A8E8204002C71F2 /* HomeVM.swift */; };
+		0E502B5B2A8E82A3002C71F2 /* MountainListResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E502B5A2A8E82A3002C71F2 /* MountainListResponseModel.swift */; };
+		0E502B622A90C7D4002C71F2 /* UIFont+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E502B612A90C7D4002C71F2 /* UIFont+Ext.swift */; };
+		0E502B662A90EA2E002C71F2 /* PretendardWeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E502B652A90EA2E002C71F2 /* PretendardWeight.swift */; };
+		0E502B692A90F25D002C71F2 /* MountainBottomSheetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E502B682A90F25D002C71F2 /* MountainBottomSheetVC.swift */; };
+		0E502B6B2A90F2A3002C71F2 /* MountainInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E502B6A2A90F2A3002C71F2 /* MountainInfoView.swift */; };
+		0E502B6C2A90FE8B002C71F2 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0E502B5E2A90C39D002C71F2 /* Pretendard-Bold.otf */; };
+		0E502B6D2A90FE8D002C71F2 /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0E502B602A90C39D002C71F2 /* Pretendard-Medium.otf */; };
+		0E502B6E2A90FE8F002C71F2 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0E502B5F2A90C39D002C71F2 /* Pretendard-SemiBold.otf */; };
+		0E502B6F2A90FE91002C71F2 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0E502B5D2A90C39D002C71F2 /* Pretendard-Regular.otf */; };
+		0E502B7B2A93B0B3002C71F2 /* MountainDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E502B7A2A93B0B3002C71F2 /* MountainDetailVC.swift */; };
+		0E502B812A9B40F2002C71F2 /* UIButton+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E502B802A9B40F2002C71F2 /* UIButton+Ext.swift */; };
+		0E502B832A9B4193002C71F2 /* ColorAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E502B822A9B4193002C71F2 /* ColorAssets.swift */; };
+		0E502B862A9B9D2A002C71F2 /* MountainDetailInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E502B852A9B9D2A002C71F2 /* MountainDetailInfoView.swift */; };
+		0E502B892A9BA31E002C71F2 /* MountainDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E502B882A9BA31E002C71F2 /* MountainDetailVM.swift */; };
+		0E502B8C2A9BA3BF002C71F2 /* RestaurantListResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E502B8B2A9BA3BF002C71F2 /* RestaurantListResponseModel.swift */; };
+		0E502BAF2A9CFCC5002C71F2 /* RestaurantCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E502BAE2A9CFCC5002C71F2 /* RestaurantCVC.swift */; };
 		0E57C15B2A8BB63F00BFF482 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E57C15A2A8BB63F00BFF482 /* LoginVC.swift */; };
 		0E57C15D2A8BB7A400BFF482 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E57C15C2A8BB7A400BFF482 /* BaseNavigationController.swift */; };
 		0E57C1652A8BBC4300BFF482 /* OrgoTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E57C1642A8BBC4300BFF482 /* OrgoTabBarVC.swift */; };
@@ -86,6 +104,24 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E502B542A8E7079002C71F2 /* OrgoBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrgoBottomSheet.swift; sourceTree = "<group>"; };
+		0E502B572A8E8204002C71F2 /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
+		0E502B5A2A8E82A3002C71F2 /* MountainListResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainListResponseModel.swift; sourceTree = "<group>"; };
+		0E502B5D2A90C39D002C71F2 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-Regular.otf"; path = "../../../../../dnd-8th-2-frontend/Reet-Place/Reet-Place/Global/Font/Pretendard-Regular.otf"; sourceTree = "<group>"; };
+		0E502B5E2A90C39D002C71F2 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-Bold.otf"; path = "../../../../../dnd-8th-2-frontend/Reet-Place/Reet-Place/Global/Font/Pretendard-Bold.otf"; sourceTree = "<group>"; };
+		0E502B5F2A90C39D002C71F2 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-SemiBold.otf"; path = "../../../../../dnd-8th-2-frontend/Reet-Place/Reet-Place/Global/Font/Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
+		0E502B602A90C39D002C71F2 /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Pretendard-Medium.otf"; path = "../../../../../dnd-8th-2-frontend/Reet-Place/Reet-Place/Global/Font/Pretendard-Medium.otf"; sourceTree = "<group>"; };
+		0E502B612A90C7D4002C71F2 /* UIFont+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Ext.swift"; sourceTree = "<group>"; };
+		0E502B652A90EA2E002C71F2 /* PretendardWeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PretendardWeight.swift; sourceTree = "<group>"; };
+		0E502B682A90F25D002C71F2 /* MountainBottomSheetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainBottomSheetVC.swift; sourceTree = "<group>"; };
+		0E502B6A2A90F2A3002C71F2 /* MountainInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainInfoView.swift; sourceTree = "<group>"; };
+		0E502B7A2A93B0B3002C71F2 /* MountainDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainDetailVC.swift; sourceTree = "<group>"; };
+		0E502B802A9B40F2002C71F2 /* UIButton+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Ext.swift"; sourceTree = "<group>"; };
+		0E502B822A9B4193002C71F2 /* ColorAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorAssets.swift; sourceTree = "<group>"; };
+		0E502B852A9B9D2A002C71F2 /* MountainDetailInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainDetailInfoView.swift; sourceTree = "<group>"; };
+		0E502B882A9BA31E002C71F2 /* MountainDetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainDetailVM.swift; sourceTree = "<group>"; };
+		0E502B8B2A9BA3BF002C71F2 /* RestaurantListResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListResponseModel.swift; sourceTree = "<group>"; };
+		0E502BAE2A9CFCC5002C71F2 /* RestaurantCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantCVC.swift; sourceTree = "<group>"; };
 		0E57C15A2A8BB63F00BFF482 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		0E57C15C2A8BB7A400BFF482 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		0E57C1642A8BBC4300BFF482 /* OrgoTabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrgoTabBarVC.swift; sourceTree = "<group>"; };
@@ -197,6 +233,117 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E502B532A8E704B002C71F2 /* BottomSheet */ = {
+			isa = PBXGroup;
+			children = (
+				0E502B542A8E7079002C71F2 /* OrgoBottomSheet.swift */,
+			);
+			path = BottomSheet;
+			sourceTree = "<group>";
+		};
+		0E502B562A8E81FC002C71F2 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0E502B572A8E8204002C71F2 /* HomeVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		0E502B592A8E8294002C71F2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0E502B5A2A8E82A3002C71F2 /* MountainListResponseModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0E502B5C2A90C36E002C71F2 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				0E502B5E2A90C39D002C71F2 /* Pretendard-Bold.otf */,
+				0E502B602A90C39D002C71F2 /* Pretendard-Medium.otf */,
+				0E502B5D2A90C39D002C71F2 /* Pretendard-Regular.otf */,
+				0E502B5F2A90C39D002C71F2 /* Pretendard-SemiBold.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		0E502B672A90F248002C71F2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0E502B6A2A90F2A3002C71F2 /* MountainInfoView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0E502B7C2A94E5B6002C71F2 /* MountainBottomSheet */ = {
+			isa = PBXGroup;
+			children = (
+				0E502B7F2A94E5E3002C71F2 /* ViewController */,
+			);
+			path = MountainBottomSheet;
+			sourceTree = "<group>";
+		};
+		0E502B7D2A94E5C9002C71F2 /* MountainDetail */ = {
+			isa = PBXGroup;
+			children = (
+				0E502BAD2A9CFC9C002C71F2 /* Cell */,
+				0E502B8A2A9BA3A5002C71F2 /* Model */,
+				0E502B842A9B9D1F002C71F2 /* View */,
+				0E502B872A9BA309002C71F2 /* ViewModel */,
+				0E502B7E2A94E5D7002C71F2 /* ViewController */,
+			);
+			path = MountainDetail;
+			sourceTree = "<group>";
+		};
+		0E502B7E2A94E5D7002C71F2 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0E502B7A2A93B0B3002C71F2 /* MountainDetailVC.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		0E502B7F2A94E5E3002C71F2 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0E502B682A90F25D002C71F2 /* MountainBottomSheetVC.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		0E502B842A9B9D1F002C71F2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0E502B852A9B9D2A002C71F2 /* MountainDetailInfoView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0E502B872A9BA309002C71F2 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0E502B882A9BA31E002C71F2 /* MountainDetailVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		0E502B8A2A9BA3A5002C71F2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0E502B8B2A9BA3BF002C71F2 /* RestaurantListResponseModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0E502BAD2A9CFC9C002C71F2 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				0E502BAE2A9CFCC5002C71F2 /* RestaurantCVC.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		0E57C1562A8BB52800BFF482 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
@@ -229,6 +376,7 @@
 		0E57C15E2A8BBBF900BFF482 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				0E502B532A8E704B002C71F2 /* BottomSheet */,
 				0E57C16C2A8BC16D00BFF482 /* NavigationBar */,
 				0E57C1602A8BBC1D00BFF482 /* TabBar */,
 			);
@@ -266,6 +414,7 @@
 			children = (
 				0E57C16A2A8BBE8300BFF482 /* TabBarItem.swift */,
 				0E57C1702A8BC33F00BFF482 /* NavigationBarStyle.swift */,
+				0E502B652A90EA2E002C71F2 /* PretendardWeight.swift */,
 				0E9B77412A8BF81C00F2117B /* LoginType.swift */,
 			);
 			path = Enum;
@@ -290,7 +439,12 @@
 		0E57C1742A8BC6F200BFF482 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				0E502B672A90F248002C71F2 /* View */,
+				0E502B592A8E8294002C71F2 /* Model */,
+				0E502B562A8E81FC002C71F2 /* ViewModel */,
 				0E57C1772A8BC80900BFF482 /* ViewController */,
+				0E502B7D2A94E5C9002C71F2 /* MountainDetail */,
+				0E502B7C2A94E5B6002C71F2 /* MountainBottomSheet */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -323,6 +477,7 @@
 		0E6793332A63941A000FBE1A /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				0E502B5C2A90C36E002C71F2 /* Fonts */,
 				0E9B773E2A8BF28900F2117B /* Manager */,
 				0E9B773B2A8BF24B00F2117B /* Model */,
 				0EEB3EBE2A8BDA7B00615A4C /* Assets */,
@@ -353,9 +508,11 @@
 			isa = PBXGroup;
 			children = (
 				0E6793382A63946F000FBE1A /* UIViewController+Ext.swift */,
+				0E502B612A90C7D4002C71F2 /* UIFont+Ext.swift */,
 				0E6793512A639A11000FBE1A /* UIView+Ext.swift */,
 				0E6793532A639AB6000FBE1A /* UIImageView+Ext.swift */,
 				0E6793552A63C276000FBE1A /* String+Ext.swift */,
+				0E502B802A9B40F2002C71F2 /* UIButton+Ext.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -527,6 +684,7 @@
 			isa = PBXGroup;
 			children = (
 				0EEB3EBF2A8BDA8300615A4C /* ImageAssets.swift */,
+				0E502B822A9B4193002C71F2 /* ColorAssets.swift */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -617,10 +775,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E9B77842A8D0D7100F2117B /* info_box_tail.png in Resources */,
+				0E502B6C2A90FE8B002C71F2 /* Pretendard-Bold.otf in Resources */,
 				0E9B77792A8D0D7100F2117B /* map_pin_shadow@3x.png in Resources */,
 				0E9B77872A8D0D7100F2117B /* map_pin.png in Resources */,
 				0E9B77802A8D0D7100F2117B /* map_pin_red.png in Resources */,
 				0E9B77782A8D0D7100F2117B /* map_pinup@3x.png in Resources */,
+				0E502B6D2A90FE8D002C71F2 /* Pretendard-Medium.otf in Resources */,
 				0E9B77822A8D0D7100F2117B /* point_sprite.png in Resources */,
 				0E9B777E2A8D0D7100F2117B /* map_pin@3x.png in Resources */,
 				0E9B77852A8D0D7100F2117B /* noimage256.png in Resources */,
@@ -633,6 +793,8 @@
 				0E9B77832A8D0D7100F2117B /* map_pinup_custom.png in Resources */,
 				0E6FC9272A585278001DD709 /* LaunchScreen.storyboard in Resources */,
 				0E9B778B2A8D0D7100F2117B /* daum_th_line.png in Resources */,
+				0E502B6F2A90FE91002C71F2 /* Pretendard-Regular.otf in Resources */,
+				0E502B6E2A90FE8F002C71F2 /* Pretendard-SemiBold.otf in Resources */,
 				0E9B77722A8D0D7100F2117B /* map_pinup_custom@3x.png in Resources */,
 				0E6FC9242A585278001DD709 /* Assets.xcassets in Resources */,
 				0E9B777F2A8D0D7100F2117B /* map_present_tracking.png in Resources */,
@@ -697,40 +859,54 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E502B622A90C7D4002C71F2 /* UIFont+Ext.swift in Sources */,
 				0E9B77422A8BF81C00F2117B /* LoginType.swift in Sources */,
+				0E502B862A9B9D2A002C71F2 /* MountainDetailInfoView.swift in Sources */,
 				0E6793402A6395FC000FBE1A /* Output.swift in Sources */,
 				0E57C1712A8BC33F00BFF482 /* NavigationBarStyle.swift in Sources */,
 				0E67934E2A63979C000FBE1A /* BaseCollectionViewCell.swift in Sources */,
 				0E6793522A639A11000FBE1A /* UIView+Ext.swift in Sources */,
+				0E502B5B2A8E82A3002C71F2 /* MountainListResponseModel.swift in Sources */,
+				0E502B892A9BA31E002C71F2 /* MountainDetailVM.swift in Sources */,
 				0E9B773A2A8BF1AE00F2117B /* APIToken.swift in Sources */,
 				0E57C17C2A8BC85600BFF482 /* MyPageVC.swift in Sources */,
 				0E9B77362A8BF13B00F2117B /* APISession.swift in Sources */,
 				0E6793562A63C276000FBE1A /* String+Ext.swift in Sources */,
+				0E502B552A8E7079002C71F2 /* OrgoBottomSheet.swift in Sources */,
 				0E57C16B2A8BBE8300BFF482 /* TabBarItem.swift in Sources */,
+				0E502B582A8E8204002C71F2 /* HomeVM.swift in Sources */,
 				0E57C16F2A8BC18700BFF482 /* NavigationBar.swift in Sources */,
 				0E6793362A639433000FBE1A /* BaseViewController.swift in Sources */,
 				0E57C15D2A8BB7A400BFF482 /* BaseNavigationController.swift in Sources */,
 				0E6793392A63946F000FBE1A /* UIViewController+Ext.swift in Sources */,
 				0E67933D2A6395A1000FBE1A /* BaseViewModel.swift in Sources */,
 				0E67933B2A63956B000FBE1A /* BaseView.swift in Sources */,
+				0E502B8C2A9BA3BF002C71F2 /* RestaurantListResponseModel.swift in Sources */,
 				0E57C1732A8BC4AB00BFF482 /* BaseNavigationViewController.swift in Sources */,
 				0E6793542A639AB6000FBE1A /* UIImageView+Ext.swift in Sources */,
 				0E6793452A63963D000FBE1A /* APIService.swift in Sources */,
 				0E67934A2A639687000FBE1A /* URLResource.swift in Sources */,
+				0E502B692A90F25D002C71F2 /* MountainBottomSheetVC.swift in Sources */,
 				0E57C1762A8BC70B00BFF482 /* HomeVC.swift in Sources */,
 				0E9B77342A8BF0A800F2117B /* LoginVM.swift in Sources */,
 				0E9B773D2A8BF25E00F2117B /* UpdateTokenResponseModel.swift in Sources */,
 				0E57C1652A8BBC4300BFF482 /* OrgoTabBarVC.swift in Sources */,
 				0E9B774A2A8C765200F2117B /* EmptyResponseModel.swift in Sources */,
+				0E502B832A9B4193002C71F2 /* ColorAssets.swift in Sources */,
 				0E9B77452A8BF8DF00F2117B /* LoginResponseModel.swift in Sources */,
 				0E9B77482A8C762100F2117B /* MyPageVM.swift in Sources */,
+				0E502B812A9B40F2002C71F2 /* UIButton+Ext.swift in Sources */,
 				0E9B77402A8BF29500F2117B /* KeychainManager.swift in Sources */,
 				0E57C1802A8BC9E500BFF482 /* TabBarItemButton.swift in Sources */,
+				0E502B7B2A93B0B3002C71F2 /* MountainDetailVC.swift in Sources */,
+				0E502B6B2A90F2A3002C71F2 /* MountainInfoView.swift in Sources */,
 				0E6793422A639608000FBE1A /* Input.swift in Sources */,
 				0E6FC91B2A585277001DD709 /* AppDelegate.swift in Sources */,
 				0E57C1682A8BBCC900BFF482 /* TabBarView.swift in Sources */,
+				0E502B662A90EA2E002C71F2 /* PretendardWeight.swift in Sources */,
 				0E9B77382A8BF17D00F2117B /* AuthInterceptor.swift in Sources */,
 				0E57C15B2A8BB63F00BFF482 /* LoginVC.swift in Sources */,
+				0E502BAF2A9CFCC5002C71F2 /* RestaurantCVC.swift in Sources */,
 				0E6FC91D2A585277001DD709 /* SceneDelegate.swift in Sources */,
 				0E67934C2A63978F000FBE1A /* BaseTableViewCell.swift in Sources */,
 				0EEB3EC02A8BDA8300615A4C /* ImageAssets.swift in Sources */,
