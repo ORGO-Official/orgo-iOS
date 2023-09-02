@@ -13,6 +13,8 @@ import RxCocoa
 import Then
 import SnapKit
 
+import SafariServices
+
 class MountainDetailVC: BaseNavigationViewController {
     
     // MARK: - UI components
@@ -45,7 +47,7 @@ class MountainDetailVC: BaseNavigationViewController {
     
     let restaurantCV: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.minimumLineSpacing = 12.0
+        layout.minimumLineSpacing = 8.0
         layout.scrollDirection = .horizontal
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
                 
@@ -154,13 +156,13 @@ extension MountainDetailVC {
         }
         
         lowerBorder.snp.makeConstraints {
-            $0.top.equalTo(upperBorder.snp.bottom).offset(screenHeight / 8.7)
+            $0.top.equalTo(upperBorder.snp.bottom).offset(screenHeight / 9.5)
             $0.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(16.0)
             $0.height.equalTo(1.0)
         }
         
         restaurantCV.snp.makeConstraints {
-            $0.top.equalTo(lowerBorder.snp.bottom).offset(24.0)
+            $0.top.equalTo(lowerBorder.snp.bottom).offset(12.0)
             $0.bottom.leading.trailing.equalToSuperview()
         }
         
@@ -192,7 +194,12 @@ extension MountainDetailVC: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let restaurantList = viewModel.output.restaurantList.value
-        print(restaurantList[indexPath.row])
+        
+        if let restaurantInfoURL = URL(string: restaurantList[indexPath.row].externalLink) {
+            let safariVC = SFSafariViewController(url: restaurantInfoURL)
+            
+            present(safariVC, animated: true)
+        }
     }
     
 }
@@ -229,7 +236,7 @@ extension MountainDetailVC: UICollectionViewDelegateFlowLayout {
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         let cellWidth = (screenWidth - 80.0) / 5
-        let cellHeight = cellWidth
+        let cellHeight = cellWidth + 20.0
         
         return CGSize(width: cellWidth, height: cellHeight)
     }

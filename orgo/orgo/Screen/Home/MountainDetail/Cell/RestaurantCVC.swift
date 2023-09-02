@@ -21,6 +21,15 @@ class RestaurantCVC: BaseCollectionViewCell {
             $0.layer.masksToBounds = true
         }
     
+    let restaurantTitle = UILabel()
+        .then {
+            $0.textColor = .black
+            $0.textAlignment = .center
+            $0.font = UIFont.pretendard(size: 14.0, weight: .medium)
+            $0.adjustsFontSizeToFitWidth = true
+        }
+    
+    
     // MARK: - Variables and Properties
     
     
@@ -43,6 +52,7 @@ class RestaurantCVC: BaseCollectionViewCell {
     
     func configureData(from restaurant: RestaurantListResponseModel) {
         thumbnailImageView.setImage(with: restaurant.imageUrl)
+        restaurantTitle.text = restaurant.name
     }
     
 }
@@ -53,7 +63,8 @@ class RestaurantCVC: BaseCollectionViewCell {
 extension RestaurantCVC {
     
     private func configureContentView() {
-        addSubviews([thumbnailImageView])
+        addSubviews([thumbnailImageView,
+                     restaurantTitle])
     }
     
 }
@@ -67,6 +78,12 @@ extension RestaurantCVC {
         thumbnailImageView.snp.makeConstraints {
             $0.top.leading.trailing.equalToSuperview()
             $0.height.equalTo(thumbnailImageView.snp.width)
+        }
+        
+        restaurantTitle.snp.makeConstraints {
+            $0.top.equalTo(thumbnailImageView.snp.bottom).offset(4.0)
+            $0.leading.trailing.equalToSuperview()
+            $0.height.equalTo(14.0)
         }
     }
     
