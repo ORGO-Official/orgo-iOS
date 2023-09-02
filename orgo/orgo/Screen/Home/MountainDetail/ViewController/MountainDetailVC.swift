@@ -197,6 +197,8 @@ extension MountainDetailVC: UICollectionViewDelegate {
         
         if let restaurantInfoURL = URL(string: restaurantList[indexPath.row].externalLink) {
             let safariVC = SFSafariViewController(url: restaurantInfoURL)
+            safariVC.preferredBarTintColor = .white
+            safariVC.preferredControlTintColor = .black
             
             present(safariVC, animated: true)
         }
