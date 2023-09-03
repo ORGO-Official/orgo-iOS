@@ -20,7 +20,7 @@ class SearchVC: BaseViewController {
     
     let searchField: SearchField = SearchField()
     
-    let searchResultTV: UITableView = UITableView()
+    private let searchResultTV: UITableView = UITableView()
         .then {
             $0.rowHeight = 64.0
             $0.backgroundColor = .white
@@ -28,7 +28,10 @@ class SearchVC: BaseViewController {
             $0.register(SearchResultTVC.self, forCellReuseIdentifier: SearchResultTVC.className)
         }
     
-    let emptySearchResultView: EmptySearchResultView = EmptySearchResultView()
+    private let emptySearchResultView: EmptySearchResultView = EmptySearchResultView()
+        .then {
+            $0.isHidden = true
+        }
     
     
     // MARK: - Variables and Properties
@@ -162,12 +165,12 @@ extension SearchVC {
             .bind(to: searchResultTV.rx.items(dataSource: dataSource))
             .disposed(by: bag)
         
-//        viewModel.output.searchResult
-//            .withUnretained(self)
-//            .subscribe { owner, items in
-//                <#code#>
-//            }
-//            .disposed(by: bag)
+        viewModel.output.searchResult
+            .withUnretained(self)
+            .subscribe { owner, items in
+                owner.emptySearchResultView.isHidden = !items.isEmpty
+            }
+            .disposed(by: bag)
     }
     
 }
