@@ -39,13 +39,13 @@ class SearchField: UITextField {
 extension SearchField {
     
     private func configureSearchField() {
-        layer.borderColor = UIColor.lightGray.cgColor
+        layer.borderColor = ColorAssets.lightGray.cgColor
         layer.borderWidth = 1.0
         layer.cornerRadius = 16.0
         layer.masksToBounds = true
         
         attributedPlaceholder = NSAttributedString(string: "산 이름 검색",
-                                                   attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray,
+                                                   attributes: [NSAttributedString.Key.foregroundColor: ColorAssets.lightGray,
                                                                 NSAttributedString.Key.font: UIFont.pretendard(size: 18.0, weight: .medium)])
         
         backBtn.frame = CGRect(x: 10, y: 0, width: 12, height: 24)
@@ -56,7 +56,7 @@ extension SearchField {
         
         font = UIFont.pretendard(size: 18.0, weight: .medium)
         
-        textColor = .black
+        textColor = ColorAssets.lightGray
         
         leftView = backBtnView
         leftViewMode = .always

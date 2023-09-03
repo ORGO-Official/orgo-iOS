@@ -39,7 +39,7 @@ class SearchResultTVC: BaseTableViewCell {
     
     private let borderView: UIView = UIView()
         .then {
-            $0.backgroundColor = .lightGray
+            $0.backgroundColor = ColorAssets.lightGray
         }
         
     
