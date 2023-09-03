@@ -28,6 +28,8 @@ class SearchVC: BaseViewController {
             $0.register(SearchResultTVC.self, forCellReuseIdentifier: SearchResultTVC.className)
         }
     
+    let emptySearchResultView: EmptySearchResultView = EmptySearchResultView()
+    
     
     // MARK: - Variables and Properties
     
@@ -78,7 +80,8 @@ extension SearchVC {
     
     private func configureInnerView() {
         view.addSubviews([searchField,
-                          searchResultTV])
+                          searchResultTV,
+                          emptySearchResultView])
     }
     
 }
@@ -99,6 +102,11 @@ extension SearchVC {
             $0.top.equalTo(searchField.snp.bottom).offset(4.0)
             $0.leading.trailing.equalToSuperview().inset(12.0)
             $0.bottom.equalTo(view.safeAreaLayoutGuide)
+        }
+        
+        emptySearchResultView.snp.makeConstraints {
+            $0.center.equalTo(searchResultTV.snp.center)
+            $0.leading.trailing.equalToSuperview().inset(80.0)
         }
     }
     
