@@ -22,7 +22,7 @@ final class SearchVM: BaseViewModel {
     
     struct Input {}
     struct Output {
-        
+        var searchResult = PublishRelay<Array<MountainListResponseModel>>()
     }
     
     // MARK: - Life Cycle
@@ -56,5 +56,25 @@ extension SearchVM: Output {
 // MARK: - Networking
 
 extension SearchVM {
+    
+    func requestSearch(by searchString: String?) {
+        guard let searchString = searchString else { return }
+        if searchString.isEmpty { return }
+        
+        let path = "/api/mountains?keyword=\(searchString)"
+        let resource = URLResource<Array<MountainListResponseModel>>(path: path)
+        
+        apiSession.requestGet(urlResource: resource)
+            .withUnretained(self)
+            .subscribe(onNext: { owner, result in
+                switch result {
+                case .success(let data):
+                    owner.output.searchResult.accept(data)
+                case .failure(let error):
+                    owner.apiError.onNext(error)
+                }
+            })
+            .disposed(by: bag)
+    }
     
 }

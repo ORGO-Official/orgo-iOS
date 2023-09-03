@@ -22,6 +22,8 @@ class SearchVC: BaseViewController {
     
     // MARK: - Variables and Properties
     
+    private let viewModel: SearchVM = SearchVM()
+    
     
     // MARK: - Life Cycle
     
@@ -52,6 +54,7 @@ class SearchVC: BaseViewController {
         super.bindInput()
         
         bindBackBtn()
+        bindSearchField()
     }
     
     // MARK: - Functions
@@ -94,6 +97,15 @@ extension SearchVC {
             .withUnretained(self)
             .subscribe { owner, _ in
                 owner.navigationController?.popViewController(animated: true)
+            }
+            .disposed(by: bag)
+    }
+    
+    private func bindSearchField() {
+        searchField.rx.controlEvent(.editingChanged)
+            .withUnretained(self)
+            .subscribe { owner, _ in
+                owner.viewModel.requestSearch(by: owner.searchField.text)
             }
             .disposed(by: bag)
     }
