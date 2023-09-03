@@ -17,6 +17,8 @@ class SearchVC: BaseViewController {
     
     // MARK: - UI components
     
+    let searchField: SearchField = SearchField()
+    
     
     // MARK: - Variables and Properties
     
@@ -50,7 +52,7 @@ class SearchVC: BaseViewController {
 extension SearchVC {
     
     private func configureInnerView() {
-        
+        view.addSubviews([searchField])
     }
     
 }
@@ -61,7 +63,11 @@ extension SearchVC {
 extension SearchVC {
     
     private func configureLayout() {
-        
+        searchField.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide).offset(60.0)
+            $0.leading.trailing.equalToSuperview().inset(8.0)
+            $0.height.equalTo(44.0)
+        }
     }
     
 }
