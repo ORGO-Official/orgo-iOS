@@ -41,6 +41,7 @@
 		0E5947FD2AA4C219003C6C7D /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5947FC2AA4C219003C6C7D /* SearchView.swift */; };
 		0E5948002AA4CACB003C6C7D /* SearchVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5947FF2AA4CACB003C6C7D /* SearchVM.swift */; };
 		0E5948032AA4D80A003C6C7D /* SearchResultTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5948022AA4D80A003C6C7D /* SearchResultTVC.swift */; };
+		0E5948062AA4E7D4003C6C7D /* SearchResultDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5948052AA4E7D4003C6C7D /* SearchResultDataSource.swift */; };
 		0E6793362A639433000FBE1A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6793352A639433000FBE1A /* BaseViewController.swift */; };
 		0E6793392A63946F000FBE1A /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6793382A63946F000FBE1A /* UIViewController+Ext.swift */; };
 		0E67933B2A63956B000FBE1A /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E67933A2A63956B000FBE1A /* BaseView.swift */; };
@@ -143,6 +144,7 @@
 		0E5947FC2AA4C219003C6C7D /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		0E5947FF2AA4CACB003C6C7D /* SearchVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVM.swift; sourceTree = "<group>"; };
 		0E5948022AA4D80A003C6C7D /* SearchResultTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTVC.swift; sourceTree = "<group>"; };
+		0E5948052AA4E7D4003C6C7D /* SearchResultDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultDataSource.swift; sourceTree = "<group>"; };
 		0E6793352A639433000FBE1A /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		0E6793382A63946F000FBE1A /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		0E67933A2A63956B000FBE1A /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
@@ -529,9 +531,18 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		0E5948042AA4E7B5003C6C7D /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				0E5948052AA4E7D4003C6C7D /* SearchResultDataSource.swift */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
 		0E6793332A63941A000FBE1A /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				0E5948042AA4E7B5003C6C7D /* DataSource */,
 				0E502B5C2A90C36E002C71F2 /* Fonts */,
 				0E9B773E2A8BF28900F2117B /* Manager */,
 				0E9B773B2A8BF24B00F2117B /* Model */,
@@ -923,6 +934,7 @@
 				0E5948032AA4D80A003C6C7D /* SearchResultTVC.swift in Sources */,
 				0E6793522A639A11000FBE1A /* UIView+Ext.swift in Sources */,
 				0E502B5B2A8E82A3002C71F2 /* MountainListResponseModel.swift in Sources */,
+				0E5948062AA4E7D4003C6C7D /* SearchResultDataSource.swift in Sources */,
 				0E502B892A9BA31E002C71F2 /* MountainDetailVM.swift in Sources */,
 				0E9B773A2A8BF1AE00F2117B /* APIToken.swift in Sources */,
 				0E5947FD2AA4C219003C6C7D /* SearchView.swift in Sources */,

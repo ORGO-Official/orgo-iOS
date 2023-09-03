@@ -9,6 +9,7 @@ import Foundation
 
 import RxSwift
 import RxCocoa
+import RxDataSources
 
 import Then
 import SnapKit
@@ -18,6 +19,14 @@ class SearchVC: BaseViewController {
     // MARK: - UI components
     
     let searchField: SearchField = SearchField()
+    
+    let searchResultTV: UITableView = UITableView()
+        .then {
+            $0.rowHeight = 64.0
+            $0.backgroundColor = .white
+            $0.showsVerticalScrollIndicator = false
+            $0.register(SearchResultTVC.self, forCellReuseIdentifier: SearchResultTVC.className)
+        }
     
     
     // MARK: - Variables and Properties
@@ -55,6 +64,7 @@ class SearchVC: BaseViewController {
         
         bindBackBtn()
         bindSearchField()
+        bindSearchResultTV()
     }
     
     // MARK: - Functions
@@ -67,7 +77,8 @@ class SearchVC: BaseViewController {
 extension SearchVC {
     
     private func configureInnerView() {
-        view.addSubviews([searchField])
+        view.addSubviews([searchField,
+                          searchResultTV])
     }
     
 }
@@ -83,12 +94,18 @@ extension SearchVC {
             $0.leading.trailing.equalToSuperview().inset(8.0)
             $0.height.equalTo(44.0)
         }
+        
+        searchResultTV.snp.makeConstraints {
+            $0.top.equalTo(searchField.snp.bottom).offset(4.0)
+            $0.leading.trailing.equalToSuperview().inset(12.0)
+            $0.bottom.equalTo(view.safeAreaLayoutGuide)
+        }
     }
     
 }
 
 
-// MARK: - Bind
+// MARK: - Input
 
 extension SearchVC {
     
@@ -108,6 +125,41 @@ extension SearchVC {
                 owner.viewModel.requestSearch(by: owner.searchField.text)
             }
             .disposed(by: bag)
+    }
+    
+}
+
+
+// MARK: - Output
+
+extension SearchVC {
+    
+    private func bindSearchResultTV() {
+        let dataSource = RxTableViewSectionedReloadDataSource<SearchResultDataSource> { _,
+            tableView,
+            indexPath,
+            searchResult in
+            
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchResultTVC.className,
+                                                           for: indexPath) as? SearchResultTVC else {
+                fatalError("Cannot dequeue Cell")
+            }
+            
+            cell.configureSearchResult(data: searchResult)
+            
+            return cell
+        }
+        
+        viewModel.output.searchResultDataSource
+            .bind(to: searchResultTV.rx.items(dataSource: dataSource))
+            .disposed(by: bag)
+        
+//        viewModel.output.searchResult
+//            .withUnretained(self)
+//            .subscribe { owner, items in
+//                <#code#>
+//            }
+//            .disposed(by: bag)
     }
     
 }

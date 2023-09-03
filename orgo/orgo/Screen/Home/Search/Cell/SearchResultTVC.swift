@@ -17,7 +17,32 @@ import RxCocoa
 class SearchResultTVC: BaseTableViewCell {
     
     // MARK: - UI components
+    
+    private let locationImageView: UIImageView = UIImageView()
+        .then {
+            $0.image = ImageAssets.location
+        }
+    
+    private let mountainNameLabel: UILabel = UILabel()
+        .then {
+            $0.textColor = .black
+            $0.textAlignment = .left
+            $0.font = UIFont.pretendard(size: 18.0, weight: .medium)
+        }
+    
+    private let addressLabel: UILabel = UILabel()
+        .then {
+            $0.textColor = .gray
+            $0.textAlignment = .left
+            $0.font = UIFont.pretendard(size: 14.0, weight: .regular)
+        }
+    
+    private let borderView: UIView = UIView()
+        .then {
+            $0.backgroundColor = .lightGray
+        }
         
+    
     // MARK: - Variables and Properties
     
     // MARK: - Life Cycle
@@ -37,9 +62,16 @@ class SearchResultTVC: BaseTableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         
+        mountainNameLabel.text = .empty
+        addressLabel.text = .empty
     }
 
     // MARK: - Function
+    
+    func configureSearchResult(data: MountainListResponseModel) {
+        mountainNameLabel.text = data.name
+        addressLabel.text = data.address
+    }
     
 }
 
@@ -49,7 +81,13 @@ class SearchResultTVC: BaseTableViewCell {
 extension SearchResultTVC {
     
     private func configureContentView() {
+        contentView.addSubviews([locationImageView,
+                                 mountainNameLabel,
+                                 addressLabel,
+                                 borderView])
         
+        selectionStyle = .none
+        backgroundColor = .white
     }
     
 }
@@ -60,7 +98,29 @@ extension SearchResultTVC {
 extension SearchResultTVC {
     
     private func configureLayout() {
+        locationImageView.snp.makeConstraints {
+            $0.centerY.equalTo(contentView)
+            $0.leading.equalTo(contentView).offset(16.0)
+            $0.width.equalTo(12.0)
+            $0.height.equalTo(16.0)
+        }
         
+        mountainNameLabel.snp.makeConstraints {
+            $0.top.equalTo(contentView).offset(12.0)
+            $0.leading.equalTo(locationImageView.snp.trailing).offset(13.0)
+            $0.height.equalTo(18.0)
+        }
+        
+        addressLabel.snp.makeConstraints {
+            $0.top.equalTo(mountainNameLabel.snp.bottom).offset(6.0)
+            $0.leading.equalTo(locationImageView.snp.trailing).offset(13.0)
+            $0.height.equalTo(14.0)
+        }
+        
+        borderView.snp.makeConstraints {
+            $0.bottom.leading.trailing.equalTo(contentView)
+            $0.height.equalTo(1.0)
+        }
     }
     
 }

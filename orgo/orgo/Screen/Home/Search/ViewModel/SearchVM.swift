@@ -23,6 +23,10 @@ final class SearchVM: BaseViewModel {
     struct Input {}
     struct Output {
         var searchResult = PublishRelay<Array<MountainListResponseModel>>()
+        
+        var searchResultDataSource: Observable<Array<SearchResultDataSource>> {
+            searchResult.map { [SearchResultDataSource(items: $0)] }
+        }
     }
     
     // MARK: - Life Cycle
