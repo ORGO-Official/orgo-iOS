@@ -44,13 +44,18 @@ extension SearchField {
         layer.cornerRadius = 16.0
         layer.masksToBounds = true
         
-        backBtn.frame = CGRect(x: 6, y: 0, width: 12, height: 24)
-        backBtnView.frame = CGRect(x: 0, y: 0, width: 24, height: 24)
+        attributedPlaceholder = NSAttributedString(string: "산 이름 검색",
+                                                   attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray,
+                                                                NSAttributedString.Key.font: UIFont.pretendard(size: 18.0, weight: .medium)])
+        
+        backBtn.frame = CGRect(x: 10, y: 0, width: 12, height: 24)
+        backBtnView.frame = CGRect(x: 0, y: 0, width: 36, height: 24)
         backBtnView.addSubview(backBtn)
         
         backgroundColor = .white
         
         font = UIFont.pretendard(size: 18.0, weight: .medium)
+        
         textColor = .black
         
         leftView = backBtnView
