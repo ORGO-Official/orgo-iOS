@@ -56,7 +56,7 @@ extension SearchField {
         
         font = UIFont.pretendard(size: 18.0, weight: .medium)
         
-        textColor = ColorAssets.lightGray
+        textColor = .black
         
         leftView = backBtnView
         leftViewMode = .always
