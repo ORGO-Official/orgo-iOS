@@ -30,6 +30,12 @@ class SearchVC: BaseViewController {
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        searchField.becomeFirstResponder()
+    }
+    
     override func configureView() {
         super.configureView()
         
@@ -40,6 +46,12 @@ class SearchVC: BaseViewController {
         super.layoutView()
         
         configureLayout()
+    }
+    
+    override func bindInput() {
+        super.bindInput()
+        
+        bindBackBtn()
     }
     
     // MARK: - Functions
@@ -68,6 +80,22 @@ extension SearchVC {
             $0.leading.trailing.equalToSuperview().inset(8.0)
             $0.height.equalTo(44.0)
         }
+    }
+    
+}
+
+
+// MARK: - Bind
+
+extension SearchVC {
+    
+    private func bindBackBtn() {
+        searchField.backBtn.rx.tap
+            .withUnretained(self)
+            .subscribe { owner, _ in
+                owner.navigationController?.popViewController(animated: true)
+            }
+            .disposed(by: bag)
     }
     
 }
