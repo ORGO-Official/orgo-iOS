@@ -9,6 +9,7 @@ import Foundation
 
 import RxSwift
 import RxCocoa
+import RxGesture
 
 import Then
 import SnapKit
@@ -16,6 +17,8 @@ import SnapKit
 class HomeVC: BaseViewController {
     
     // MARK: - UI components
+    
+    let searchView: SearchView = SearchView()
     
     
     // MARK: - Variables and Properties
@@ -44,6 +47,12 @@ class HomeVC: BaseViewController {
         super.layoutView()
         
         configureLayout()
+    }
+    
+    override func bindInput() {
+        super.bindInput()
+        
+        bindSearchView()
     }
     
     override func bindOutput() {
@@ -78,7 +87,7 @@ extension HomeVC {
         mapView.delegate = self
         mapView.baseMapType = .standard
         
-        view.addSubviews([mapView])
+        mapView.addSubviews([searchView])
     }
     
 }
@@ -91,6 +100,12 @@ extension HomeVC {
     private func configureLayout() {
         mapView.snp.makeConstraints {
             $0.edges.equalToSuperview()
+        }
+        
+        searchView.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide).offset(60.0)
+            $0.leading.trailing.equalToSuperview().inset(16.0)
+            $0.height.equalTo(44.0)
         }
     }
     
@@ -110,6 +125,18 @@ extension HomeVC {
                     owner.createMarker(id: id, location: mountainInfo.location)
                 }
             }
+            .disposed(by: bag)
+    }
+    
+    private func bindSearchView() {
+        searchView.rx.tapGesture()
+            .when(.recognized)
+            .withUnretained(self)
+            .subscribe(onNext: { owner, _ in
+                let searchVC = SearchVC()
+                
+                owner.navigationController?.pushViewController(searchVC, animated: true)
+            })
             .disposed(by: bag)
     }
     
