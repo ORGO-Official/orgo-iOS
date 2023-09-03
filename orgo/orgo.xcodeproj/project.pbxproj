@@ -38,6 +38,7 @@
 		0E57C1802A8BC9E500BFF482 /* TabBarItemButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E57C17F2A8BC9E500BFF482 /* TabBarItemButton.swift */; };
 		0E5947F62AA4B5E7003C6C7D /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5947F52AA4B5E7003C6C7D /* SearchVC.swift */; };
 		0E5947FB2AA4B797003C6C7D /* SearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5947FA2AA4B797003C6C7D /* SearchField.swift */; };
+		0E5947FD2AA4C219003C6C7D /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5947FC2AA4C219003C6C7D /* SearchView.swift */; };
 		0E6793362A639433000FBE1A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6793352A639433000FBE1A /* BaseViewController.swift */; };
 		0E6793392A63946F000FBE1A /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6793382A63946F000FBE1A /* UIViewController+Ext.swift */; };
 		0E67933B2A63956B000FBE1A /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E67933A2A63956B000FBE1A /* BaseView.swift */; };
@@ -137,6 +138,7 @@
 		0E57C17F2A8BC9E500BFF482 /* TabBarItemButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItemButton.swift; sourceTree = "<group>"; };
 		0E5947F52AA4B5E7003C6C7D /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		0E5947FA2AA4B797003C6C7D /* SearchField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchField.swift; sourceTree = "<group>"; };
+		0E5947FC2AA4C219003C6C7D /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		0E6793352A639433000FBE1A /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		0E6793382A63946F000FBE1A /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		0E67933A2A63956B000FBE1A /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
@@ -276,6 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				0E502B6A2A90F2A3002C71F2 /* MountainInfoView.swift */,
+				0E5947FC2AA4C219003C6C7D /* SearchView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -899,6 +902,7 @@
 				0E502B5B2A8E82A3002C71F2 /* MountainListResponseModel.swift in Sources */,
 				0E502B892A9BA31E002C71F2 /* MountainDetailVM.swift in Sources */,
 				0E9B773A2A8BF1AE00F2117B /* APIToken.swift in Sources */,
+				0E5947FD2AA4C219003C6C7D /* SearchView.swift in Sources */,
 				0E57C17C2A8BC85600BFF482 /* MyPageVC.swift in Sources */,
 				0E9B77362A8BF13B00F2117B /* APISession.swift in Sources */,
 				0E6793562A63C276000FBE1A /* String+Ext.swift in Sources */,
