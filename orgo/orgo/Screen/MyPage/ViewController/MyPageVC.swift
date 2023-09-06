@@ -148,6 +148,17 @@ extension MyPageVC {
                 owner.navigationController?.pushViewController(settingVC, animated: true)
             })
             .disposed(by: bag)
+        
+        userInfoView.profileSettingBtn.rx.tap
+            .withUnretained(self)
+            .bind(onNext: { owner, _ in
+                let profileSettingVC = ProfileSettingVC()
+                
+                profileSettingVC.modalPresentationStyle = .fullScreen
+                
+                owner.present(profileSettingVC, animated: true)
+            })
+            .disposed(by: bag)
     }
     
 }
