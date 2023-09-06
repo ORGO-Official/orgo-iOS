@@ -20,4 +20,7 @@ enum ImageAssets {
     
     static let mountainMarker = UIImage(named: "MountainMarker")?.withRenderingMode(.alwaysOriginal)
     
+    static let location = UIImage(named: "Location")?.withRenderingMode(.alwaysOriginal)
+    static let roundExclamation = UIImage(named: "RoundExclamation")?.withRenderingMode(.alwaysOriginal)
+    
 }

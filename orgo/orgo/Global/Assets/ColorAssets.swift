@@ -10,5 +10,7 @@ import UIKit
 struct ColorAssets {
     
     static let mainGreen = UIColor(named: "MainGreen")!
+    static let lightGray = UIColor(named: "LightGray")!
+    static let gray = UIColor(named: "Gray")!
     
 }
