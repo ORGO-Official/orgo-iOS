@@ -13,7 +13,7 @@ import RxCocoa
 import Then
 import SnapKit
 
-class SettingVC: BaseViewController {
+class SettingVC: BaseNavigationViewController {
     
     // MARK: - UI components
     
@@ -50,7 +50,8 @@ class SettingVC: BaseViewController {
 extension SettingVC {
     
     private func configureInnerView() {
-        
+        title = "설정"
+        navigationBar.style = .left
     }
     
 }

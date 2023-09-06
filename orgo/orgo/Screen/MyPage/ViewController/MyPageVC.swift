@@ -35,7 +35,6 @@ class MyPageVC: BaseViewController {
         }
     
     
-    
     // MARK: - Variables and Properties
     
     private let viewModel: MyPageVM = MyPageVM()
@@ -138,6 +137,15 @@ extension MyPageVC {
                 guard let self = self else { return }
                 
                 self.viewModel.requestWithdrawal()
+            })
+            .disposed(by: bag)
+        
+        userInfoView.settingBtn.rx.tap
+            .withUnretained(self)
+            .bind(onNext: { owner, _ in
+                let settingVC = SettingVC()
+                
+                owner.navigationController?.pushViewController(settingVC, animated: true)
             })
             .disposed(by: bag)
     }
