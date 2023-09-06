@@ -107,6 +107,7 @@
 		0E9B77992A8D0DE200F2117B /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E9B77982A8D0DE200F2117B /* libxml2.tbd */; };
 		0E9B779B2A8D0DED00F2117B /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E9B779A2A8D0DEC00F2117B /* libsqlite3.tbd */; };
 		0EB4159F2AA8DCC4008F42EC /* UserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB4159E2AA8DCC4008F42EC /* UserInfoView.swift */; };
+		0EB415A42AA8E3D8008F42EC /* ProfileSettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB415A32AA8E3D8008F42EC /* ProfileSettingVC.swift */; };
 		0EEB3EC02A8BDA8300615A4C /* ImageAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEB3EBF2A8BDA8300615A4C /* ImageAssets.swift */; };
 		DBDB3429A16521871435E852 /* Pods_orgo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6DA5098F6D9C50633E2F56E /* Pods_orgo.framework */; };
 /* End PBXBuildFile section */
@@ -223,6 +224,7 @@
 		0E9B779A2A8D0DEC00F2117B /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		0E9B779C2A8D0E7200F2117B /* orgo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "orgo-Bridging-Header.h"; sourceTree = "<group>"; };
 		0EB4159E2AA8DCC4008F42EC /* UserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoView.swift; sourceTree = "<group>"; };
+		0EB415A32AA8E3D8008F42EC /* ProfileSettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingVC.swift; sourceTree = "<group>"; };
 		0EEB3EBF2A8BDA8300615A4C /* ImageAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAssets.swift; sourceTree = "<group>"; };
 		654C8E589BE281BAFA8FDF33 /* Pods-orgo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-orgo.debug.xcconfig"; path = "Target Support Files/Pods-orgo/Pods-orgo.debug.xcconfig"; sourceTree = "<group>"; };
 		699FEC91BE114E2CAC1E314D /* Pods-orgo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-orgo.release.xcconfig"; path = "Target Support Files/Pods-orgo/Pods-orgo.release.xcconfig"; sourceTree = "<group>"; };
@@ -483,6 +485,7 @@
 				0EB4159D2AA8DC9F008F42EC /* View */,
 				0E9B77462A8C760F00F2117B /* ViewModel */,
 				0E57C17A2A8BC84E00BFF482 /* ViewController */,
+				0EB415A12AA8E3BE008F42EC /* ProfileSetting */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -760,6 +763,22 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		0EB415A12AA8E3BE008F42EC /* ProfileSetting */ = {
+			isa = PBXGroup;
+			children = (
+				0EB415A22AA8E3CB008F42EC /* ViewController */,
+			);
+			path = ProfileSetting;
+			sourceTree = "<group>";
+		};
+		0EB415A22AA8E3CB008F42EC /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0EB415A32AA8E3D8008F42EC /* ProfileSettingVC.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		0EEB3EBE2A8BDA7B00615A4C /* Assets */ = {
 			isa = PBXGroup;
 			children = (
@@ -943,6 +962,7 @@
 				0E9B77422A8BF81C00F2117B /* LoginType.swift in Sources */,
 				0E502B862A9B9D2A002C71F2 /* MountainDetailInfoView.swift in Sources */,
 				0E6793402A6395FC000FBE1A /* Output.swift in Sources */,
+				0EB415A42AA8E3D8008F42EC /* ProfileSettingVC.swift in Sources */,
 				0E57C1712A8BC33F00BFF482 /* NavigationBarStyle.swift in Sources */,
 				0E67934E2A63979C000FBE1A /* BaseCollectionViewCell.swift in Sources */,
 				0E5948032AA4D80A003C6C7D /* SearchResultTVC.swift in Sources */,
