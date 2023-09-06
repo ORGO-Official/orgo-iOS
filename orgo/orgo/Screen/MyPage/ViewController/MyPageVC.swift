@@ -18,6 +18,8 @@ class MyPageVC: BaseViewController {
     
     // MARK: - UI components
     
+    let userInfoView: UserInfoView = UserInfoView()
+    
     let logoutBtn: UIButton = UIButton(type: .system)
         .then {
             $0.setTitle("로그아웃", for: .normal)
@@ -81,7 +83,9 @@ class MyPageVC: BaseViewController {
 extension MyPageVC {
     
     private func configureInnerView() {
-        view.addSubviews([logoutBtn, withdrawalBtn])
+        view.addSubviews([userInfoView,
+                          logoutBtn,
+                          withdrawalBtn])
     }
     
 }
@@ -92,6 +96,12 @@ extension MyPageVC {
 extension MyPageVC {
     
     private func configureLayout() {
+        userInfoView.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide)
+            $0.leading.trailing.equalToSuperview().inset(16.0)
+            $0.height.equalTo(160.0)
+        }
+        
         logoutBtn.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.leading.trailing.equalToSuperview().inset(50.0)

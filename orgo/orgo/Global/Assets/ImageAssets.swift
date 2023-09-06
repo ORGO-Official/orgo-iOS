@@ -23,4 +23,5 @@ enum ImageAssets {
     static let location = UIImage(named: "Location")?.withRenderingMode(.alwaysOriginal)
     static let roundExclamation = UIImage(named: "RoundExclamation")?.withRenderingMode(.alwaysOriginal)
     
+    static let setting = UIImage(named: "Setting")?.withRenderingMode(.alwaysOriginal)
 }
