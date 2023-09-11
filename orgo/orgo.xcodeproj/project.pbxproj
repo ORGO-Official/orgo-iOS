@@ -109,6 +109,7 @@
 		0EB4159F2AA8DCC4008F42EC /* UserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB4159E2AA8DCC4008F42EC /* UserInfoView.swift */; };
 		0EB415A42AA8E3D8008F42EC /* ProfileSettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB415A32AA8E3D8008F42EC /* ProfileSettingVC.swift */; };
 		0EB415A82AA8E4A6008F42EC /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB415A72AA8E4A6008F42EC /* SettingVC.swift */; };
+		0EB415E12AAF60D4008F42EC /* RecordTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB415E02AAF60D4008F42EC /* RecordTVC.swift */; };
 		0EEB3EC02A8BDA8300615A4C /* ImageAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEB3EBF2A8BDA8300615A4C /* ImageAssets.swift */; };
 		DBDB3429A16521871435E852 /* Pods_orgo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6DA5098F6D9C50633E2F56E /* Pods_orgo.framework */; };
 /* End PBXBuildFile section */
@@ -227,6 +228,7 @@
 		0EB4159E2AA8DCC4008F42EC /* UserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoView.swift; sourceTree = "<group>"; };
 		0EB415A32AA8E3D8008F42EC /* ProfileSettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingVC.swift; sourceTree = "<group>"; };
 		0EB415A72AA8E4A6008F42EC /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
+		0EB415E02AAF60D4008F42EC /* RecordTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTVC.swift; sourceTree = "<group>"; };
 		0EEB3EBF2A8BDA8300615A4C /* ImageAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAssets.swift; sourceTree = "<group>"; };
 		654C8E589BE281BAFA8FDF33 /* Pods-orgo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-orgo.debug.xcconfig"; path = "Target Support Files/Pods-orgo/Pods-orgo.debug.xcconfig"; sourceTree = "<group>"; };
 		699FEC91BE114E2CAC1E314D /* Pods-orgo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-orgo.release.xcconfig"; path = "Target Support Files/Pods-orgo/Pods-orgo.release.xcconfig"; sourceTree = "<group>"; };
@@ -484,6 +486,7 @@
 		0E57C1792A8BC84000BFF482 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
+				0EB415DF2AAF6055008F42EC /* Cell */,
 				0EB4159D2AA8DC9F008F42EC /* View */,
 				0E9B77462A8C760F00F2117B /* ViewModel */,
 				0E57C17A2A8BC84E00BFF482 /* ViewController */,
@@ -798,6 +801,14 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
+		0EB415DF2AAF6055008F42EC /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				0EB415E02AAF60D4008F42EC /* RecordTVC.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		0EEB3EBE2A8BDA7B00615A4C /* Assets */ = {
 			isa = PBXGroup;
 			children = (
@@ -1024,6 +1035,7 @@
 				0E502B812A9B40F2002C71F2 /* UIButton+Ext.swift in Sources */,
 				0E9B77402A8BF29500F2117B /* KeychainManager.swift in Sources */,
 				0E57C1802A8BC9E500BFF482 /* TabBarItemButton.swift in Sources */,
+				0EB415E12AAF60D4008F42EC /* RecordTVC.swift in Sources */,
 				0E502B7B2A93B0B3002C71F2 /* MountainDetailVC.swift in Sources */,
 				0E502B6B2A90F2A3002C71F2 /* MountainInfoView.swift in Sources */,
 				0E6793422A639608000FBE1A /* Input.swift in Sources */,
