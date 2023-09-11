@@ -40,6 +40,44 @@ class UserInfoView: BaseView {
             $0.setImage(ImageAssets.setting, for: .normal)
         }
     
+    let profileImageView: UIImageView = UIImageView()
+        .then {
+            $0.image = ImageAssets.mountainMarker
+            $0.contentMode = .scaleAspectFill
+            $0.layer.cornerRadius = 34.0
+            $0.layer.masksToBounds = true
+        }
+    
+    let totalHeightTitle: UILabel = UILabel()
+        .then {
+            $0.text = "총 고도"
+            $0.textColor = .black
+            $0.textAlignment = .center
+            $0.font = UIFont.pretendard(size: 14.0, weight: .regular)
+        }
+    
+    let totalHeightLabel: UILabel = UILabel()
+        .then {
+            $0.textColor = ColorAssets.gray
+            $0.textAlignment = .center
+            $0.font = UIFont.pretendard(size: 13.0, weight: .regular)
+        }
+    
+    let totalCountTitle: UILabel = UILabel()
+        .then {
+            $0.text = "완등 횟수"
+            $0.textColor = .black
+            $0.textAlignment = .center
+            $0.font = UIFont.pretendard(size: 14.0, weight: .regular)
+        }
+    
+    let totalCountLabel: UILabel = UILabel()
+        .then {
+            $0.textColor = ColorAssets.gray
+            $0.textAlignment = .center
+            $0.font = UIFont.pretendard(size: 13.0, weight: .regular)
+        }
+    
     
     // MARK: - Variables and Properties
     
@@ -70,7 +108,12 @@ extension UserInfoView {
     private func configureInnerView() {
         addSubviews([userNameLabel,
                      profileSettingBtn,
-                     settingBtn])
+                     settingBtn,
+                     profileImageView,
+                     totalHeightTitle,
+                     totalHeightLabel,
+                     totalCountTitle,
+                     totalCountLabel])
         
         userNameLabel.text = "TEST"
     }
@@ -100,6 +143,33 @@ extension UserInfoView {
             $0.top.trailing.equalToSuperview()
             $0.height.width.equalTo(24.0)
         }
+        
+        profileImageView.snp.makeConstraints {
+            $0.top.equalTo(userNameLabel.snp.bottom).offset(20.0)
+            $0.leading.equalToSuperview().offset(8.0)
+            $0.height.width.equalTo(profileImageView.layer.cornerRadius * 2)
+        }
+        
+        totalHeightTitle.snp.makeConstraints {
+            $0.leading.equalTo(profileImageView.snp.trailing).offset(58.0)
+            $0.bottom.equalTo(profileImageView.snp.centerY)
+        }
+        
+        totalHeightLabel.snp.makeConstraints {
+            $0.centerX.equalTo(totalHeightTitle.snp.centerX)
+            $0.top.equalTo(totalHeightTitle.snp.bottom).offset(10.0)
+        }
+        
+        totalCountTitle.snp.makeConstraints {
+            $0.centerY.equalTo(totalHeightTitle.snp.centerY)
+            $0.leading.equalTo(totalHeightTitle.snp.trailing).offset(40.0)
+        }
+        
+        totalCountLabel.snp.makeConstraints {
+            $0.centerX.equalTo(totalCountTitle.snp.centerX)
+            $0.top.equalTo(totalCountTitle.snp.bottom).offset(10.0)
+        }
+        
     }
     
 }
