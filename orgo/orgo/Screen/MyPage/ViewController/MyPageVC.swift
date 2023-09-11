@@ -20,6 +20,24 @@ class MyPageVC: BaseViewController {
     
     let userInfoView: UserInfoView = UserInfoView()
     
+    let userInfoBottomBorder: UIView = UIView()
+        .then {
+            $0.backgroundColor = ColorAssets.lightGray
+        }
+    
+    let myRecordTitle: UILabel = UILabel()
+        .then {
+            $0.text = "내 기록"
+            $0.textColor = .black
+            $0.textAlignment = .center
+            $0.font = UIFont.pretendard(size: 14.0, weight: .medium)
+        }
+    
+    let recordUpperBorder: UIView = UIView()
+        .then {
+            $0.backgroundColor = ColorAssets.lightGray
+        }
+    
     let logoutBtn: UIButton = UIButton(type: .system)
         .then {
             $0.setTitle("로그아웃", for: .normal)
@@ -82,7 +100,7 @@ class MyPageVC: BaseViewController {
 extension MyPageVC {
     
     private func configureInnerView() {
-        view.addSubviews([userInfoView,
+        view.addSubviews([userInfoView, userInfoBottomBorder, myRecordTitle, recordUpperBorder,
                           logoutBtn,
                           withdrawalBtn])
     }
@@ -98,8 +116,26 @@ extension MyPageVC {
         userInfoView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide)
             $0.leading.trailing.equalToSuperview().inset(16.0)
-            $0.height.equalTo(160.0)
+            $0.height.equalTo(130.0)
         }
+        
+        userInfoBottomBorder.snp.makeConstraints {
+            $0.top.equalTo(userInfoView.snp.bottom)
+            $0.height.equalTo(1.0)
+            $0.leading.trailing.equalToSuperview().inset(16.0)
+        }
+        
+        myRecordTitle.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.top.equalTo(userInfoBottomBorder.snp.bottom).offset(16.0)
+        }
+        
+        recordUpperBorder.snp.makeConstraints {
+            $0.top.equalTo(myRecordTitle.snp.bottom).offset(16.0)
+            $0.height.equalTo(1.0)
+            $0.leading.trailing.equalToSuperview().inset(16.0)
+        }
+        
         
         logoutBtn.snp.makeConstraints {
             $0.centerX.equalToSuperview()
