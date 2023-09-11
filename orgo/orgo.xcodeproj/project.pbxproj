@@ -115,6 +115,7 @@
 		0EB415E82AAF6F0E008F42EC /* SettingMenuDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB415E72AAF6F0E008F42EC /* SettingMenuDataSource.swift */; };
 		0EB415EB2AAF6F45008F42EC /* SettingMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB415EA2AAF6F45008F42EC /* SettingMenu.swift */; };
 		0EB415EE2AAF7013008F42EC /* SettingMenuTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB415ED2AAF7013008F42EC /* SettingMenuTVC.swift */; };
+		0EB415F12AAF7248008F42EC /* SettingVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB415F02AAF7248008F42EC /* SettingVM.swift */; };
 		0EEB3EC02A8BDA8300615A4C /* ImageAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEB3EBF2A8BDA8300615A4C /* ImageAssets.swift */; };
 		DBDB3429A16521871435E852 /* Pods_orgo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6DA5098F6D9C50633E2F56E /* Pods_orgo.framework */; };
 /* End PBXBuildFile section */
@@ -239,6 +240,7 @@
 		0EB415E72AAF6F0E008F42EC /* SettingMenuDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingMenuDataSource.swift; sourceTree = "<group>"; };
 		0EB415EA2AAF6F45008F42EC /* SettingMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingMenu.swift; sourceTree = "<group>"; };
 		0EB415ED2AAF7013008F42EC /* SettingMenuTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingMenuTVC.swift; sourceTree = "<group>"; };
+		0EB415F02AAF7248008F42EC /* SettingVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVM.swift; sourceTree = "<group>"; };
 		0EEB3EBF2A8BDA8300615A4C /* ImageAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAssets.swift; sourceTree = "<group>"; };
 		654C8E589BE281BAFA8FDF33 /* Pods-orgo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-orgo.debug.xcconfig"; path = "Target Support Files/Pods-orgo/Pods-orgo.debug.xcconfig"; sourceTree = "<group>"; };
 		699FEC91BE114E2CAC1E314D /* Pods-orgo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-orgo.release.xcconfig"; path = "Target Support Files/Pods-orgo/Pods-orgo.release.xcconfig"; sourceTree = "<group>"; };
@@ -801,6 +803,7 @@
 		0EB415A52AA8E490008F42EC /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				0EB415EF2AAF7236008F42EC /* ViewModel */,
 				0EB415EC2AAF7009008F42EC /* Cell */,
 				0EB415E92AAF6F3C008F42EC /* Model */,
 				0EB415A62AA8E49A008F42EC /* ViewController */,
@@ -846,6 +849,14 @@
 				0EB415ED2AAF7013008F42EC /* SettingMenuTVC.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		0EB415EF2AAF7236008F42EC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0EB415F02AAF7248008F42EC /* SettingVM.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		0EEB3EBE2A8BDA7B00615A4C /* Assets */ = {
@@ -1077,6 +1088,7 @@
 				0E9B77482A8C762100F2117B /* MyPageVM.swift in Sources */,
 				0E502B812A9B40F2002C71F2 /* UIButton+Ext.swift in Sources */,
 				0E9B77402A8BF29500F2117B /* KeychainManager.swift in Sources */,
+				0EB415F12AAF7248008F42EC /* SettingVM.swift in Sources */,
 				0E57C1802A8BC9E500BFF482 /* TabBarItemButton.swift in Sources */,
 				0EB415E12AAF60D4008F42EC /* RecordTVC.swift in Sources */,
 				0E502B7B2A93B0B3002C71F2 /* MountainDetailVC.swift in Sources */,
