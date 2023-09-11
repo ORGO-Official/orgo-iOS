@@ -14,6 +14,8 @@ import RxDataSources
 import Then
 import SnapKit
 
+import SafariServices
+
 class SettingVC: BaseNavigationViewController {
     
     // MARK: - UI components
@@ -106,10 +108,13 @@ extension SettingVC {
             .withUnretained(self)
             .bind(onNext: { owner, menu in
                 switch menu {
-                case .privacyPolicy:
-                    print("TODO: - 개인정보처리방침")
-                case .servicePolicy:
-                    print("TODO: - 이용약관")
+                case .privacyPolicy, .servicePolicy:
+                    guard let url = URL(string: menu.urlString) else { return }
+                    let safariVC = SFSafariViewController(url: url)
+                    safariVC.preferredBarTintColor = .white
+                    safariVC.preferredControlTintColor = .black
+                    
+                    owner.present(safariVC, animated: true)
                 case .signout:
                     print("TODO: - 로그아웃")
                 case .withdrawal:

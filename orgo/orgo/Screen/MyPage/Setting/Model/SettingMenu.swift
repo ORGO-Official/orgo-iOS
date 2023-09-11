@@ -32,3 +32,17 @@ extension SettingMenu: CustomStringConvertible {
         rawValue.localized
     }
 }
+
+
+extension SettingMenu {
+    var urlString: String {
+        switch self {
+        case .privacyPolicy:
+            return "https://orgo-offical.notion.site/2b4924eb179d48c8a48793d45c13f831?pvs=4"
+        case .servicePolicy:
+            return "https://orgo-offical.notion.site/e4fd74248ca04a8096ac209be33d5464?pvs=4"
+        default:
+            return .empty
+        }
+    }
+}
