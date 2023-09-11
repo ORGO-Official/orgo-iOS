@@ -30,7 +30,7 @@ class RecordTVC: BaseTableViewCell {
             $0.spacing = 4.0
             $0.distribution = .fill
             $0.alignment = .fill
-            $0.axis = .horizontal
+            $0.axis = .vertical
         }
     
     let mountainNameLabel: UILabel = UILabel()
@@ -76,7 +76,21 @@ class RecordTVC: BaseTableViewCell {
         
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 16.0, left: 16.0, bottom: 16.0, right: 16.0))
+    }
+    
     // MARK: - Function
+    
+    // TODO: - 더미 데이터 수정
+    func configureRecord(data: RecordResponseModel) {
+        recordDateLabel.text = data.date
+        mountainNameLabel.text = data.mountainName
+        mountainHeightLabel.text = "해발 1억m"
+        countLabel.text = "1억회차"
+    }
     
 }
 
@@ -94,10 +108,11 @@ extension RecordTVC {
             infoStackView.addArrangedSubview($0)
         }
         
-        backgroundColor = ColorAssets.lightGray
+        backgroundColor = .white
+        selectionStyle = .none
+        contentView.backgroundColor = ColorAssets.lightGray
         contentView.layer.cornerRadius = 5.0
         contentView.layer.masksToBounds = true
-        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 16.0, left: 16.0, bottom: 16.0, right: 16.0))
     }
     
 }

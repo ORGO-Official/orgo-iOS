@@ -41,7 +41,7 @@ class MyPageVC: BaseViewController {
     
     let myRecordTV: UITableView = UITableView()
         .then {
-            $0.rowHeight = 80.0
+            $0.rowHeight = 116.0
             $0.backgroundColor = .white
             $0.showsVerticalScrollIndicator = false
             $0.separatorStyle = .none
@@ -73,7 +73,7 @@ class MyPageVC: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        viewModel.requestGetRecord()
     }
     
     override func configureView() {
@@ -254,15 +254,22 @@ extension MyPageVC {
         let dataSource = RxTableViewSectionedReloadDataSource<RecordDataSource> { _,
             tableView,
             indexPath,
-            searchResult in
+            record in
             
             guard let cell = tableView.dequeueReusableCell(withIdentifier: RecordTVC.className,
                                                            for: indexPath) as? RecordTVC else {
                 fatalError("Cannot dequeue Cell")
             }
             
+            cell.configureRecord(data: record)
+            
             return cell
         }
+        
+        viewModel.output.recordDataSource
+            .bind(to: myRecordTV.rx.items(dataSource: dataSource))
+            .disposed(by: bag)
+        
     }
     
 }

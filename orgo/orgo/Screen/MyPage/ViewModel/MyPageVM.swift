@@ -34,6 +34,11 @@ final class MyPageVM: BaseViewModel {
         
         var isLogoutSuccess = PublishRelay<Bool>()
         var isWithdrawalSuccess = PublishRelay<Bool>()
+        
+        var recordList = PublishRelay<Array<RecordResponseModel>>()
+        var recordDataSource: Observable<Array<RecordDataSource>> {
+            recordList.map { [RecordDataSource(items: $0)] }
+        }
     }
     
     // MARK: - Life Cycle
@@ -147,6 +152,18 @@ extension MyPageVM {
             }
         })
         .disposed(by: bag)
+    }
+    
+}
+
+
+// MARK: - Networking - Record
+
+extension MyPageVM {
+    
+    // TODO: - 더미 통신 수정
+    func requestGetRecord() {
+        output.recordList.accept([RecordResponseModel(id: 1, mountainId: 1, mountainName: "TEST", date: "2023.09.12")])
     }
     
 }
