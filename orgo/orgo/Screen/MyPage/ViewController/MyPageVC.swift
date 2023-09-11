@@ -9,6 +9,7 @@ import UIKit
 
 import RxSwift
 import RxCocoa
+import RxDataSources
 
 import Then
 import SnapKit
@@ -36,6 +37,15 @@ class MyPageVC: BaseViewController {
     let recordUpperBorder: UIView = UIView()
         .then {
             $0.backgroundColor = ColorAssets.lightGray
+        }
+    
+    let myRecordTV: UITableView = UITableView()
+        .then {
+            $0.rowHeight = 80.0
+            $0.backgroundColor = .white
+            $0.showsVerticalScrollIndicator = false
+            $0.separatorStyle = .none
+            $0.register(RecordTVC.self, forCellReuseIdentifier: RecordTVC.className)
         }
     
     let logoutBtn: UIButton = UIButton(type: .system)
@@ -88,6 +98,7 @@ class MyPageVC: BaseViewController {
         super.bindOutput()
         
         bindLogoutSuccess()
+        bindMyRecordTV()
     }
     
     // MARK: - Functions
@@ -100,7 +111,7 @@ class MyPageVC: BaseViewController {
 extension MyPageVC {
     
     private func configureInnerView() {
-        view.addSubviews([userInfoView, userInfoBottomBorder, myRecordTitle, recordUpperBorder,
+        view.addSubviews([userInfoView, userInfoBottomBorder, myRecordTitle, recordUpperBorder, myRecordTV,
                           logoutBtn,
                           withdrawalBtn])
     }
@@ -134,6 +145,12 @@ extension MyPageVC {
             $0.top.equalTo(myRecordTitle.snp.bottom).offset(16.0)
             $0.height.equalTo(1.0)
             $0.leading.trailing.equalToSuperview().inset(16.0)
+        }
+        
+        myRecordTV.snp.makeConstraints {
+            $0.top.equalTo(recordUpperBorder.snp.bottom)
+            $0.leading.trailing.equalToSuperview()
+            $0.bottom.equalTo(view.safeAreaLayoutGuide)
         }
         
         
@@ -231,6 +248,21 @@ extension MyPageVC {
                 }
             })
             .disposed(by: bag)
+    }
+    
+    private func bindMyRecordTV() {
+        let dataSource = RxTableViewSectionedReloadDataSource<RecordDataSource> { _,
+            tableView,
+            indexPath,
+            searchResult in
+            
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: RecordTVC.className,
+                                                           for: indexPath) as? RecordTVC else {
+                fatalError("Cannot dequeue Cell")
+            }
+            
+            return cell
+        }
     }
     
 }
