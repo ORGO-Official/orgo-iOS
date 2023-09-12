@@ -58,6 +58,49 @@ class ProfileSettingVC: BaseViewController {
             $0.backgroundColor = .white
         }
     
+    let profileImageBottomBorder: UIView = UIView()
+        .then {
+            $0.backgroundColor = ColorAssets.lightGray
+        }
+    
+    let userNameTitle: UILabel = UILabel()
+        .then {
+            $0.text = "사용자 이름"
+            $0.textAlignment = .left
+            $0.font = UIFont.pretendard(size: 14.0, weight: .regular)
+            $0.textColor = .black
+        }
+    
+    let userNameTextField: UITextField = UITextField()
+        .then {
+            $0.font = UIFont.pretendard(size: 14.0, weight: .regular)
+            $0.textColor = .black
+        }
+    
+    let accountTitle: UILabel = UILabel()
+        .then {
+            $0.text = "계정"
+            $0.textAlignment = .left
+            $0.font = UIFont.pretendard(size: 14.0, weight: .regular)
+            $0.textColor = .black
+        }
+    
+    let accountTextField: UITextField = UITextField()
+        .then {
+            $0.font = UIFont.pretendard(size: 14.0, weight: .regular)
+            $0.textColor = .black
+        }
+    
+    let userNameBorder: UIView = UIView()
+        .then {
+            $0.backgroundColor = ColorAssets.lightGray
+        }
+    
+    let accountBottomBorder: UIView = UIView()
+        .then {
+            $0.backgroundColor = ColorAssets.lightGray
+        }
+    
     
     // MARK: - Variables and Properties
     
@@ -99,7 +142,14 @@ extension ProfileSettingVC {
     private func configureInnerView() {
         view.addSubviews([headerView,
                           profileImageView,
-                          changeProfileImageBtn])
+                          changeProfileImageBtn,
+                          profileImageBottomBorder,
+                          userNameTitle,
+                          userNameTextField,
+                          accountTitle,
+                          accountTextField,
+                          userNameBorder,
+                          accountBottomBorder])
         
         headerView.addSubviews([cancelBtn,
                                 headerLabel,
@@ -147,6 +197,50 @@ extension ProfileSettingVC {
             $0.centerX.equalToSuperview()
             $0.width.equalTo(120.0)
             $0.height.equalTo(30.0)
+        }
+        
+        profileImageBottomBorder.snp.makeConstraints {
+            $0.top.equalTo(changeProfileImageBtn.snp.bottom).offset(24.0)
+            $0.leading.trailing.equalToSuperview()
+            $0.height.equalTo(1.0)
+        }
+        
+        userNameTitle.snp.makeConstraints {
+            $0.top.equalTo(profileImageBottomBorder.snp.bottom).offset(24.0)
+            $0.leading.equalToSuperview().offset(16.0)
+            $0.width.equalTo(72.0)
+        }
+        
+        userNameTextField.snp.makeConstraints {
+            $0.top.equalTo(userNameTitle)
+            $0.leading.equalTo(userNameTitle.snp.trailing).offset(16.0)
+            $0.trailing.equalToSuperview().offset(-16.0)
+            $0.height.equalTo(16.0)
+        }
+        
+        userNameBorder.snp.makeConstraints {
+            $0.top.equalTo(userNameTextField.snp.bottom).offset(24.0)
+            $0.leading.equalTo(userNameTextField.snp.leading)
+            $0.trailing.equalToSuperview()
+            $0.height.equalTo(1.0)
+        }
+        
+        accountTitle.snp.makeConstraints {
+            $0.top.equalTo(userNameBorder.snp.bottom).offset(24.0)
+            $0.leading.equalToSuperview().offset(16.0)
+            $0.width.equalTo(72.0)
+        }
+        
+        accountTextField.snp.makeConstraints {
+            $0.top.equalTo(accountTitle)
+            $0.leading.trailing.equalTo(userNameTextField)
+            $0.height.equalTo(16.0)
+        }
+        
+        accountBottomBorder.snp.makeConstraints {
+            $0.top.equalTo(accountTitle.snp.bottom).offset(24.0)
+            $0.leading.trailing.equalToSuperview()
+            $0.height.equalTo(1.0)
         }
     }
     
