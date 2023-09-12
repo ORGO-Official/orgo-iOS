@@ -42,6 +42,22 @@ class ProfileSettingVC: BaseViewController {
             $0.backgroundColor = .white
         }
     
+    let profileImageView: UIImageView = UIImageView()
+        .then {
+            $0.image = ImageAssets.mountainMarker
+            $0.contentMode = .scaleAspectFill
+            $0.layer.cornerRadius = 34.0
+            $0.layer.masksToBounds = true
+        }
+    
+    let changeProfileImageBtn: UIButton = UIButton(type: .system)
+        .then {
+            $0.titleLabel?.font = UIFont.pretendard(size: 13.0, weight: .regular)
+            $0.setTitle("프로필 사진 수정", for: .normal)
+            $0.setTitleColor(.systemBlue, for: .normal)
+            $0.backgroundColor = .white
+        }
+    
     
     // MARK: - Variables and Properties
     
@@ -81,7 +97,10 @@ class ProfileSettingVC: BaseViewController {
 extension ProfileSettingVC {
     
     private func configureInnerView() {
-        view.addSubviews([headerView])
+        view.addSubviews([headerView,
+                          profileImageView,
+                          changeProfileImageBtn])
+        
         headerView.addSubviews([cancelBtn,
                                 headerLabel,
                                 confirmBtn])
@@ -116,6 +135,19 @@ extension ProfileSettingVC {
             $0.trailing.equalToSuperview().offset(-16.0)
             $0.width.equalTo(confirmBtn.snp.height)
         }
+        
+        profileImageView.snp.makeConstraints {
+            $0.top.equalTo(headerView.snp.bottom).offset(40.0)
+            $0.centerX.equalToSuperview()
+            $0.width.height.equalTo(profileImageView.layer.cornerRadius * 2)
+        }
+        
+        changeProfileImageBtn.snp.makeConstraints {
+            $0.top.equalTo(profileImageView.snp.bottom).offset(8.0)
+            $0.centerX.equalToSuperview()
+            $0.width.equalTo(120.0)
+            $0.height.equalTo(30.0)
+        }
     }
     
 }
@@ -130,6 +162,20 @@ extension ProfileSettingVC {
             .withUnretained(self)
             .bind(onNext: { owner, _ in
                 owner.dismiss(animated: true)
+            })
+            .disposed(by: bag)
+        
+        confirmBtn.rx.tap
+            .withUnretained(self)
+            .bind(onNext: { owner, _ in
+                print("TODO: - 프로필 수정 API 호출")
+            })
+            .disposed(by: bag)
+        
+        changeProfileImageBtn.rx.tap
+            .withUnretained(self)
+            .bind(onNext: { owner, _ in
+                print("TODO: - 프로필 사진 수정")
             })
             .disposed(by: bag)
     }
