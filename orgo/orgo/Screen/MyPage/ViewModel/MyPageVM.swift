@@ -35,6 +35,8 @@ final class MyPageVM: BaseViewModel {
         var isLogoutSuccess = PublishRelay<Bool>()
         var isWithdrawalSuccess = PublishRelay<Bool>()
         
+        var userInfo = PublishRelay<UserInfoResponseModel>()
+        
         var recordList = PublishRelay<RecordListResponseModel>()
         var recordDataSource: Observable<Array<RecordDataSource>> {
             recordList
@@ -176,6 +178,31 @@ extension MyPageVM {
                 case .success(let data):
                     owner.output.recordList.accept(data)
                     owner.output.totalRecord.accept((data.climbedAltitude, data.climbingCnt))
+                case .failure(let error):
+                    owner.apiError.onNext(error)
+                }
+            })
+            .disposed(by: bag)
+    }
+    
+}
+
+
+// MARK: - Networking - User Info
+
+extension MyPageVM {
+    
+    /// 유저 프로필 조회 요청
+    func requestGetUserInfo() {
+        let path = "/api/users/profile"
+        let resource = URLResource<UserInfoResponseModel>(path: path)
+        
+        apiSession.requestGet(urlResource: resource)
+            .withUnretained(self)
+            .subscribe(onNext: { owner, result in
+                switch result {
+                case .success(let data):
+                    owner.output.userInfo.accept(data)
                 case .failure(let error):
                     owner.apiError.onNext(error)
                 }

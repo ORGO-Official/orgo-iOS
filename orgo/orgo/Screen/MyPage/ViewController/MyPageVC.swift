@@ -65,6 +65,7 @@ class MyPageVC: BaseViewController {
         super.viewWillAppear(animated)
         
         viewModel.requestGetRecord()
+        viewModel.requestGetUserInfo()
     }
     
     override func configureView() {
@@ -90,6 +91,7 @@ class MyPageVC: BaseViewController {
         
         bindMyRecordTV()
         bindTotalRecord()
+        bindUserInfo()
     }
     
     // MARK: - Functions
@@ -210,6 +212,15 @@ extension MyPageVC {
             .withUnretained(self)
             .subscribe { owner, totalRecord in
                 owner.userInfoView.setTotalRecord(altitude: totalRecord.0, count: totalRecord.1)
+            }
+            .disposed(by: bag)
+    }
+    
+    private func bindUserInfo() {
+        viewModel.output.userInfo
+            .withUnretained(self)
+            .subscribe { owner, userInfo in
+                owner.userInfoView.setUserInfo(data: userInfo)
             }
             .disposed(by: bag)
     }

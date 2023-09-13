@@ -42,7 +42,6 @@ class UserInfoView: BaseView {
     
     let profileImageView: UIImageView = UIImageView()
         .then {
-            $0.image = ImageAssets.mountainMarker
             $0.contentMode = .scaleAspectFill
             $0.layer.cornerRadius = 34.0
             $0.layer.masksToBounds = true
@@ -104,6 +103,12 @@ class UserInfoView: BaseView {
         totalCountLabel.text = "\(count)회"
     }
     
+    /// 유저 정보 설정
+    func setUserInfo(data: UserInfoResponseModel) {
+        userNameLabel.text = data.nickname
+        profileImageView.setImage(with: data.profileImage)
+    }
+    
 }
 
 
@@ -135,11 +140,11 @@ extension UserInfoView {
         userNameLabel.snp.makeConstraints {
             $0.top.equalToSuperview()
             $0.leading.equalToSuperview().offset(8.0)
-            $0.height.equalTo(20.0)
+            $0.height.equalTo(24.0)
         }
         
         profileSettingBtn.snp.makeConstraints {
-            $0.top.equalToSuperview()
+            $0.centerY.equalTo(userNameLabel)
             $0.leading.equalTo(userNameLabel.snp.trailing).offset(12.0)
             $0.height.equalTo(20.0)
             $0.width.equalTo(110.0)
@@ -163,7 +168,7 @@ extension UserInfoView {
         
         totalHeightLabel.snp.makeConstraints {
             $0.centerX.equalTo(totalHeightTitle.snp.centerX)
-            $0.top.equalTo(totalHeightTitle.snp.bottom).offset(10.0)
+            $0.top.equalTo(totalHeightTitle.snp.bottom).offset(8.0)
         }
         
         totalCountTitle.snp.makeConstraints {
@@ -173,7 +178,7 @@ extension UserInfoView {
         
         totalCountLabel.snp.makeConstraints {
             $0.centerX.equalTo(totalCountTitle.snp.centerX)
-            $0.top.equalTo(totalCountTitle.snp.bottom).offset(10.0)
+            $0.top.equalTo(totalCountTitle.snp.bottom).offset(8.0)
         }
         
     }
