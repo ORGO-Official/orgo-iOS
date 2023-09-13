@@ -90,6 +90,7 @@ class ProfileSettingVC: BaseViewController {
         .then {
             $0.font = UIFont.pretendard(size: 14.0, weight: .regular)
             $0.textColor = .black
+            $0.isEnabled = false
         }
     
     let userNameBorder: UIView = UIView()
@@ -106,6 +107,7 @@ class ProfileSettingVC: BaseViewController {
     // MARK: - Variables and Properties
     
     private let imagePicker: UIImagePickerController = UIImagePickerController()
+    private let viewModel: ProfileSettingVM = ProfileSettingVM()
     
     
     // MARK: - Life Cycle
@@ -131,6 +133,12 @@ class ProfileSettingVC: BaseViewController {
         super.bindInput()
         
         bindBtn()
+    }
+    
+    override func bindOutput() {
+        super.bindOutput()
+        
+        bindModifySuccess()
     }
     
     // MARK: - Functions
@@ -315,7 +323,15 @@ extension ProfileSettingVC {
         confirmBtn.rx.tap
             .withUnretained(self)
             .bind(onNext: { owner, _ in
-                print("TODO: - 프로필 수정 API 호출")
+                if let nickname = owner.userNameTextField.text,
+                   let email = owner.accountTextField.text,
+                   let profileImage = owner.profileImageView.image {
+                    owner.viewModel.requestPutUserInfo(nickname: nickname,
+                                                       email: email,
+                                                       profileImage: profileImage)
+                } else {
+                    owner.showErrorAlert("입력한 정보를 다시 확인해주세요.")
+                }
             })
             .disposed(by: bag)
         
@@ -323,6 +339,28 @@ extension ProfileSettingVC {
             .withUnretained(self)
             .bind(onNext: { owner, _ in
                 owner.openImagePicker()
+            })
+            .disposed(by: bag)
+    }
+    
+}
+
+
+// MARK: - Output
+
+extension ProfileSettingVC {
+    
+    private func bindModifySuccess() {
+        viewModel.output.isModifySuccess
+            .asDriver(onErrorJustReturn: false)
+            .drive(onNext: { [weak self] isModifySuccess in
+                guard let self = self else { return }
+                
+                if isModifySuccess {
+                    self.dismiss(animated: true)
+                } else {
+                    self.showErrorAlert("프로필 수정에 실패했습니다.")
+                }
             })
             .disposed(by: bag)
     }
