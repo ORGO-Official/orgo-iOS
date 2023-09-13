@@ -64,6 +64,8 @@ class SettingVC: BaseNavigationViewController {
         super.bindOutput()
         
         bindSettingMenuTV()
+        bindLogoutSuccess()
+        bindWithdrawalSuccess()
     }
     
     // MARK: - Functions
@@ -116,9 +118,37 @@ extension SettingVC {
                     
                     owner.present(safariVC, animated: true)
                 case .signout:
-                    print("TODO: - 로그아웃")
+                    let alert = UIAlertController(title: .empty,
+                                                  message: "정말 로그아웃 하시겠어요?",
+                                                  preferredStyle: .actionSheet)
+                    
+                    let defaultAction = UIAlertAction(title: "예", style: .default) { _ in
+                        owner.viewModel.requestLogout()
+                    }
+                    
+                    let cancelAction = UIAlertAction(title: "아니오", style: .cancel)
+                    
+                    [defaultAction, cancelAction].forEach {
+                        alert.addAction($0)
+                    }
+                    
+                    owner.present(alert, animated: true)
                 case .withdrawal:
-                    print("TODO: - 회원탈퇴")
+                    let alert = UIAlertController(title: .empty,
+                                                  message: "정말 회원탈퇴 하시겠어요?",
+                                                  preferredStyle: .actionSheet)
+                    
+                    let defaultAction = UIAlertAction(title: "예", style: .default) { _ in
+                        owner.viewModel.requestWithdrawal()
+                    }
+                    
+                    let cancelAction = UIAlertAction(title: "아니오", style: .cancel)
+                    
+                    [defaultAction, cancelAction].forEach {
+                        alert.addAction($0)
+                    }
+                    
+                    owner.present(alert, animated: true)
                 }
             })
             .disposed(by: bag)
@@ -158,4 +188,35 @@ extension SettingVC {
             .disposed(by: bag)
     }
     
+    /// 로그아웃 성공 감지
+    private func bindLogoutSuccess() {
+        viewModel.output.isLogoutSuccess
+            .asDriver(onErrorJustReturn: false)
+            .drive(onNext: { [weak self] isLogoutSuccess in
+                guard let self = self else { return }
+                
+                if isLogoutSuccess {
+                    (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootVCToLogin()
+                } else {
+                    self.showErrorAlert("로그아웃 실패")
+                }
+            })
+            .disposed(by: bag)
+    }
+    
+    /// 회원탈퇴 성공 감지
+    private func bindWithdrawalSuccess() {
+        viewModel.output.isWithdrawalSuccess
+            .asDriver(onErrorJustReturn: false)
+            .drive(onNext: { [weak self] isWithdrawalSuccess in
+                guard let self = self else { return }
+                
+                if isWithdrawalSuccess {
+                    (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootVCToLogin()
+                } else {
+                    self.showErrorAlert("회원탈퇴 실패")
+                }
+            })
+            .disposed(by: bag)
+    }
 }
