@@ -35,7 +35,11 @@ final class MyPageVM: BaseViewModel {
         var isLogoutSuccess = PublishRelay<Bool>()
         var isWithdrawalSuccess = PublishRelay<Bool>()
         
-        var userInfo = PublishRelay<UserInfoResponseModel>()
+        var userInfo = BehaviorRelay<UserInfoResponseModel>(value: UserInfoResponseModel(id: 0,
+                                                                                         nickname: .empty,
+                                                                                         email: .empty,
+                                                                                         profileImage: .empty,
+                                                                                         loginType: .empty))
         
         var recordList = PublishRelay<RecordListResponseModel>()
         var recordDataSource: Observable<Array<RecordDataSource>> {

@@ -132,6 +132,12 @@ class ProfileSettingVC: BaseViewController {
     
     // MARK: - Functions
     
+    func setUserInfo(data: UserInfoResponseModel) {
+        userNameTextField.text = data.nickname
+        accountTextField.text = data.email
+        profileImageView.setImage(with: data.profileImage)
+    }
+    
 }
 
 

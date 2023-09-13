@@ -171,6 +171,7 @@ extension MyPageVC {
             .bind(onNext: { owner, _ in
                 let profileSettingVC = ProfileSettingVC()
                 
+                profileSettingVC.setUserInfo(data: owner.viewModel.output.userInfo.value)
                 profileSettingVC.modalPresentationStyle = .fullScreen
                 
                 owner.present(profileSettingVC, animated: true)
