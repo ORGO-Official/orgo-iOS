@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Photos
 
 import RxSwift
 import RxCocoa
@@ -104,6 +105,8 @@ class ProfileSettingVC: BaseViewController {
     
     // MARK: - Variables and Properties
     
+    private let imagePicker: UIImagePickerController = UIImagePickerController()
+    
     
     // MARK: - Life Cycle
     
@@ -160,6 +163,8 @@ extension ProfileSettingVC {
         headerView.addSubviews([cancelBtn,
                                 headerLabel,
                                 confirmBtn])
+        
+        imagePicker.delegate = self
     }
     
 }
@@ -253,6 +258,48 @@ extension ProfileSettingVC {
 }
 
 
+// MARK: - Methods
+
+extension ProfileSettingVC {
+    
+    private func openImagePicker() {
+        let status = PHPhotoLibrary.authorizationStatus()
+        
+        switch status {
+        case .authorized:
+            imagePicker.sourceType = .photoLibrary
+            present(imagePicker, animated: true)
+        case .notDetermined:
+            PHPhotoLibrary.requestAuthorization(for: .readWrite) { [weak self] state in
+                guard let self = self else { return }
+                
+                if state == .authorized {
+                    DispatchQueue.main.async {
+                        self.imagePicker.sourceType = .photoLibrary
+                        self.present(self.imagePicker, animated: true)
+                    }
+                }
+            }
+        default:
+            openSetting()
+        }
+    }
+    
+    private func openSetting() {
+        let alert = UIAlertController(title: "설정", message: "앨범 접근이 허용되어 있지 않습니다. \r\n 설정화면으로 이동하시겠습니까?", preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "취소", style: .cancel)
+        let confirm = UIAlertAction(title: "이동", style: .default) { _ in
+            UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+        }
+        
+        alert.addAction(cancel)
+        alert.addAction(confirm)
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
+}
+
 // MARK: - Input
 
 extension ProfileSettingVC {
@@ -275,9 +322,25 @@ extension ProfileSettingVC {
         changeProfileImageBtn.rx.tap
             .withUnretained(self)
             .bind(onNext: { owner, _ in
-                print("TODO: - 프로필 사진 수정")
+                owner.openImagePicker()
             })
             .disposed(by: bag)
+    }
+    
+}
+
+
+// MARK: - Image Picker Delegate
+
+extension ProfileSettingVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let selectImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            let resizeImage = selectImage.resize(to: 300)
+            profileImageView.image = resizeImage
+        }
+        
+        picker.dismiss(animated: true)
     }
     
 }
