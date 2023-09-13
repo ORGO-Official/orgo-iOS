@@ -59,6 +59,11 @@ class MyPageVC: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         viewModel.requestGetRecord()
     }
     
@@ -84,6 +89,7 @@ class MyPageVC: BaseViewController {
         super.bindOutput()
         
         bindMyRecordTV()
+        bindTotalRecord()
     }
     
     // MARK: - Functions
@@ -197,6 +203,15 @@ extension MyPageVC {
             .bind(to: myRecordTV.rx.items(dataSource: dataSource))
             .disposed(by: bag)
         
+    }
+    
+    private func bindTotalRecord() {
+        viewModel.output.totalRecord
+            .withUnretained(self)
+            .subscribe { owner, totalRecord in
+                owner.userInfoView.setTotalRecord(altitude: totalRecord.0, count: totalRecord.1)
+            }
+            .disposed(by: bag)
     }
     
 }

@@ -12,7 +12,7 @@ struct RecordDataSource {
 }
 
 extension RecordDataSource: SectionModelType {
-    typealias Item = RecordResponseModel
+    typealias Item = ClimbingRecord
     
     init(original: RecordDataSource, items: [Item]) {
         self = original

@@ -98,6 +98,12 @@ class UserInfoView: BaseView {
     
     // MARK: - Functions
     
+    /// 총 고도, 완등 횟수 설정
+    func setTotalRecord(altitude: Double, count: Int) {
+        totalHeightLabel.text = "\(altitude)m"
+        totalCountLabel.text = "\(count)회"
+    }
+    
 }
 
 

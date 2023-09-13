@@ -85,11 +85,11 @@ class RecordTVC: BaseTableViewCell {
     // MARK: - Function
     
     // TODO: - 더미 데이터 수정
-    func configureRecord(data: RecordResponseModel) {
+    func configureRecord(data: ClimbingRecord) {
         recordDateLabel.text = data.date
         mountainNameLabel.text = data.mountainName
-        mountainHeightLabel.text = "해발 1억m"
-        countLabel.text = "1억회차"
+        mountainHeightLabel.text = "\(data.altitude)m"
+        countLabel.text = "\(data.climbingOrder)회차"
     }
     
 }
