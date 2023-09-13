@@ -35,10 +35,19 @@ final class MyPageVM: BaseViewModel {
         var isLogoutSuccess = PublishRelay<Bool>()
         var isWithdrawalSuccess = PublishRelay<Bool>()
         
-        var recordList = PublishRelay<Array<RecordResponseModel>>()
+        var userInfo = BehaviorRelay<UserInfoResponseModel>(value: UserInfoResponseModel(id: 0,
+                                                                                         nickname: .empty,
+                                                                                         email: .empty,
+                                                                                         profileImage: .empty,
+                                                                                         loginType: .empty))
+        
+        var recordList = PublishRelay<RecordListResponseModel>()
         var recordDataSource: Observable<Array<RecordDataSource>> {
-            recordList.map { [RecordDataSource(items: $0)] }
+            recordList
+                .map({ $0.climbingRecordDtoList })
+                .map({ [RecordDataSource(items: $0)] })
         }
+        var totalRecord = BehaviorRelay(value: (0.0, 0))
     }
     
     // MARK: - Life Cycle
@@ -161,9 +170,48 @@ extension MyPageVM {
 
 extension MyPageVM {
     
-    // TODO: - 더미 통신 수정
+    /// 완등 기록 조회 요청
     func requestGetRecord() {
-        output.recordList.accept([RecordResponseModel(id: 1, mountainId: 1, mountainName: "TEST", date: "2023.09.12")])
+        let path = "/api/climbing-records"
+        let resource = URLResource<RecordListResponseModel>(path: path)
+        
+        apiSession.requestGet(urlResource: resource)
+            .withUnretained(self)
+            .subscribe(onNext: { owner, result in
+                switch result {
+                case .success(let data):
+                    owner.output.recordList.accept(data)
+                    owner.output.totalRecord.accept((data.climbedAltitude, data.climbingCnt))
+                case .failure(let error):
+                    owner.apiError.onNext(error)
+                }
+            })
+            .disposed(by: bag)
+    }
+    
+}
+
+
+// MARK: - Networking - User Info
+
+extension MyPageVM {
+    
+    /// 유저 프로필 조회 요청
+    func requestGetUserInfo() {
+        let path = "/api/users/profile"
+        let resource = URLResource<UserInfoResponseModel>(path: path)
+        
+        apiSession.requestGet(urlResource: resource)
+            .withUnretained(self)
+            .subscribe(onNext: { owner, result in
+                switch result {
+                case .success(let data):
+                    owner.output.userInfo.accept(data)
+                case .failure(let error):
+                    owner.apiError.onNext(error)
+                }
+            })
+            .disposed(by: bag)
     }
     
 }

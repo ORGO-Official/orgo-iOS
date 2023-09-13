@@ -57,7 +57,7 @@ extension UIViewController {
         let alertController = UIAlertController(title: "Error",
                                                 message: message,
                                                 preferredStyle: .alert)
-        let action = UIAlertAction(title: "Confirm",
+        let action = UIAlertAction(title: "확인",
                                    style: .default)
         alertController.addAction(action)
         

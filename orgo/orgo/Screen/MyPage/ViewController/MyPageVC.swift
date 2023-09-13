@@ -48,20 +48,6 @@ class MyPageVC: BaseViewController {
             $0.register(RecordTVC.self, forCellReuseIdentifier: RecordTVC.className)
         }
     
-    let logoutBtn: UIButton = UIButton(type: .system)
-        .then {
-            $0.setTitle("로그아웃", for: .normal)
-            $0.backgroundColor = .black
-            $0.setTitleColor(.white, for: .normal)
-        }
-    
-    let withdrawalBtn: UIButton = UIButton(type: .system)
-        .then {
-            $0.setTitle("회원탈퇴", for: .normal)
-            $0.backgroundColor = .black
-            $0.setTitleColor(.white, for: .normal)
-        }
-    
     
     // MARK: - Variables and Properties
     
@@ -73,7 +59,13 @@ class MyPageVC: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         viewModel.requestGetRecord()
+        viewModel.requestGetUserInfo()
     }
     
     override func configureView() {
@@ -97,8 +89,9 @@ class MyPageVC: BaseViewController {
     override func bindOutput() {
         super.bindOutput()
         
-        bindLogoutSuccess()
         bindMyRecordTV()
+        bindTotalRecord()
+        bindUserInfo()
     }
     
     // MARK: - Functions
@@ -111,9 +104,11 @@ class MyPageVC: BaseViewController {
 extension MyPageVC {
     
     private func configureInnerView() {
-        view.addSubviews([userInfoView, userInfoBottomBorder, myRecordTitle, recordUpperBorder, myRecordTV,
-                          logoutBtn,
-                          withdrawalBtn])
+        view.addSubviews([userInfoView,
+                          userInfoBottomBorder,
+                          myRecordTitle,
+                          recordUpperBorder,
+                          myRecordTV])
     }
     
 }
@@ -152,21 +147,6 @@ extension MyPageVC {
             $0.leading.trailing.equalToSuperview()
             $0.bottom.equalTo(view.safeAreaLayoutGuide)
         }
-        
-        
-        logoutBtn.snp.makeConstraints {
-            $0.centerX.equalToSuperview()
-            $0.leading.trailing.equalToSuperview().inset(50.0)
-            $0.bottom.equalToSuperview().offset(-100.0)
-            $0.height.equalTo(50.0)
-        }
-        
-        withdrawalBtn.snp.makeConstraints {
-            $0.centerX.equalToSuperview()
-            $0.leading.trailing.equalToSuperview().inset(50.0)
-            $0.bottom.equalTo(logoutBtn.snp.top).offset(-10.0)
-            $0.height.equalTo(50.0)
-        }
     }
     
 }
@@ -177,22 +157,6 @@ extension MyPageVC {
 extension MyPageVC {
     
     private func bindBtn() {
-        logoutBtn.rx.tap
-            .bind(onNext: { [weak self] _ in
-                guard let self = self else { return }
-                
-                self.viewModel.requestLogout()
-            })
-            .disposed(by: bag)
-        
-        withdrawalBtn.rx.tap
-            .bind(onNext: { [weak self] _ in
-                guard let self = self else { return }
-                
-                self.viewModel.requestWithdrawal()
-            })
-            .disposed(by: bag)
-        
         userInfoView.settingBtn.rx.tap
             .withUnretained(self)
             .bind(onNext: { owner, _ in
@@ -207,6 +171,7 @@ extension MyPageVC {
             .bind(onNext: { owner, _ in
                 let profileSettingVC = ProfileSettingVC()
                 
+                profileSettingVC.setUserInfo(data: owner.viewModel.output.userInfo.value)
                 profileSettingVC.modalPresentationStyle = .fullScreen
                 
                 owner.present(profileSettingVC, animated: true)
@@ -220,35 +185,6 @@ extension MyPageVC {
 // MARK: - Output
 
 extension MyPageVC {
-    
-    /// 로그아우 성공 감지
-    private func bindLogoutSuccess() {
-        viewModel.output.isLogoutSuccess
-            .asDriver(onErrorJustReturn: false)
-            .drive(onNext: { [weak self] isLogoutSuccess in
-                guard let self = self else { return }
-                
-                if isLogoutSuccess {
-                    (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootVCToLogin()
-                } else {
-                    self.showErrorAlert("로그아웃 실패")
-                }
-            })
-            .disposed(by: bag)
-        
-        viewModel.output.isWithdrawalSuccess
-            .asDriver(onErrorJustReturn: false)
-            .drive(onNext: { [weak self] isWithdrawalSuccess in
-                guard let self = self else { return }
-                
-                if isWithdrawalSuccess {
-                    (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootVCToLogin()
-                } else {
-                    self.showErrorAlert("회원탈퇴 실패")
-                }
-            })
-            .disposed(by: bag)
-    }
     
     private func bindMyRecordTV() {
         let dataSource = RxTableViewSectionedReloadDataSource<RecordDataSource> { _,
@@ -270,6 +206,24 @@ extension MyPageVC {
             .bind(to: myRecordTV.rx.items(dataSource: dataSource))
             .disposed(by: bag)
         
+    }
+    
+    private func bindTotalRecord() {
+        viewModel.output.totalRecord
+            .withUnretained(self)
+            .subscribe { owner, totalRecord in
+                owner.userInfoView.setTotalRecord(altitude: totalRecord.0, count: totalRecord.1)
+            }
+            .disposed(by: bag)
+    }
+    
+    private func bindUserInfo() {
+        viewModel.output.userInfo
+            .withUnretained(self)
+            .subscribe { owner, userInfo in
+                owner.userInfoView.setUserInfo(data: userInfo)
+            }
+            .disposed(by: bag)
     }
     
 }
