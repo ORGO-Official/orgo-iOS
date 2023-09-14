@@ -121,8 +121,8 @@ extension HomeVC {
             .filter({ !$0.isEmpty })
             .withUnretained(self)
             .subscribe { owner, mountainList in
-                for (id, mountainInfo) in mountainList.enumerated() {
-                    owner.createMarker(id: id, location: mountainInfo.location)
+                mountainList.forEach { mountainInfo in
+                    owner.createMarker(by: mountainInfo)
                 }
             }
             .disposed(by: bag)
@@ -166,14 +166,31 @@ extension HomeVC: MTMapViewDelegate {
 
 extension HomeVC {
     
-    private func createMarker(id: Int, location: Location) {
+    private func createMarker(by mountainInfo: MountainListResponseModel) {
         let markerPoiItem = MTMapPOIItem()
         markerPoiItem.markerType = .customImage
-        markerPoiItem.mapPoint = .init(geoCoord: .init(latitude: location.latitude, longitude: location.longitude))
-        markerPoiItem.customImageName = "MountainMarker"
-        markerPoiItem.tag = id
+        markerPoiItem.mapPoint = .init(geoCoord: .init(latitude: mountainInfo.location.latitude,
+                                                       longitude: mountainInfo.location.longitude))
+        markerPoiItem.customImage = getMarkerImage(from: mountainInfo.location.altitude)
+        markerPoiItem.tag = mountainInfo.id - 1
         
         mapView.addPOIItems([markerPoiItem])
+    }
+    
+    private func getMarkerImage(from altitude: Double) -> UIImage? {
+        if (200..<400) ~= altitude {
+            return ImageAssets.mountain200Marker
+        }
+        
+        if (400..<600) ~= altitude {
+            return ImageAssets.mountain400Marker
+        }
+        
+        if (600..<800) ~= altitude {
+            return ImageAssets.mountain600Marker
+        }
+        
+        return ImageAssets.mountain800Marker
     }
     
 }
