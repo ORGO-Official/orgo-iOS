@@ -103,7 +103,7 @@ extension HomeVC {
         }
         
         searchView.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide).offset(60.0)
+            $0.top.equalToSuperview().offset(60.0)
             $0.leading.trailing.equalToSuperview().inset(16.0)
             $0.height.equalTo(44.0)
         }
