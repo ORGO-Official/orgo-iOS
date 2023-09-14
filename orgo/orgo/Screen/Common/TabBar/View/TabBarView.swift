@@ -16,7 +16,7 @@ class TabBarView: BaseView {
     
     private let borderView = BaseView()
         .then {
-            $0.backgroundColor = .gray
+            $0.backgroundColor = ColorAssets.lightGray
         }
     
     /// 탭 바 버튼 들어가는 스택뷰

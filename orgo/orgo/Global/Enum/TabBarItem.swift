@@ -22,12 +22,21 @@ extension TabBarItem: CaseIterable {}
 
 extension TabBarItem {
     
-    var iconImage: UIImage? {
+    var selectedImage: UIImage? {
         switch self {
         case .home:
-            return UIImage(systemName: "house")
+            return ImageAssets.selectedHouse
         case .myPage:
-            return UIImage(systemName: "person")
+            return ImageAssets.selectedUser
+        }
+    }
+    
+    var unselectedImage: UIImage? {
+        switch self {
+        case .home:
+            return ImageAssets.unselectedHouse
+        case .myPage:
+            return ImageAssets.unselectedUser
         }
     }
     
