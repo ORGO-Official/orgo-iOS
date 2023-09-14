@@ -23,6 +23,8 @@ enum ImageAssets {
     static let selectedUser = UIImage(named: "SelectedUser")?.withRenderingMode(.alwaysOriginal)
     static let unselectedUser = UIImage(named: "UnselectedUser")?.withRenderingMode(.alwaysOriginal)
     
+    static let backButton = UIImage(named: "BackButton")?.withRenderingMode(.alwaysOriginal)
+    
     static let mountainMarker = UIImage(named: "MountainMarker")?.withRenderingMode(.alwaysOriginal)
     
     static let location = UIImage(named: "Location")?.withRenderingMode(.alwaysOriginal)

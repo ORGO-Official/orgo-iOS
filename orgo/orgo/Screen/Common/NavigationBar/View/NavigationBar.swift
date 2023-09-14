@@ -18,12 +18,13 @@ class NavigationBar: UIView {
         .then {
             $0.font = UIFont.pretendard(size: 20.0, weight: .medium)
             $0.textColor = .black
+            $0.textAlignment = .center
         }
     
     let leftBtn: UIButton = UIButton(type: .system)
         .then {
             $0.tintColor = .black
-            $0.setImage(UIImage(systemName: "chevron.left"), for: .normal)
+            $0.setImage(ImageAssets.backButton, for: .normal)
         }
     
     let rightBtn: UIButton = UIButton(type: .system)
@@ -89,24 +90,18 @@ class NavigationBar: UIView {
     // MARK: - Functions
     
     func updateVisability() {
-        [leftBtn, rightBtn].forEach { $0.isHidden = false }
-        
-        var inset = UIEdgeInsets(top: .zero, left: .zero, bottom: .zero, right: .zero)
-        
+        [leftBtn, rightBtn].forEach { $0.alpha = 1.0 }
+                
         switch style {
         case .default:
-            leftBtn.isHidden = true
-            rightBtn.isHidden = true
-            inset.left = 20.0
+            leftBtn.alpha = 0.0
+            rightBtn.alpha = 0.0
         case .left:
-            rightBtn.isHidden = true
+            rightBtn.alpha = 0.0
         case .right:
-            leftBtn.isHidden = true
-            inset.left = 20.0
+            leftBtn.alpha = 0.0
         }
         
-        contentStackView.layoutMargins = inset
-        contentStackView.isLayoutMarginsRelativeArrangement = true
     }
     
 }
@@ -145,8 +140,10 @@ extension NavigationBar {
             contentStackView.addArrangedSubview($0)
         }
         
-        leftBtn.snp.makeConstraints {
-            $0.width.equalTo(leftBtn.snp.height)
+        [leftBtn, rightBtn].forEach {
+            $0.snp.makeConstraints {
+                $0.width.equalTo(leftBtn.snp.height)
+            }
         }
         
         borderStackView.addArrangedSubview(borderView)
