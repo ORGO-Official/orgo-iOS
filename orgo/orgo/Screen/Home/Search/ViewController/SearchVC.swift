@@ -96,7 +96,7 @@ extension SearchVC {
     
     private func configureLayout() {
         searchField.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide).offset(60.0)
+            $0.top.equalToSuperview().offset(60.0)
             $0.leading.trailing.equalToSuperview().inset(8.0)
             $0.height.equalTo(44.0)
         }
