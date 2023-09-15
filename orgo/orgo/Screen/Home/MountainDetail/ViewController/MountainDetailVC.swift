@@ -162,8 +162,9 @@ extension MountainDetailVC {
         }
         
         restaurantCV.snp.makeConstraints {
-            $0.top.equalTo(lowerBorder.snp.bottom).offset(12.0)
-            $0.bottom.leading.trailing.equalToSuperview()
+            $0.top.equalTo(lowerBorder.snp.bottom).offset(16.0)
+            $0.leading.trailing.equalToSuperview()
+            $0.height.equalTo((screenWidth - 80.0) / 5 + 20.0)
         }
         
     }
