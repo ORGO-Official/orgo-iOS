@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E0137A42AB455D6003C4A17 /* IconInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0137A32AB455D6003C4A17 /* IconInfoView.swift */; };
 		0E502B552A8E7079002C71F2 /* OrgoBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E502B542A8E7079002C71F2 /* OrgoBottomSheet.swift */; };
 		0E502B582A8E8204002C71F2 /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E502B572A8E8204002C71F2 /* HomeVM.swift */; };
 		0E502B5B2A8E82A3002C71F2 /* MountainListResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E502B5A2A8E82A3002C71F2 /* MountainListResponseModel.swift */; };
@@ -125,6 +126,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E0137A32AB455D6003C4A17 /* IconInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconInfoView.swift; sourceTree = "<group>"; };
 		0E502B542A8E7079002C71F2 /* OrgoBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrgoBottomSheet.swift; sourceTree = "<group>"; };
 		0E502B572A8E8204002C71F2 /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
 		0E502B5A2A8E82A3002C71F2 /* MountainListResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainListResponseModel.swift; sourceTree = "<group>"; };
@@ -360,6 +362,7 @@
 			isa = PBXGroup;
 			children = (
 				0E502B852A9B9D2A002C71F2 /* MountainDetailInfoView.swift */,
+				0E0137A32AB455D6003C4A17 /* IconInfoView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1103,6 +1106,7 @@
 				0E9B773D2A8BF25E00F2117B /* UpdateTokenResponseModel.swift in Sources */,
 				0E57C1652A8BBC4300BFF482 /* OrgoTabBarVC.swift in Sources */,
 				0EB416072AB21651008F42EC /* ProfileSettingVM.swift in Sources */,
+				0E0137A42AB455D6003C4A17 /* IconInfoView.swift in Sources */,
 				0E9B774A2A8C765200F2117B /* EmptyResponseModel.swift in Sources */,
 				0EB4159F2AA8DCC4008F42EC /* UserInfoView.swift in Sources */,
 				0E502B832A9B4193002C71F2 /* ColorAssets.swift in Sources */,
