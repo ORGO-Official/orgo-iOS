@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0E0137A42AB455D6003C4A17 /* IconInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0137A32AB455D6003C4A17 /* IconInfoCell.swift */; };
+		0E0137A62AB463EB003C4A17 /* IconInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0137A52AB463EB003C4A17 /* IconInfoView.swift */; };
 		0E502B552A8E7079002C71F2 /* OrgoBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E502B542A8E7079002C71F2 /* OrgoBottomSheet.swift */; };
 		0E502B582A8E8204002C71F2 /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E502B572A8E8204002C71F2 /* HomeVM.swift */; };
 		0E502B5B2A8E82A3002C71F2 /* MountainListResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E502B5A2A8E82A3002C71F2 /* MountainListResponseModel.swift */; };
@@ -127,6 +128,7 @@
 
 /* Begin PBXFileReference section */
 		0E0137A32AB455D6003C4A17 /* IconInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconInfoCell.swift; sourceTree = "<group>"; };
+		0E0137A52AB463EB003C4A17 /* IconInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconInfoView.swift; sourceTree = "<group>"; };
 		0E502B542A8E7079002C71F2 /* OrgoBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrgoBottomSheet.swift; sourceTree = "<group>"; };
 		0E502B572A8E8204002C71F2 /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
 		0E502B5A2A8E82A3002C71F2 /* MountainListResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainListResponseModel.swift; sourceTree = "<group>"; };
@@ -363,6 +365,7 @@
 			children = (
 				0E502B852A9B9D2A002C71F2 /* MountainDetailInfoView.swift */,
 				0E0137A32AB455D6003C4A17 /* IconInfoCell.swift */,
+				0E0137A52AB463EB003C4A17 /* IconInfoView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1078,6 +1081,7 @@
 				0E9B773A2A8BF1AE00F2117B /* APIToken.swift in Sources */,
 				0E5947FD2AA4C219003C6C7D /* SearchView.swift in Sources */,
 				0E57C17C2A8BC85600BFF482 /* MyPageVC.swift in Sources */,
+				0E0137A62AB463EB003C4A17 /* IconInfoView.swift in Sources */,
 				0E9B77362A8BF13B00F2117B /* APISession.swift in Sources */,
 				0EB4160C2AB44912008F42EC /* MountainDifficulty.swift in Sources */,
 				0EB415E62AAF6613008F42EC /* RecordListResponseModel.swift in Sources */,
