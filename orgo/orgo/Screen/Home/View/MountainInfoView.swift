@@ -37,6 +37,14 @@ class MountainInfoView: BaseView {
             $0.font = UIFont.pretendard(size: 20.0, weight: .medium)
         }
     
+    let difficultyStackView: UIStackView = UIStackView()
+        .then{
+            $0.spacing = 6.0
+            $0.distribution = .fill
+            $0.alignment = .center
+            $0.axis = .horizontal
+        }
+    
     let addressTitle = UILabel()
         .then {
             $0.text = "주소"
@@ -124,6 +132,31 @@ class MountainInfoView: BaseView {
         altitude.text = "\(Int(mountainInfo.location.altitude))m"
         requiredTime.text = mountainInfo.requiredTime
         contact.text = mountainInfo.contact
+        
+        setDifficulty(from: mountainInfo.difficulty)
+    }
+    
+    func setDifficulty(from difficulty: String) {
+        guard let mountainDifficulty = MountainDifficulty(rawValue: difficulty) else { return }
+        
+        (0..<3).forEach { idx in
+            let difficultyView = UIView()
+            
+            if idx < mountainDifficulty.count {
+                difficultyView.backgroundColor = ColorAssets.pink
+            } else {
+                difficultyView.layer.borderColor = ColorAssets.pink.cgColor
+                difficultyView.layer.borderWidth = 1.0
+            }
+            
+            difficultyView.layer.cornerRadius = 6.0
+            
+            difficultyView.snp.makeConstraints {
+                $0.width.height.equalTo(difficultyView.layer.cornerRadius * 2)
+            }
+            
+            difficultyStackView.addArrangedSubview(difficultyView)
+        }
     }
     
 }
@@ -134,7 +167,7 @@ class MountainInfoView: BaseView {
 extension MountainInfoView {
     
     private func configureInnerView() {
-        addSubviews([leftStackView, rightStackView, mountainName])
+        addSubviews([leftStackView, rightStackView, mountainName, difficultyStackView])
         
         [addressTitle, altitudeTitle, requiredTimeTitle, contactTitle].forEach {
             leftStackView.addArrangedSubview($0)
@@ -181,6 +214,12 @@ extension MountainInfoView {
             $0.top.equalTo(leftStackView.snp.top)
             $0.leading.equalTo(leftStackView.snp.trailing).offset(12.0)
             $0.trailing.equalTo(self)
+        }
+        
+        difficultyStackView.snp.makeConstraints {
+            $0.centerY.equalTo(mountainName)
+            $0.leading.equalTo(rightStackView.snp.leading)
+            $0.height.equalTo(12.0)
         }
     }
     

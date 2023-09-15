@@ -34,6 +34,14 @@ class MountainBottomSheetVC: OrgoBottomSheet {
             $0.layer.masksToBounds = true
         }
     
+    private let authenticateLabel: UILabel = UILabel()
+        .then {
+            $0.text = "오르GO! 렛츠GO!"
+            $0.font = UIFont.pretendard(size: 13.0, weight: .regular)
+            $0.textAlignment = .center
+            $0.textColor = ColorAssets.gray
+        }
+    
     
     // MARK: - Variables and Properties
     
@@ -79,7 +87,9 @@ class MountainBottomSheetVC: OrgoBottomSheet {
 extension MountainBottomSheetVC {
     
     private func configureBottomSheet() {
-        view.addSubviews([mountainInfoView, authenticateBtn])
+        view.addSubviews([mountainInfoView,
+                          authenticateBtn,
+                          authenticateLabel])
     }
     
 }
@@ -101,6 +111,11 @@ extension MountainBottomSheetVC {
             $0.leading.equalTo(bottomSheetView.snp.leading).offset(16.0)
             $0.trailing.equalTo(bottomSheetView.snp.trailing).offset(-16.0)
             $0.height.equalTo(36.0)
+        }
+        
+        authenticateLabel.snp.makeConstraints {
+            $0.top.equalTo(authenticateBtn.snp.bottom).offset(8.0)
+            $0.centerX.equalToSuperview()
         }
     }
     
