@@ -14,6 +14,14 @@ class IconInfoView: BaseView {
     
     // MARK: - UI components
     
+    let iconStackView: UIStackView = UIStackView()
+        .then {
+            $0.spacing = 6.0
+            $0.distribution = .fillEqually
+            $0.alignment = .center
+            $0.axis = .horizontal
+        }
+    
     
     // MARK: - Variables and Properties
     
@@ -34,6 +42,10 @@ class IconInfoView: BaseView {
     
     // MARK: - Functions
     
+    func configureIcon(by data: MountainListResponseModel) {
+        
+    }
+    
 }
 
 
@@ -42,7 +54,7 @@ class IconInfoView: BaseView {
 extension IconInfoView {
     
     private func configureInnerView() {
-
+        addSubviews([iconStackView])
     }
     
 }
@@ -53,7 +65,9 @@ extension IconInfoView {
 extension IconInfoView {
     
     private func configureLayout() {
-
+        iconStackView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
     }
     
 }

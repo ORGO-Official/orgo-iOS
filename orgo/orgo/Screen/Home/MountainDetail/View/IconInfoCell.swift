@@ -68,13 +68,12 @@ extension IconInfoCell {
     private func configureLayout() {
         iconImageView.snp.makeConstraints {
             $0.centerX.top.equalToSuperview()
-            $0.leading.trailing.equalToSuperview().inset(16.0)
-            $0.height.equalTo(iconImageView.snp.width)
+            $0.bottom.equalTo(iconTitleLabel.snp.top).offset(-8.0)
+            $0.width.equalTo(iconImageView.snp.height)
         }
         
         iconTitleLabel.snp.makeConstraints {
-            $0.top.equalTo(iconImageView.snp.bottom).offset(8.0)
-            $0.centerX.leading.trailing.equalToSuperview()
+            $0.centerX.leading.trailing.bottom.equalToSuperview()
         }
     }
     
