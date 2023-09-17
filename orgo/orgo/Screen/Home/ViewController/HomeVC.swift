@@ -19,6 +19,8 @@ class HomeVC: BaseViewController {
     // MARK: - UI components
     
     let searchView: SearchView = SearchView()
+
+    let locationBtn: FloatingButton = FloatingButton(image: ImageAssets.myLocation)
     
     
     // MARK: - Variables and Properties
@@ -53,6 +55,7 @@ class HomeVC: BaseViewController {
         super.bindInput()
         
         bindSearchView()
+        bindLocationBtn()
     }
     
     override func bindOutput() {
@@ -80,7 +83,7 @@ class HomeVC: BaseViewController {
 extension HomeVC {
     
     private func configureInnerView() {
-        view.addSubviews([mapView])
+        view.addSubviews([mapView, locationBtn])
     }
     
     private func configureMap() {
@@ -107,10 +110,43 @@ extension HomeVC {
             $0.leading.trailing.equalToSuperview().inset(16.0)
             $0.height.equalTo(44.0)
         }
+        
+        locationBtn.snp.makeConstraints {
+            $0.height.width.equalTo(50.0)
+            $0.trailing.equalToSuperview().offset(-16.0)
+            $0.bottom.equalToSuperview().offset(-150.0)
+        }
     }
     
 }
 
+// MARK: - Input
+
+extension HomeVC {
+    
+    private func bindLocationBtn() {
+        locationBtn.rx.tap
+            .withUnretained(self)
+            .bind(onNext: { owner, _ in
+                print("TODO: - 내 위치")
+            })
+            .disposed(by: bag)
+    }
+    
+    private func bindSearchView() {
+        searchView.rx.tapGesture()
+            .when(.recognized)
+            .withUnretained(self)
+            .subscribe(onNext: { owner, _ in
+                let searchVC = SearchVC()
+                searchVC.delegate = owner
+                
+                owner.navigationController?.pushViewController(searchVC, animated: true)
+            })
+            .disposed(by: bag)
+    }
+    
+}
 
 // MARK: - Output
 
@@ -125,19 +161,6 @@ extension HomeVC {
                     owner.createMarker(by: mountainInfo)
                 }
             }
-            .disposed(by: bag)
-    }
-    
-    private func bindSearchView() {
-        searchView.rx.tapGesture()
-            .when(.recognized)
-            .withUnretained(self)
-            .subscribe(onNext: { owner, _ in
-                let searchVC = SearchVC()
-                searchVC.delegate = owner
-                
-                owner.navigationController?.pushViewController(searchVC, animated: true)
-            })
             .disposed(by: bag)
     }
     

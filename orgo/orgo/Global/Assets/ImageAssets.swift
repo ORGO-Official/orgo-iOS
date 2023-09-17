@@ -31,6 +31,8 @@ enum ImageAssets {
     
     static let backButton = UIImage(named: "BackButton")?.withRenderingMode(.alwaysOriginal)
     
+    static let myLocation = UIImage(named: "MyLocation")?.withRenderingMode(.alwaysOriginal)
+    
     // MARK: - Mountain
     
     static let mountainMarker = UIImage(named: "MountainMarker")?.withRenderingMode(.alwaysOriginal)
