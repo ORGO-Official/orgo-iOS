@@ -10,6 +10,7 @@
 		0E0137A42AB455D6003C4A17 /* IconInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0137A32AB455D6003C4A17 /* IconInfoCell.swift */; };
 		0E0137A62AB463EB003C4A17 /* IconInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0137A52AB463EB003C4A17 /* IconInfoView.swift */; };
 		0E0137A92AB70230003C4A17 /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0137A82AB70230003C4A17 /* FloatingButton.swift */; };
+		0E0137AC2AB73880003C4A17 /* MountainRecordRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0137AB2AB73880003C4A17 /* MountainRecordRequestModel.swift */; };
 		0E502B552A8E7079002C71F2 /* OrgoBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E502B542A8E7079002C71F2 /* OrgoBottomSheet.swift */; };
 		0E502B582A8E8204002C71F2 /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E502B572A8E8204002C71F2 /* HomeVM.swift */; };
 		0E502B5B2A8E82A3002C71F2 /* MountainListResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E502B5A2A8E82A3002C71F2 /* MountainListResponseModel.swift */; };
@@ -131,6 +132,7 @@
 		0E0137A32AB455D6003C4A17 /* IconInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconInfoCell.swift; sourceTree = "<group>"; };
 		0E0137A52AB463EB003C4A17 /* IconInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconInfoView.swift; sourceTree = "<group>"; };
 		0E0137A82AB70230003C4A17 /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
+		0E0137AB2AB73880003C4A17 /* MountainRecordRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainRecordRequestModel.swift; sourceTree = "<group>"; };
 		0E502B542A8E7079002C71F2 /* OrgoBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrgoBottomSheet.swift; sourceTree = "<group>"; };
 		0E502B572A8E8204002C71F2 /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
 		0E502B5A2A8E82A3002C71F2 /* MountainListResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainListResponseModel.swift; sourceTree = "<group>"; };
@@ -289,6 +291,14 @@
 			path = FloatingButton;
 			sourceTree = "<group>";
 		};
+		0E0137AA2AB73847003C4A17 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0E0137AB2AB73880003C4A17 /* MountainRecordRequestModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		0E502B532A8E704B002C71F2 /* BottomSheet */ = {
 			isa = PBXGroup;
 			children = (
@@ -337,6 +347,7 @@
 		0E502B7C2A94E5B6002C71F2 /* MountainBottomSheet */ = {
 			isa = PBXGroup;
 			children = (
+				0E0137AA2AB73847003C4A17 /* Model */,
 				0E502B7F2A94E5E3002C71F2 /* ViewController */,
 			);
 			path = MountainBottomSheet;
@@ -1089,6 +1100,7 @@
 				0EB415EE2AAF7013008F42EC /* SettingMenuTVC.swift in Sources */,
 				0E5948062AA4E7D4003C6C7D /* SearchResultDataSource.swift in Sources */,
 				0E502B892A9BA31E002C71F2 /* MountainDetailVM.swift in Sources */,
+				0E0137AC2AB73880003C4A17 /* MountainRecordRequestModel.swift in Sources */,
 				0E9B773A2A8BF1AE00F2117B /* APIToken.swift in Sources */,
 				0E5947FD2AA4C219003C6C7D /* SearchView.swift in Sources */,
 				0E57C17C2A8BC85600BFF482 /* MyPageVC.swift in Sources */,
