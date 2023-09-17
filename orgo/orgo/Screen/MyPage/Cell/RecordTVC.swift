@@ -86,7 +86,9 @@ class RecordTVC: BaseTableViewCell {
     
     // TODO: - 더미 데이터 수정
     func configureRecord(data: ClimbingRecord) {
-        recordDateLabel.text = data.date
+        var dateList = data.date.components(separatedBy: "T")
+        
+        recordDateLabel.text = dateList.dropLast().joined()
         mountainNameLabel.text = data.mountainName
         mountainHeightLabel.text = "\(data.altitude)m"
         countLabel.text = "\(data.climbingOrder)회차"
