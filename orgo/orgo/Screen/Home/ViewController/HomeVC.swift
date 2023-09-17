@@ -134,6 +134,7 @@ extension HomeVC {
             .withUnretained(self)
             .subscribe(onNext: { owner, _ in
                 let searchVC = SearchVC()
+                searchVC.delegate = owner
                 
                 owner.navigationController?.pushViewController(searchVC, animated: true)
             })
@@ -149,7 +150,10 @@ extension HomeVC: MTMapViewDelegate {
     
     /// 마커 선택되었을 때
     func mapView(_ mapView: MTMapView!, selectedPOIItem poiItem: MTMapPOIItem!) -> Bool {
-        showBottomSheet(mountainInfo: viewModel.output.mountainList.value[poiItem.tag])
+        let mountain = viewModel.output.mountainList.value[poiItem.tag]
+        mapView.setMapCenter(MTMapPoint(geoCoord: MTMapPointGeo(latitude: mountain.location.latitude,
+                                                                longitude: mountain.location.longitude)), animated: true)
+        showBottomSheet(mountainInfo: mountain)
         
         return false
     }
@@ -193,4 +197,13 @@ extension HomeVC {
         return ImageAssets.mountain800Marker
     }
     
+}
+
+
+extension HomeVC: SearchResultDelegate {
+    func selectMountain(_ data: MountainListResponseModel) {
+        mapView.setMapCenter(MTMapPoint(geoCoord: MTMapPointGeo(latitude: data.location.latitude,
+                                                                longitude: data.location.longitude)), animated: true)
+        showBottomSheet(mountainInfo: data)
+    }
 }

@@ -14,6 +14,10 @@ import RxDataSources
 import Then
 import SnapKit
 
+protocol SearchResultDelegate {
+    func selectMountain(_ data: MountainListResponseModel)
+}
+
 class SearchVC: BaseViewController {
     
     // MARK: - UI components
@@ -37,6 +41,7 @@ class SearchVC: BaseViewController {
     // MARK: - Variables and Properties
     
     private let viewModel: SearchVM = SearchVM()
+    var delegate: SearchResultDelegate?
     
     
     // MARK: - Life Cycle
@@ -70,6 +75,7 @@ class SearchVC: BaseViewController {
         bindBackBtn()
         bindSearchField()
         bindSearchResultTV()
+        bindSearchResultSelected()
     }
     
     // MARK: - Functions
@@ -138,6 +144,15 @@ extension SearchVC {
             .disposed(by: bag)
     }
     
+    private func bindSearchResultSelected() {
+        searchResultTV.rx.modelSelected(MountainListResponseModel.self)
+            .withUnretained(self)
+            .bind(onNext: { owner, mountain in
+                owner.delegate?.selectMountain(mountain)
+                owner.navigationController?.popViewController(animated: true)
+            })
+            .disposed(by: bag)
+    }
 }
 
 
