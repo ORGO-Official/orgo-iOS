@@ -8,6 +8,8 @@
 import RxCocoa
 import RxSwift
 
+import Alamofire
+
 final class HomeVM: BaseViewModel {
     
     // MARK: - Variables and Properties
@@ -60,7 +62,7 @@ extension HomeVM {
         let path = "/api/mountains"
         let resource = URLResource<Array<MountainListResponseModel>>(path: path)
         
-        apiSession.requestGet(urlResource: resource)
+        requestGetMountainList(urlResource: resource)
             .withUnretained(self)
             .subscribe(onNext: { owner, result in
                 switch result {
@@ -71,6 +73,32 @@ extension HomeVM {
                 }
             })
             .disposed(by: bag)
+    }
+    
+    private func requestGetMountainList<T: Decodable>(urlResource: URLResource<T>) -> Observable<Result<T, APIError>> {
+        Observable<Result<T, APIError>>.create { observer in
+            var headers = HTTPHeaders()
+            headers.add(.accept("*/*"))
+            headers.add(.contentType("application/json"))
+            
+            let task = AF.request(urlResource.resultURL,
+                                  encoding: URLEncoding.default,
+                                  headers: headers)
+                .validate(statusCode: 200...399)
+                .responseDecodable(of: T.self) { response in
+                    debugPrint(response)
+                    switch response.result {
+                    case .success(let data):
+                        observer.onNext(.success(data))
+                    case .failure:
+                        observer.onNext(urlResource.judgeError(statusCode: response.response?.statusCode ?? -1))
+                    }
+                }
+            
+            return Disposables.create {
+                task.cancel()
+            }
+        }
     }
     
 }
