@@ -196,13 +196,18 @@ extension MountainBottomSheetVC {
         viewModel.output.isRecordSuccess
             .asDriver(onErrorJustReturn: false)
             .drive(onNext: { [weak self] isRecordSuccess in
-                guard let self = self else { return }
+                guard let self = self,
+                      let mountainInformation = mountainInformation else { return }
                 
                 if isRecordSuccess {
                     print("성공")
                 } else {
                     print("실패")
                 }
+                let recordCompletionVC = RecordCompletionVC()
+                recordCompletionVC.modalPresentationStyle = .fullScreen
+                recordCompletionVC.configureInfo(data: mountainInformation)
+                self.present(recordCompletionVC, animated: true)
             })
             .disposed(by: bag)
     }

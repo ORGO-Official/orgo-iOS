@@ -57,18 +57,27 @@ extension MountainBottomSheetVM: Output {
 extension MountainBottomSheetVM {
     
     func requestPostMountainRecord(id: Int, location: CLLocation) {
-        let path = "api/climbing-records"
+        let path = "/api/climbing-records"
         let resource = URLResource<EmptyResponseModel>(path: path)
         
-        var dateFormatter = DateFormatter()
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        var currentDateString = dateFormatter.string(from: Date())
+        let currentDateString = dateFormatter.string(from: Date())
+            .split(separator: " ")
+            .joined(separator: "T")
         
         let mountainRecord = MountainRecordRequestModel(mountainId: id,
                                                         latitude: location.coordinate.latitude,
                                                         longitude: location.coordinate.longitude,
                                                         altitude: location.altitude,
                                                         date: currentDateString)
+        
+        // 아차산 더미 데이터
+//        let tempRecord = MountainRecordRequestModel(mountainId: id,
+//                                                    latitude: 37.57149,
+//                                                    longitude: 127.103764,
+//                                                    altitude: 282.66,
+//                                                    date: currentDateString)
         
         apiSession.requestPost(urlResource: resource, parameter: mountainRecord.parameter)
             .withUnretained(self)
