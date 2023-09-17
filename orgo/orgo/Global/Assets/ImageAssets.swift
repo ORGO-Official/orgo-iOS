@@ -13,6 +13,7 @@ enum ImageAssets {
     
     static let orgoLogoGreen = UIImage(named: "OrgoLogoGreen")?.withRenderingMode(.alwaysOriginal)
     static let orgoLogoWhite = UIImage(named: "OrgoLogoWhite")?.withRenderingMode(.alwaysOriginal)
+    static let climbCompleteLogo = UIImage(named: "ClimbCompleteLogo")?.withRenderingMode(.alwaysOriginal)
     
     // MARK: - Login
     

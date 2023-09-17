@@ -79,14 +79,16 @@ class RecordTVC: BaseTableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 16.0, left: 16.0, bottom: 16.0, right: 16.0))
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 16.0, left: 16.0, bottom: 0.0, right: 16.0))
     }
     
     // MARK: - Function
     
     // TODO: - 더미 데이터 수정
     func configureRecord(data: ClimbingRecord) {
-        recordDateLabel.text = data.date
+        var dateList = data.date.components(separatedBy: "T")
+        
+        recordDateLabel.text = dateList.dropLast().joined()
         mountainNameLabel.text = data.mountainName
         mountainHeightLabel.text = "\(data.altitude)m"
         countLabel.text = "\(data.climbingOrder)회차"

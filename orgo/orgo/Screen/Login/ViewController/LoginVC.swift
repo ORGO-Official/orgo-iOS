@@ -58,6 +58,8 @@ class LoginVC: BaseViewController {
     private let viewModel: LoginVM = LoginVM()
     private let naverLoginInstance = NaverThirdPartyLoginConnection.getSharedInstance()
     
+    var isFirstNaverLogin = true
+    
     
     // MARK: - Life Cycle
     
@@ -218,7 +220,11 @@ extension LoginVC: NaverThirdPartyLoginConnectionDelegate {
             return
         }
         
-        viewModel.requestNaverLogin(token: instance.accessToken)
+        if isFirstNaverLogin {
+            isFirstNaverLogin.toggle()
+        } else {
+            viewModel.requestNaverLogin(token: instance.accessToken)
+        }
     }
     
     func oauth20ConnectionDidFinishDeleteToken() {

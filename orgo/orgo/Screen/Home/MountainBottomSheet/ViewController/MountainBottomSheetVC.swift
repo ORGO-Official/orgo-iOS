@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 import SnapKit
 import Then
@@ -45,6 +46,8 @@ class MountainBottomSheetVC: OrgoBottomSheet {
     
     // MARK: - Variables and Properties
     
+    private let viewModel: MountainBottomSheetVM = MountainBottomSheetVM()
+    private let locationManager: CLLocationManager = CLLocationManager()
     var mountainInformation: MountainListResponseModel?
     
     
@@ -71,13 +74,43 @@ class MountainBottomSheetVC: OrgoBottomSheet {
         super.bindInput()
         
         bindTap()
+        bindBtn()
     }
+    
+    override func bindOutput() {
+        super.bindOutput()
+        
+        bindRecordSuccess()
+    }
+    
     
     // MARK: - Functions
     
     func configureInfo(from mountainInfo: MountainListResponseModel) {
         mountainInfoView.configureInfo(from: mountainInfo)
         mountainInformation = mountainInfo
+    }
+    
+    func requestCurrentLocation() {
+        let authorization = locationManager.authorizationStatus
+        
+        switch authorization {
+        case .authorizedAlways, .authorizedWhenInUse:
+            locationManager.requestLocation()
+            requestPostMountainRecord()
+        case .notDetermined, .restricted:
+            locationManager.requestWhenInUseAuthorization()
+        default:
+            break
+        }
+    }
+    
+    func requestPostMountainRecord() {
+        guard let mountainInformation = mountainInformation,
+              let location = locationManager.location else { return }
+        
+        viewModel.requestPostMountainRecord(id: mountainInformation.id,
+                                                  location: location)
     }
 }
 
@@ -90,6 +123,8 @@ extension MountainBottomSheetVC {
         view.addSubviews([mountainInfoView,
                           authenticateBtn,
                           authenticateLabel])
+        
+        locationManager.delegate = self
     }
     
 }
@@ -139,6 +174,56 @@ extension MountainBottomSheetVC {
                 owner.navigationController?.pushViewController(mountainDetailVC, animated: true)
             })
             .disposed(by: bag)
+    }
+    
+    private func bindBtn() {
+        authenticateBtn.rx.tap
+            .withUnretained(self)
+            .bind(onNext: { owner, _ in
+                owner.requestCurrentLocation()
+            })
+            .disposed(by: bag)
+    }
+    
+}
+
+
+// MARK: - Output
+
+extension MountainBottomSheetVC {
+    
+    private func bindRecordSuccess() {
+        viewModel.output.isRecordSuccess
+            .asDriver(onErrorJustReturn: false)
+            .drive(onNext: { [weak self] isRecordSuccess in
+                guard let self = self,
+                      let mountainInformation = mountainInformation else { return }
+                
+                if isRecordSuccess {
+                    print("성공")
+                } else {
+                    print("실패")
+                }
+                let recordCompletionVC = RecordCompletionVC()
+                recordCompletionVC.modalPresentationStyle = .fullScreen
+                recordCompletionVC.configureInfo(data: mountainInformation)
+                self.present(recordCompletionVC, animated: true)
+            })
+            .disposed(by: bag)
+    }
+    
+}
+
+// MARK: - CLLocationManagerDelegate
+
+extension MountainBottomSheetVC: CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
     }
     
 }
