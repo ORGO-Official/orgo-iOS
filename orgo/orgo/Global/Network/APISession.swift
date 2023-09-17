@@ -97,7 +97,7 @@ struct APISession: APIService {
                         observer.onNext(.success(data))
                     case .failure:
                         observer.onNext(urlResource.judgeError(statusCode: response.response?.statusCode ?? -1))
-                        showErrorAlert()
+//                        showErrorAlert()
                     }
                 }
             

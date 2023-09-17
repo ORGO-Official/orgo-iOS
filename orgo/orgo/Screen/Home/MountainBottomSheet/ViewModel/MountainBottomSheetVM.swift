@@ -8,6 +8,8 @@
 import RxCocoa
 import RxSwift
 
+import CoreLocation
+
 final class MountainBottomSheetVM: BaseViewModel {
     
     // MARK: - Variables and Properties
@@ -22,7 +24,7 @@ final class MountainBottomSheetVM: BaseViewModel {
     
     struct Input {}
     struct Output {
-        
+        var isRecordSuccess = PublishRelay<Bool>()
     }
     
     // MARK: - Life Cycle
@@ -53,5 +55,34 @@ extension MountainBottomSheetVM: Output {
 // MARK: - Networking
 
 extension MountainBottomSheetVM {
+    
+    func requestPostMountainRecord(id: Int, location: CLLocation) {
+        let path = "api/climbing-records"
+        let resource = URLResource<EmptyResponseModel>(path: path)
+        
+        var dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        var currentDateString = dateFormatter.string(from: Date())
+        
+        let mountainRecord = MountainRecordRequestModel(mountainId: id,
+                                                        latitude: location.coordinate.latitude,
+                                                        longitude: location.coordinate.longitude,
+                                                        altitude: location.altitude,
+                                                        date: currentDateString)
+        
+        apiSession.requestPost(urlResource: resource, parameter: mountainRecord.parameter)
+            .withUnretained(self)
+            .subscribe(onNext: { owner, result in
+                switch result {
+                case .success:
+                    owner.output.isRecordSuccess.accept(true)
+                case .failure(let error):
+                    owner.output.isRecordSuccess.accept(false)
+                    print(error)
+//                    owner.apiError.onNext(error)
+                }
+            })
+            .disposed(by: bag)
+    }
     
 }
