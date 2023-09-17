@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 import RxSwift
 import RxCocoa
@@ -26,6 +27,7 @@ class HomeVC: BaseViewController {
     // MARK: - Variables and Properties
     
     private let viewModel: HomeVM = HomeVM()
+    private let locationManager: CLLocationManager = CLLocationManager()
     
     var mapView: MTMapView = MTMapView()
     
@@ -75,6 +77,43 @@ class HomeVC: BaseViewController {
         bottomSheetWithNavigation.modalPresentationStyle = .overFullScreen
         present(bottomSheetWithNavigation, animated: false)
     }
+    
+    func requestCurrentLocation() {
+        let authorization = locationManager.authorizationStatus
+        
+        switch authorization {
+        case .authorizedAlways, .authorizedWhenInUse:
+            locationManager.requestLocation()
+            moveToCurrentLocation()
+        case .notDetermined, .restricted:
+            locationManager.requestWhenInUseAuthorization()
+        default:
+            break
+        }
+    }
+    
+    func moveToCurrentLocation() {
+        DispatchQueue.global().async { [weak self] in
+            guard let self = self else { return }
+            
+            if CLLocationManager.locationServicesEnabled() {
+                self.mapView.showCurrentLocationMarker = true
+                self.mapView.currentLocationTrackingMode = .onWithoutHeading
+            }
+        }
+    }
+    
+    func offTracking() {
+        DispatchQueue.global().async { [weak self] in
+            guard let self = self else { return }
+            
+            if CLLocationManager.locationServicesEnabled() {
+                self.mapView.showCurrentLocationMarker = false
+                self.mapView.currentLocationTrackingMode = .off
+            }
+        }
+    }
+    
 }
 
 
@@ -91,6 +130,8 @@ extension HomeVC {
         mapView.baseMapType = .standard
         
         mapView.addSubviews([searchView])
+        
+        locationManager.delegate = self
     }
     
 }
@@ -128,7 +169,11 @@ extension HomeVC {
         locationBtn.rx.tap
             .withUnretained(self)
             .bind(onNext: { owner, _ in
-                print("TODO: - 내 위치")
+                if owner.mapView.currentLocationTrackingMode == .off {
+                    owner.requestCurrentLocation()
+                } else {
+                    owner.offTracking()
+                }
             })
             .disposed(by: bag)
     }
@@ -222,6 +267,22 @@ extension HomeVC {
     
 }
 
+// MARK: - CLLocationManagerDelegate
+
+extension HomeVC: CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
+    }
+    
+}
+
+
+// MARK: - SearchResultDelegate
 
 extension HomeVC: SearchResultDelegate {
     func selectMountain(_ data: MountainListResponseModel) {
