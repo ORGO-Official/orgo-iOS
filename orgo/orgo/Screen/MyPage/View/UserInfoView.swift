@@ -173,7 +173,7 @@ extension UserInfoView {
         
         totalCountTitle.snp.makeConstraints {
             $0.centerY.equalTo(totalHeightTitle.snp.centerY)
-            $0.leading.equalTo(totalHeightTitle.snp.trailing).offset(40.0)
+            $0.leading.equalTo(totalHeightTitle.snp.trailing).offset(58.0)
         }
         
         totalCountLabel.snp.makeConstraints {

@@ -14,6 +14,10 @@ import RxDataSources
 import Then
 import SnapKit
 
+protocol SearchResultDelegate {
+    func selectMountain(_ data: MountainListResponseModel)
+}
+
 class SearchVC: BaseViewController {
     
     // MARK: - UI components
@@ -37,6 +41,7 @@ class SearchVC: BaseViewController {
     // MARK: - Variables and Properties
     
     private let viewModel: SearchVM = SearchVM()
+    var delegate: SearchResultDelegate?
     
     
     // MARK: - Life Cycle
@@ -70,6 +75,7 @@ class SearchVC: BaseViewController {
         bindBackBtn()
         bindSearchField()
         bindSearchResultTV()
+        bindSearchResultSelected()
     }
     
     // MARK: - Functions
@@ -96,7 +102,7 @@ extension SearchVC {
     
     private func configureLayout() {
         searchField.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide).offset(60.0)
+            $0.top.equalToSuperview().offset(60.0)
             $0.leading.trailing.equalToSuperview().inset(8.0)
             $0.height.equalTo(44.0)
         }
@@ -138,6 +144,15 @@ extension SearchVC {
             .disposed(by: bag)
     }
     
+    private func bindSearchResultSelected() {
+        searchResultTV.rx.modelSelected(MountainListResponseModel.self)
+            .withUnretained(self)
+            .bind(onNext: { owner, mountain in
+                owner.delegate?.selectMountain(mountain)
+                owner.navigationController?.popViewController(animated: true)
+            })
+            .disposed(by: bag)
+    }
 }
 
 
