@@ -39,6 +39,11 @@ enum ImageAssets {
     static let mountain600Marker = UIImage(named: "Mountain600")?.withRenderingMode(.alwaysOriginal)
     static let mountain800Marker = UIImage(named: "Mountain00")?.withRenderingMode(.alwaysOriginal)
     
+    static let nightViewIcon = UIImage(named: "NightView")?.withRenderingMode(.alwaysOriginal)
+    static let parkingIcon = UIImage(named: "Parking")?.withRenderingMode(.alwaysOriginal)
+    static let toiletIcon = UIImage(named: "Toilet")?.withRenderingMode(.alwaysOriginal)
+    static let cableCarIcon = UIImage(named: "CableCar")?.withRenderingMode(.alwaysOriginal)
+    
     // MARK: - Search
     
     static let location = UIImage(named: "Location")?.withRenderingMode(.alwaysOriginal)

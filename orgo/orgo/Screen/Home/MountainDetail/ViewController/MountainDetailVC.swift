@@ -39,6 +39,8 @@ class MountainDetailVC: BaseNavigationViewController {
             $0.backgroundColor = .lightGray
         }
     
+    let iconInfoView: IconInfoView = IconInfoView()
+    
     let lowerBorder = UIView()
         .then {
             $0.layer.cornerRadius = 1.0
@@ -93,6 +95,7 @@ class MountainDetailVC: BaseNavigationViewController {
         backgroundImageView.setImage(with: mountainInfo.backgroundImage)
         mainImageView.setImage(with: mountainInfo.mainImage)
         mountainInfoView.configureInfo(from: mountainInfo)
+        iconInfoView.configureIcon(by: mountainInfo)
         
         mountainInformation = mountainInfo
         viewModel.requestGetRestaurantList(mountainId: mountainInfo.id)
@@ -113,6 +116,7 @@ extension MountainDetailVC {
                           mainImageView,
                           mountainInfoView,
                           upperBorder,
+                          iconInfoView,
                           lowerBorder,
                           restaurantCV])
         
@@ -153,6 +157,12 @@ extension MountainDetailVC {
             $0.top.equalTo(mountainInfoView.snp.bottom).offset(16.0)
             $0.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(16.0)
             $0.height.equalTo(1.0)
+        }
+        
+        iconInfoView.snp.makeConstraints {
+            $0.top.equalTo(upperBorder.snp.bottom).offset(16.0)
+            $0.leading.trailing.equalTo(upperBorder)
+            $0.bottom.equalTo(lowerBorder.snp.top).offset(-16.0)
         }
         
         lowerBorder.snp.makeConstraints {

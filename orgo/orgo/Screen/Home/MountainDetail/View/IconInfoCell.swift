@@ -46,6 +46,11 @@ class IconInfoCell: BaseView {
     
     // MARK: - Functions
     
+    func configureIcon(image: UIImage?, title: String) {
+        iconImageView.image = image
+        iconTitleLabel.text = title
+    }
+    
 }
 
 
@@ -74,6 +79,7 @@ extension IconInfoCell {
         
         iconTitleLabel.snp.makeConstraints {
             $0.centerX.leading.trailing.bottom.equalToSuperview()
+            $0.height.equalTo(12.0)
         }
     }
     
