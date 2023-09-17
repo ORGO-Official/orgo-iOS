@@ -14,6 +14,7 @@ import Then
 import SnapKit
 
 import NaverThirdPartyLogin
+import AuthenticationServices
 
 
 class LoginVC: BaseViewController {
@@ -96,6 +97,17 @@ class LoginVC: BaseViewController {
     
     // MARK: - Functions
     
+    private func appleAuthorization() {
+        let appleIDProvider = ASAuthorizationAppleIDProvider()
+        
+        let request = appleIDProvider.createRequest()
+        request.requestedScopes = [.fullName, .email]
+        
+        let authorizationController = ASAuthorizationController(authorizationRequests: [request])
+        authorizationController.delegate = self
+        authorizationController.presentationContextProvider = self
+        authorizationController.performRequests()
+    }
 }
 
 
@@ -166,6 +178,14 @@ extension LoginVC {
             })
             .disposed(by: bag)
         
+        appleLoginBtn.rx.tap
+            .bind(onNext: { [weak self] _ in
+                guard let self = self else { return }
+                
+                self.appleAuthorization()
+            })
+            .disposed(by: bag)
+        
         loginNextBtn.rx.tap
             .bind(onNext: { [weak self] _ in
                 guard let self = self else { return }
@@ -192,7 +212,7 @@ extension LoginVC {
                 if isLoginSuccess {
                     (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootVCToHome()
                 } else {
-                    self.showErrorAlert("LoginFailMessage".localized)
+                    self.showErrorAlert("로그인에 실패했습니다.")
                 }
             })
             .disposed(by: bag)
@@ -234,4 +254,52 @@ extension LoginVC: NaverThirdPartyLoginConnectionDelegate {
     func oauth20Connection(_ oauthConnection: NaverThirdPartyLoginConnection!, didFailWithError error: Error!) {
         print(error!)
     }
+}
+
+
+// MARK: - ASAuthorizationControllerDelegate {
+
+extension LoginVC: ASAuthorizationControllerDelegate {
+    
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+        switch authorization.credential {
+        case let appleIDCredential as ASAuthorizationAppleIDCredential:
+            guard let identityToken = appleIDCredential.identityToken else { return }
+            
+            let userIdentifier = appleIDCredential.user
+            let fullName = appleIDCredential.fullName ?? PersonNameComponents()
+            let familyName = fullName.familyName ?? .empty
+            let givenName = fullName.givenName ?? .empty
+
+            if let email = appleIDCredential.email {
+                KeychainManager.shared.save(key: .email, value: email)
+                viewModel.requestSocialLogin(loginType: .apple, token: "\(userIdentifier)|\(email)")
+            } else {
+                guard let savedEmail = KeychainManager.shared.read(for: .email) else { return }
+                viewModel.requestSocialLogin(loginType: .apple, token: "\(userIdentifier)|\(savedEmail)")
+            }
+            
+        case let passwordCredential as ASPasswordCredential:
+            let username = passwordCredential.user
+            let password = passwordCredential.password
+            
+            DispatchQueue.main.async {
+                print(("username: ", username, "password: ", password))
+            }
+            
+        default:
+            break
+        }
+    }
+    
+}
+
+// MARK: - ASAuthorizationController PresentationContextProviding
+
+extension LoginVC: ASAuthorizationControllerPresentationContextProviding {
+    
+    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
+        return view.window!
+    }
+    
 }
