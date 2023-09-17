@@ -205,6 +205,7 @@ extension HomeVC {
                 mountainList.forEach { mountainInfo in
                     owner.createMarker(by: mountainInfo)
                 }
+                owner.mapView.fitAreaToShowAllPOIItems()
             }
             .disposed(by: bag)
     }
