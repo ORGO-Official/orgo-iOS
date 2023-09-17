@@ -79,7 +79,7 @@ class RecordTVC: BaseTableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 16.0, left: 16.0, bottom: 16.0, right: 16.0))
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 16.0, left: 16.0, bottom: 0.0, right: 16.0))
     }
     
     // MARK: - Function
