@@ -137,6 +137,7 @@
 		0E0137AB2AB73880003C4A17 /* MountainRecordRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainRecordRequestModel.swift; sourceTree = "<group>"; };
 		0E0137AE2AB73947003C4A17 /* MountainBottomSheetVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainBottomSheetVM.swift; sourceTree = "<group>"; };
 		0E0137B12AB747FB003C4A17 /* RecordCompletionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCompletionVC.swift; sourceTree = "<group>"; };
+		0E0137B32AB76667003C4A17 /* orgo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = orgo.entitlements; sourceTree = "<group>"; };
 		0E502B542A8E7079002C71F2 /* OrgoBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrgoBottomSheet.swift; sourceTree = "<group>"; };
 		0E502B572A8E8204002C71F2 /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
 		0E502B5A2A8E82A3002C71F2 /* MountainListResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainListResponseModel.swift; sourceTree = "<group>"; };
@@ -716,6 +717,7 @@
 		0E6FC9192A585277001DD709 /* orgo */ = {
 			isa = PBXGroup;
 			children = (
+				0E0137B32AB76667003C4A17 /* orgo.entitlements */,
 				0E6FC9252A585278001DD709 /* LaunchScreen.storyboard */,
 				0E6FC9432A5C4BD2001DD709 /* Support */,
 				0E6793332A63941A000FBE1A /* Global */,
@@ -1325,6 +1327,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_OBJC_ARC = NO;
+				CODE_SIGN_ENTITLEMENTS = orgo/orgo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = C9U8778A7W;
@@ -1363,6 +1366,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_OBJC_ARC = NO;
+				CODE_SIGN_ENTITLEMENTS = orgo/orgo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = C9U8778A7W;
