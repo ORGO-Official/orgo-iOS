@@ -14,6 +14,7 @@
 		0E0137AF2AB73947003C4A17 /* MountainBottomSheetVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0137AE2AB73947003C4A17 /* MountainBottomSheetVM.swift */; };
 		0E0137B22AB747FB003C4A17 /* RecordCompletionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0137B12AB747FB003C4A17 /* RecordCompletionVC.swift */; };
 		0E0137D92AC062F8003C4A17 /* OrgoPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0137D82AC062F8003C4A17 /* OrgoPopUpVC.swift */; };
+		0E0137DB2AC06974003C4A17 /* PopUpType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0137DA2AC06974003C4A17 /* PopUpType.swift */; };
 		0E502B552A8E7079002C71F2 /* OrgoBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E502B542A8E7079002C71F2 /* OrgoBottomSheet.swift */; };
 		0E502B582A8E8204002C71F2 /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E502B572A8E8204002C71F2 /* HomeVM.swift */; };
 		0E502B5B2A8E82A3002C71F2 /* MountainListResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E502B5A2A8E82A3002C71F2 /* MountainListResponseModel.swift */; };
@@ -140,6 +141,7 @@
 		0E0137B12AB747FB003C4A17 /* RecordCompletionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCompletionVC.swift; sourceTree = "<group>"; };
 		0E0137B32AB76667003C4A17 /* orgo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = orgo.entitlements; sourceTree = "<group>"; };
 		0E0137D82AC062F8003C4A17 /* OrgoPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrgoPopUpVC.swift; sourceTree = "<group>"; };
+		0E0137DA2AC06974003C4A17 /* PopUpType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpType.swift; sourceTree = "<group>"; };
 		0E502B542A8E7079002C71F2 /* OrgoBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrgoBottomSheet.swift; sourceTree = "<group>"; };
 		0E502B572A8E8204002C71F2 /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
 		0E502B5A2A8E82A3002C71F2 /* MountainListResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainListResponseModel.swift; sourceTree = "<group>"; };
@@ -532,6 +534,7 @@
 				0E502B652A90EA2E002C71F2 /* PretendardWeight.swift */,
 				0E9B77412A8BF81C00F2117B /* LoginType.swift */,
 				0EB4160B2AB44912008F42EC /* MountainDifficulty.swift */,
+				0E0137DA2AC06974003C4A17 /* PopUpType.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -1187,6 +1190,7 @@
 				0E9B77452A8BF8DF00F2117B /* LoginResponseModel.swift in Sources */,
 				0E9B77482A8C762100F2117B /* MyPageVM.swift in Sources */,
 				0E502B812A9B40F2002C71F2 /* UIButton+Ext.swift in Sources */,
+				0E0137DB2AC06974003C4A17 /* PopUpType.swift in Sources */,
 				0E9B77402A8BF29500F2117B /* KeychainManager.swift in Sources */,
 				0EB415F12AAF7248008F42EC /* SettingVM.swift in Sources */,
 				0E57C1802A8BC9E500BFF482 /* TabBarItemButton.swift in Sources */,
