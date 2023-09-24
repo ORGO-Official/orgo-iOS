@@ -102,6 +102,16 @@ class OrgoPopUpVC: BaseViewController {
     
     // MARK: - Functions
     
+    func configurePopUp(type: PopUpType, targetVC: UIViewController, confirmAction: Selector) {
+        titleLabel.text = type.title
+        descLabel.text = type.desc
+        
+        confirmBtn.setTitle(type.confirmTitle, for: .normal)
+        cancelBtn.setTitle(type.cancelTitle, for: .normal)
+        
+        confirmBtn.addTarget(targetVC, action: confirmAction, for: .touchUpInside)
+    }
+    
 }
 
 
