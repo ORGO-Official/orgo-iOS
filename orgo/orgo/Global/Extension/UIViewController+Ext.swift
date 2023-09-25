@@ -93,4 +93,16 @@ extension UIViewController {
         return rootVC
     }
     
+    /// Custom Pop Up 노출
+    func showPopUp(type: PopUpType, targetVC: UIViewController, confirmAction: Selector) {
+        let popUpVC = OrgoPopUpVC()
+        
+        popUpVC.configurePopUp(type: type,
+                               targetVC: targetVC,
+                               confirmAction: confirmAction)
+        
+        popUpVC.modalPresentationStyle = .overFullScreen
+        
+        targetVC.present(popUpVC, animated: false)
+    }
 }

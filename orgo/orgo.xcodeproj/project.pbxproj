@@ -13,6 +13,8 @@
 		0E0137AC2AB73880003C4A17 /* MountainRecordRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0137AB2AB73880003C4A17 /* MountainRecordRequestModel.swift */; };
 		0E0137AF2AB73947003C4A17 /* MountainBottomSheetVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0137AE2AB73947003C4A17 /* MountainBottomSheetVM.swift */; };
 		0E0137B22AB747FB003C4A17 /* RecordCompletionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0137B12AB747FB003C4A17 /* RecordCompletionVC.swift */; };
+		0E0137D92AC062F8003C4A17 /* OrgoPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0137D82AC062F8003C4A17 /* OrgoPopUpVC.swift */; };
+		0E0137DB2AC06974003C4A17 /* PopUpType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0137DA2AC06974003C4A17 /* PopUpType.swift */; };
 		0E502B552A8E7079002C71F2 /* OrgoBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E502B542A8E7079002C71F2 /* OrgoBottomSheet.swift */; };
 		0E502B582A8E8204002C71F2 /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E502B572A8E8204002C71F2 /* HomeVM.swift */; };
 		0E502B5B2A8E82A3002C71F2 /* MountainListResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E502B5A2A8E82A3002C71F2 /* MountainListResponseModel.swift */; };
@@ -138,6 +140,8 @@
 		0E0137AE2AB73947003C4A17 /* MountainBottomSheetVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainBottomSheetVM.swift; sourceTree = "<group>"; };
 		0E0137B12AB747FB003C4A17 /* RecordCompletionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCompletionVC.swift; sourceTree = "<group>"; };
 		0E0137B32AB76667003C4A17 /* orgo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = orgo.entitlements; sourceTree = "<group>"; };
+		0E0137D82AC062F8003C4A17 /* OrgoPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrgoPopUpVC.swift; sourceTree = "<group>"; };
+		0E0137DA2AC06974003C4A17 /* PopUpType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpType.swift; sourceTree = "<group>"; };
 		0E502B542A8E7079002C71F2 /* OrgoBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrgoBottomSheet.swift; sourceTree = "<group>"; };
 		0E502B572A8E8204002C71F2 /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
 		0E502B5A2A8E82A3002C71F2 /* MountainListResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainListResponseModel.swift; sourceTree = "<group>"; };
@@ -320,6 +324,22 @@
 			path = RecordCompletion;
 			sourceTree = "<group>";
 		};
+		0E0137D62AC0629F003C4A17 /* PopUp */ = {
+			isa = PBXGroup;
+			children = (
+				0E0137D72AC062B4003C4A17 /* ViewController */,
+			);
+			path = PopUp;
+			sourceTree = "<group>";
+		};
+		0E0137D72AC062B4003C4A17 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0E0137D82AC062F8003C4A17 /* OrgoPopUpVC.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		0E502B532A8E704B002C71F2 /* BottomSheet */ = {
 			isa = PBXGroup;
 			children = (
@@ -469,6 +489,7 @@
 		0E57C15E2A8BBBF900BFF482 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				0E0137D62AC0629F003C4A17 /* PopUp */,
 				0E0137B02AB747D3003C4A17 /* RecordCompletion */,
 				0E0137A72AB7021F003C4A17 /* FloatingButton */,
 				0E5947F92AA4B784003C6C7D /* SearchField */,
@@ -513,6 +534,7 @@
 				0E502B652A90EA2E002C71F2 /* PretendardWeight.swift */,
 				0E9B77412A8BF81C00F2117B /* LoginType.swift */,
 				0EB4160B2AB44912008F42EC /* MountainDifficulty.swift */,
+				0E0137DA2AC06974003C4A17 /* PopUpType.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -1126,6 +1148,7 @@
 				0E5948062AA4E7D4003C6C7D /* SearchResultDataSource.swift in Sources */,
 				0E502B892A9BA31E002C71F2 /* MountainDetailVM.swift in Sources */,
 				0E0137AC2AB73880003C4A17 /* MountainRecordRequestModel.swift in Sources */,
+				0E0137D92AC062F8003C4A17 /* OrgoPopUpVC.swift in Sources */,
 				0E9B773A2A8BF1AE00F2117B /* APIToken.swift in Sources */,
 				0E5947FD2AA4C219003C6C7D /* SearchView.swift in Sources */,
 				0E57C17C2A8BC85600BFF482 /* MyPageVC.swift in Sources */,
@@ -1167,6 +1190,7 @@
 				0E9B77452A8BF8DF00F2117B /* LoginResponseModel.swift in Sources */,
 				0E9B77482A8C762100F2117B /* MyPageVM.swift in Sources */,
 				0E502B812A9B40F2002C71F2 /* UIButton+Ext.swift in Sources */,
+				0E0137DB2AC06974003C4A17 /* PopUpType.swift in Sources */,
 				0E9B77402A8BF29500F2117B /* KeychainManager.swift in Sources */,
 				0EB415F12AAF7248008F42EC /* SettingVM.swift in Sources */,
 				0E57C1802A8BC9E500BFF482 /* TabBarItemButton.swift in Sources */,
