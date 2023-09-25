@@ -14,4 +14,6 @@ struct ColorAssets {
     static let gray = UIColor(named: "Gray")!
     static let pink = UIColor(named: "Pink")!
     
+    static let buttonSelectedBlue = UIColor(named: "ButtonSelected")!
+    
 }

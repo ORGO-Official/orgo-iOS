@@ -50,8 +50,8 @@ class OrgoPopUpVC: BaseViewController {
     private let descLabel: UILabel = UILabel()
         .then {
             $0.textAlignment = .center
-            $0.font = UIFont.pretendard(size: 14.0, weight: .medium)
-            $0.textColor = .black
+            $0.font = UIFont.pretendard(size: 14.0, weight: .regular)
+            $0.textColor = ColorAssets.gray
             $0.numberOfLines = 0
         }
     
@@ -65,15 +65,18 @@ class OrgoPopUpVC: BaseViewController {
     
     private let confirmBtn: UIButton = UIButton(type: .system)
         .then {
+            $0.setTitleColor(.black, for: .normal)
             $0.setBackgroundColor(ColorAssets.lightGray, for: .normal)
-            $0.setBackgroundColor(.systemBlue, for: .highlighted)
+            $0.setBackgroundColor(ColorAssets.buttonSelectedBlue, for: .highlighted)
             $0.layer.cornerRadius = 5.0
         }
     
     private let cancelBtn: UIButton = UIButton(type: .system)
         .then {
+            $0.tintColor = .clear
+            $0.setTitleColor(.black, for: .normal)
             $0.setBackgroundColor(ColorAssets.lightGray, for: .normal)
-            $0.setBackgroundColor(.systemBlue, for: .highlighted)
+            $0.setBackgroundColor(ColorAssets.buttonSelectedBlue, for: .highlighted)
             $0.layer.cornerRadius = 5.0
         }
     
