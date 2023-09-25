@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Pretendard-Regular.otf">
+            <string>Pretendard-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
@@ -16,29 +21,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="orgoLogoWhite" translatesAutoresizingMaskIntoConstraints="NO" id="Ro7-qx-Gxy">
-                                <rect key="frame" x="120" y="309" width="153" height="64"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Ro7-qx-Gxy" secondAttribute="height" multiplier="153:64" id="mZH-jv-D9L"/>
-                                </constraints>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OrgoBackground" translatesAutoresizingMaskIntoConstraints="NO" id="BS7-Ra-QjC">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                             </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="thh-wI-10x">
+                                <rect key="frame" x="110.66666666666669" y="354.66666666666669" width="172" height="142.66666666666669"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OrgoSplashLogo" translatesAutoresizingMaskIntoConstraints="NO" id="OlT-BK-oPF">
+                                        <rect key="frame" x="0.0" y="0.0" width="172" height="88"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="가뿐하게 오르고, 사뿐하게 오르고!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KN1-xT-kb2">
+                                        <rect key="frame" x="0.0" y="102" width="172" height="40.666666666666657"/>
+                                        <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.0" green="0.41176470588235292" blue="0.22745098039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Ro7-qx-Gxy" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="0dd-k1-RmE"/>
-                            <constraint firstItem="Ro7-qx-Gxy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="120" id="Dev-pw-Prx"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ro7-qx-Gxy" secondAttribute="trailing" constant="120" id="FcI-Mh-0hB"/>
-                            <constraint firstItem="Ro7-qx-Gxy" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="250" id="rIU-9G-RpJ"/>
+                            <constraint firstItem="thh-wI-10x" firstAttribute="centerY" secondItem="BS7-Ra-QjC" secondAttribute="centerY" id="EAk-00-fh8"/>
+                            <constraint firstAttribute="bottom" secondItem="BS7-Ra-QjC" secondAttribute="bottom" id="HUi-9Y-l1f"/>
+                            <constraint firstAttribute="trailing" secondItem="BS7-Ra-QjC" secondAttribute="trailing" id="SXf-3W-awo"/>
+                            <constraint firstItem="thh-wI-10x" firstAttribute="centerX" secondItem="BS7-Ra-QjC" secondAttribute="centerX" id="e9v-9Z-SKH"/>
+                            <constraint firstItem="BS7-Ra-QjC" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="r5F-j4-1lq"/>
+                            <constraint firstItem="BS7-Ra-QjC" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="z2Y-r6-9aD"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.671755725190835" y="374.64788732394368"/>
         </scene>
     </scenes>
     <resources>
-        <image name="orgoLogoWhite" width="156" height="64"/>
+        <image name="OrgoBackground" width="390" height="844"/>
+        <image name="OrgoSplashLogo" width="172" height="88"/>
     </resources>
 </document>
