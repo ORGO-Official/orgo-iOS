@@ -21,7 +21,7 @@ class OrgoPopUpVC: BaseViewController {
     
     private let dimmedView: UIView = UIView()
         .then {
-            $0.backgroundColor = .black.withAlphaComponent(0.7)
+            $0.backgroundColor = .black.withAlphaComponent(0.2)
         }
     
     private let contentView: UIView = UIView()
@@ -100,6 +100,12 @@ class OrgoPopUpVC: BaseViewController {
         configureLayout()
     }
     
+    override func bindInput() {
+        super.bindInput()
+        
+        bindTap()
+    }
+    
     // MARK: - Functions
     
     func configurePopUp(type: PopUpType, targetVC: UIViewController, confirmAction: Selector) {
@@ -122,6 +128,8 @@ extension OrgoPopUpVC {
     private func configureInnerView() {
         view.addSubviews([dimmedView,
                           contentView])
+        
+        view.backgroundColor = .clear
         
         contentView.addSubviews([descView, btnStackView])
         
@@ -168,6 +176,37 @@ extension OrgoPopUpVC {
             $0.height.equalTo(contentView.snp.height).dividedBy(5.2)
             $0.leading.bottom.trailing.equalToSuperview().inset(16.0)
         }
+    }
+    
+}
+
+
+// MARK: - Input
+
+extension OrgoPopUpVC {
+    
+    private func bindTap() {
+        dimmedView.rx.tapGesture()
+            .when(.recognized)
+            .withUnretained(self)
+            .subscribe(onNext: { owner, _ in
+                owner.dismiss(animated: false)
+            })
+            .disposed(by: bag)
+        
+        cancelBtn.rx.tap
+            .withUnretained(self)
+            .subscribe(onNext: { owner, _ in
+                owner.dismiss(animated: false)
+            })
+            .disposed(by: bag)
+        
+        confirmBtn.rx.tap
+            .withUnretained(self)
+            .subscribe(onNext: { owner, _ in
+                owner.dismiss(animated: false)
+            })
+            .disposed(by: bag)
     }
     
 }

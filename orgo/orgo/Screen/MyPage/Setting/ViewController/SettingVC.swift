@@ -70,6 +70,14 @@ class SettingVC: BaseNavigationViewController {
     
     // MARK: - Functions
     
+    @objc func signout() {
+        viewModel.requestLogout()
+    }
+    
+    @objc func withdrawal() {
+        viewModel.requestWithdrawal()
+    }
+    
 }
 
 
@@ -118,37 +126,9 @@ extension SettingVC {
                     
                     owner.present(safariVC, animated: true)
                 case .signout:
-                    let alert = UIAlertController(title: .empty,
-                                                  message: "정말 로그아웃 하시겠어요?",
-                                                  preferredStyle: .actionSheet)
-                    
-                    let defaultAction = UIAlertAction(title: "예", style: .default) { _ in
-                        owner.viewModel.requestLogout()
-                    }
-                    
-                    let cancelAction = UIAlertAction(title: "아니오", style: .cancel)
-                    
-                    [defaultAction, cancelAction].forEach {
-                        alert.addAction($0)
-                    }
-                    
-                    owner.present(alert, animated: true)
+                    owner.showPopUp(type: .logout, targetVC: owner, confirmAction: #selector(owner.signout))
                 case .withdrawal:
-                    let alert = UIAlertController(title: .empty,
-                                                  message: "정말 회원탈퇴 하시겠어요?",
-                                                  preferredStyle: .actionSheet)
-                    
-                    let defaultAction = UIAlertAction(title: "예", style: .default) { _ in
-                        owner.viewModel.requestWithdrawal()
-                    }
-                    
-                    let cancelAction = UIAlertAction(title: "아니오", style: .cancel)
-                    
-                    [defaultAction, cancelAction].forEach {
-                        alert.addAction($0)
-                    }
-                    
-                    owner.present(alert, animated: true)
+                    owner.showPopUp(type: .withdrawal, targetVC: owner, confirmAction: #selector(owner.withdrawal))
                 }
             })
             .disposed(by: bag)
