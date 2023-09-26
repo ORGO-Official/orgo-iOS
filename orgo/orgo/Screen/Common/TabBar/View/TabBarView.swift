@@ -14,11 +14,6 @@ class TabBarView: BaseView {
     
     // MARK: - UI components
     
-    private let borderView = BaseView()
-        .then {
-            $0.backgroundColor = ColorAssets.lightGray
-        }
-    
     /// 탭 바 버튼 들어가는 스택뷰
     let stackView = UIStackView()
         .then {
@@ -56,7 +51,9 @@ class TabBarView: BaseView {
 extension TabBarView {
     
     private func configureInnerView() {
-        addSubviews([borderView, stackView])
+        addSubviews([stackView])
+        
+        backgroundColor = .white
     }
     
 }
@@ -66,15 +63,9 @@ extension TabBarView {
 extension TabBarView {
     
     private func configureLayout() {
-        borderView.snp.makeConstraints {
-            $0.height.equalTo(1.0)
-            $0.top.horizontalEdges.equalTo(self)
-        }
-        
         stackView.snp.makeConstraints {
             $0.height.equalTo(50.0)
-            $0.top.equalTo(borderView.snp.bottom)
-            $0.horizontalEdges.bottom.equalTo(self)
+            $0.top.horizontalEdges.bottom.equalTo(self)
         }
     }
     

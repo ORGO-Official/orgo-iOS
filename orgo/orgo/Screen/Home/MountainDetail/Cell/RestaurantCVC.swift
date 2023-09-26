@@ -26,7 +26,7 @@ class RestaurantCVC: BaseCollectionViewCell {
             $0.textColor = .black
             $0.textAlignment = .center
             $0.font = UIFont.pretendard(size: 14.0, weight: .medium)
-            $0.adjustsFontSizeToFitWidth = true
+            $0.numberOfLines = 2
         }
     
     
@@ -83,7 +83,6 @@ extension RestaurantCVC {
         restaurantTitle.snp.makeConstraints {
             $0.top.equalTo(thumbnailImageView.snp.bottom).offset(4.0)
             $0.leading.trailing.equalToSuperview()
-            $0.height.equalTo(14.0)
         }
     }
     

@@ -24,7 +24,7 @@ class MountainBottomSheetVC: OrgoBottomSheet {
     private let authenticateBtn = UIButton(type: .system)
         .then {
             $0.titleLabel?.font = UIFont.pretendard(size: 14.0, weight: .bold)
-            $0.setTitle("완등 인증하기", for: .normal)
+            $0.setTitle("등반 시작하기", for: .normal)
             $0.setTitleColor(.white, for: .normal)
             $0.setTitleColor(.gray, for: .disabled)
             
@@ -33,6 +33,17 @@ class MountainBottomSheetVC: OrgoBottomSheet {
             
             $0.layer.cornerRadius = 5.0
             $0.layer.masksToBounds = true
+        }
+    
+    private let moreLabel: UILabel = UILabel()
+        .then {
+            $0.text = "더보기"
+            $0.font = UIFont.pretendard(size: 13.0, weight: .regular)
+            $0.textAlignment = .center
+            $0.textColor = .black
+            $0.layer.cornerRadius = 10.0
+            $0.layer.borderColor = ColorAssets.lightGray.cgColor
+            $0.layer.borderWidth = 1.0
         }
     
     private let authenticateLabel: UILabel = UILabel()
@@ -121,6 +132,7 @@ extension MountainBottomSheetVC {
     
     private func configureBottomSheet() {
         view.addSubviews([mountainInfoView,
+                          moreLabel,
                           authenticateBtn,
                           authenticateLabel])
         
@@ -141,11 +153,18 @@ extension MountainBottomSheetVC {
             $0.top.equalTo(bottomSheetView.snp.top).offset(28.0)
         }
         
+        moreLabel.snp.makeConstraints {
+            $0.centerY.equalTo(mountainInfoView.mountainName)
+            $0.height.equalTo(21.0)
+            $0.width.equalTo(110.0)
+            $0.trailing.equalToSuperview().offset(-16.0)
+        }
+        
         authenticateBtn.snp.makeConstraints {
             $0.top.equalTo(bottomSheetView.snp.top).offset(182.0)
             $0.leading.equalTo(bottomSheetView.snp.leading).offset(16.0)
             $0.trailing.equalTo(bottomSheetView.snp.trailing).offset(-16.0)
-            $0.height.equalTo(36.0)
+            $0.height.equalTo(34.0)
         }
         
         authenticateLabel.snp.makeConstraints {

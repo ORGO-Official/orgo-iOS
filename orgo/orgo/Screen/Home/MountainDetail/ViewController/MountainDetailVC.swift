@@ -19,21 +19,30 @@ class MountainDetailVC: BaseNavigationViewController {
     
     // MARK: - UI components
     
-    let backgroundImageView = UIImageView()
+    let backgroundImageView: UIImageView = UIImageView()
         .then {
             $0.contentMode = .scaleToFill
         }
     
-    let mainImageView = UIImageView()
+    let backgroundDimmedView: UIView = UIView()
+        .then {
+            $0.backgroundColor = .black.withAlphaComponent(0.08)
+        }
+    
+    let mainImageShadowView: UIView = UIView()
+        .then {
+            $0.addShadow(x: 0, y: 0, blur: 13, opacity: 0.2)
+        }
+    
+    let mainImageView: UIImageView = UIImageView()
         .then {
             $0.contentMode = .scaleAspectFill
-            $0.layer.cornerRadius = 48.0
-            $0.layer.masksToBounds = true
+            $0.clipsToBounds = true
         }
     
     let mountainInfoView: MountainDetailInfoView = MountainDetailInfoView()
     
-    let upperBorder = UIView()
+    let upperBorder: UIView = UIView()
         .then {
             $0.layer.cornerRadius = 1.0
             $0.backgroundColor = .lightGray
@@ -41,18 +50,28 @@ class MountainDetailVC: BaseNavigationViewController {
     
     let iconInfoView: IconInfoView = IconInfoView()
     
-    let lowerBorder = UIView()
+    let lowerBorder: UIView = UIView()
         .then {
             $0.layer.cornerRadius = 1.0
             $0.backgroundColor = .lightGray
         }
     
+    let restaurantTitle: UILabel = UILabel()
+        .then {
+            $0.text = "인근 식당"
+            $0.font = UIFont.pretendard(size: 14.0, weight: .regular)
+            $0.textAlignment = .left
+            $0.textColor = .black
+        }
+    
     let restaurantCV: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 8.0
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0)
         layout.scrollDirection = .horizontal
+        
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-                
+        collectionView.showsHorizontalScrollIndicator = false
         return collectionView
     }()
     
@@ -113,12 +132,16 @@ extension MountainDetailVC {
         navigationBar.style = .left
         
         view.addSubviews([backgroundImageView,
-                          mainImageView,
+                          mainImageShadowView,
                           mountainInfoView,
                           upperBorder,
                           iconInfoView,
                           lowerBorder,
+                          restaurantTitle,
                           restaurantCV])
+        
+        backgroundImageView.addSubview(backgroundDimmedView)
+        mainImageShadowView.addSubview(mainImageView)
         
         restaurantCV.backgroundColor = .white
         restaurantCV.register(RestaurantCVC.self, forCellWithReuseIdentifier: RestaurantCVC.className)
@@ -140,14 +163,24 @@ extension MountainDetailVC {
             $0.height.equalToSuperview().dividedBy(2.8)
         }
         
-        mainImageView.snp.makeConstraints {
+        backgroundDimmedView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        
+        mainImageShadowView.snp.makeConstraints {
             $0.top.equalTo(navigationBar.snp.bottom).offset(screenHeight / 4.0)
             $0.height.width.equalTo(screenHeight / 7.0)
             $0.centerX.equalToSuperview()
         }
         
+        mainImageView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        
+        mainImageView.layer.cornerRadius = screenHeight / 17.6
+        
         mountainInfoView.snp.makeConstraints {
-            $0.top.equalTo(mainImageView.snp.bottom).offset(28.0)
+            $0.top.equalTo(mainImageView.snp.bottom).offset(20.0)
             $0.leading.equalTo(view.safeAreaLayoutGuide).offset(16.0)
             $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-16.0)
             $0.height.equalTo(104.0)
@@ -171,10 +204,15 @@ extension MountainDetailVC {
             $0.height.equalTo(1.0)
         }
         
+        restaurantTitle.snp.makeConstraints {
+            $0.top.equalTo(lowerBorder.snp.bottom).offset(12.0)
+            $0.leading.equalTo(lowerBorder.snp.leading)
+        }
+        
         restaurantCV.snp.makeConstraints {
-            $0.top.equalTo(lowerBorder.snp.bottom).offset(16.0)
+            $0.top.equalTo(restaurantTitle.snp.bottom).offset(8.0)
             $0.leading.trailing.equalToSuperview()
-            $0.height.equalTo((screenWidth - 80.0) / 5 + 20.0)
+            $0.bottom.equalTo(view.safeAreaLayoutGuide)
         }
         
     }
@@ -248,10 +286,8 @@ extension MountainDetailVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let cellWidth = (screenWidth - 80.0) / 5
-        let cellHeight = cellWidth + 20.0
         
-        return CGSize(width: cellWidth, height: cellHeight)
+        return CGSize(width: collectionView.frame.height / 1.8, height: collectionView.frame.height)
     }
     
 }
