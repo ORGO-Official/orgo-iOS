@@ -67,9 +67,11 @@ class MountainDetailVC: BaseNavigationViewController {
     let restaurantCV: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 8.0
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0)
         layout.scrollDirection = .horizontal
+        
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-                
+        collectionView.showsHorizontalScrollIndicator = false
         return collectionView
     }()
     
@@ -210,7 +212,7 @@ extension MountainDetailVC {
         restaurantCV.snp.makeConstraints {
             $0.top.equalTo(restaurantTitle.snp.bottom).offset(8.0)
             $0.leading.trailing.equalToSuperview()
-            $0.height.equalTo((screenWidth - 80.0) / 5 + 20.0)
+            $0.bottom.equalTo(view.safeAreaLayoutGuide)
         }
         
     }
@@ -284,10 +286,8 @@ extension MountainDetailVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let cellWidth = (screenWidth - 80.0) / 5
-        let cellHeight = cellWidth + 20.0
         
-        return CGSize(width: cellWidth, height: cellHeight)
+        return CGSize(width: collectionView.frame.height / 1.8, height: collectionView.frame.height)
     }
     
 }
