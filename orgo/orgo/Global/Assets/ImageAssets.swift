@@ -12,8 +12,9 @@ enum ImageAssets {
     // MARK: - Logo
     
     static let orgoLogoGreen = UIImage(named: "OrgoLogoGreen")?.withRenderingMode(.alwaysOriginal)
-    static let orgoLogoWhite = UIImage(named: "OrgoLogoWhite")?.withRenderingMode(.alwaysOriginal)
+    static let orgoLogoWhite = UIImage(named: "OrgoSplashLogo")?.withRenderingMode(.alwaysOriginal)
     static let climbCompleteLogo = UIImage(named: "ClimbCompleteLogo")?.withRenderingMode(.alwaysOriginal)
+    static let todayOrgoLogo = UIImage(named: "TodayOrgoLogo")?.withRenderingMode(.alwaysOriginal)
     
     // MARK: - Login
     
@@ -25,6 +26,8 @@ enum ImageAssets {
     
     // MARK: - Common
     
+    static let orgoBackground = UIImage(named: "OrgoBackground")?.withRenderingMode(.alwaysOriginal)
+    
     static let selectedHouse = UIImage(named: "SelectedHouse")?.withRenderingMode(.alwaysOriginal)
     static let unselectedHouse = UIImage(named: "UnselectedHouse")?.withRenderingMode(.alwaysOriginal)
     static let selectedUser = UIImage(named: "SelectedUser")?.withRenderingMode(.alwaysOriginal)
@@ -33,6 +36,8 @@ enum ImageAssets {
     static let backButton = UIImage(named: "BackButton")?.withRenderingMode(.alwaysOriginal)
     
     static let myLocation = UIImage(named: "MyLocation")?.withRenderingMode(.alwaysOriginal)
+    static let saveButton = UIImage(named: "Save")?.withRenderingMode(.alwaysOriginal)
+    static let confirmButton = UIImage(named: "Confirm")?.withRenderingMode(.alwaysOriginal)
     
     // MARK: - Mountain
     
@@ -47,6 +52,8 @@ enum ImageAssets {
     static let parkingIcon = UIImage(named: "Parking")?.withRenderingMode(.alwaysTemplate)
     static let toiletIcon = UIImage(named: "Toilet")?.withRenderingMode(.alwaysTemplate)
     static let cableCarIcon = UIImage(named: "CableCar")?.withRenderingMode(.alwaysTemplate)
+    
+    static let locationWhite = UIImage(named: "LocationWhite")?.withRenderingMode(.alwaysOriginal)
     
     // MARK: - Search
     

@@ -20,6 +20,7 @@ class RecordCompletionVC: BaseViewController {
     
     let mainImageView: UIImageView = UIImageView()
         .then {
+            $0.isUserInteractionEnabled = true
             $0.image = ImageAssets.orgoBackground
             $0.contentMode = .scaleAspectFill
             $0.layer.cornerRadius = 16.0
@@ -38,8 +39,11 @@ class RecordCompletionVC: BaseViewController {
     
     let dimmedView: UIView = UIView()
         .then {
+            $0.isUserInteractionEnabled = true
             $0.backgroundColor = .black.withAlphaComponent(0.1)
         }
+    
+    let mountainNameBtn: MountainButton = MountainButton()
     
     let bottomMenuView: UIView = UIView()
         .then {
@@ -128,7 +132,9 @@ class RecordCompletionVC: BaseViewController {
 //        dateLabel.text = currentDateString
 //        lowerLabel.text = "\(data.name) 완등 완료"
 //        heightLabel.text = "해발 \(data.location.altitude)m"
+        mountainNameBtn.setButton(name: "계양산")
     }
+    
 }
 
 
@@ -144,7 +150,8 @@ extension RecordCompletionVC {
         
         mainImageView.addSubviews([dimmedView])
         
-        dimmedView.addSubviews([orgoLogoImageView,
+        dimmedView.addSubviews([mountainNameBtn,
+                                orgoLogoImageView,
                                 orgoWaterMarkImageView])
         
         bottomMenuView.addSubviews([buttonStackView,
@@ -206,6 +213,11 @@ extension RecordCompletionVC {
             $0.edges.equalToSuperview()
         }
         
+        mountainNameBtn.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(45.0)
+            $0.leading.equalToSuperview().offset(19.0)
+        }
+        
         orgoLogoImageView.snp.makeConstraints {
             $0.centerY.equalToSuperview()
             $0.leading.trailing.equalToSuperview().inset(86.0)
@@ -254,6 +266,13 @@ extension RecordCompletionVC {
             .withUnretained(self)
             .bind(onNext: { owner, _ in
                 print("TODO: - 저장")
+            })
+            .disposed(by: bag)
+        
+        mountainNameBtn.rx.tap
+            .withUnretained(self)
+            .bind(onNext: { owner, _ in
+                owner.mountainNameBtn.isSelected.toggle()
             })
             .disposed(by: bag)
     }
