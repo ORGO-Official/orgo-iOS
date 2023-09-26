@@ -18,51 +18,75 @@ class RecordCompletionVC: BaseViewController {
     
     // MARK: - UI components
     
-    let dateLabel: UILabel = UILabel()
+    let mainImageView: UIImageView = UIImageView()
         .then {
-            $0.font = UIFont.pretendard(size: 14.0, weight: .regular)
-            $0.textAlignment = .left
-            $0.textColor = .white
+            $0.image = ImageAssets.orgoBackground
+            $0.contentMode = .scaleAspectFill
+            $0.layer.cornerRadius = 16.0
+            $0.clipsToBounds = true
         }
     
-    let completeImageView: UIImageView = UIImageView()
+    let orgoLogoImageView: UIImageView = UIImageView()
         .then {
-            $0.image = ImageAssets.climbCompleteLogo
-            $0.contentMode = .scaleAspectFit
+            $0.image = ImageAssets.todayOrgoLogo
         }
     
-    let upperTitle: UILabel = UILabel()
+    let orgoWaterMarkImageView: UIImageView = UIImageView()
         .then {
-            $0.text = "축하드립니다!"
-            $0.font = UIFont.pretendard(size: 20.0, weight: .medium)
-            $0.textAlignment = .center
-            $0.textColor = .white
+            $0.image = ImageAssets.orgoLogoWhite
         }
     
-    let lowerLabel: UILabel = UILabel()
+    let dimmedView: UIView = UIView()
         .then {
-            $0.font = UIFont.pretendard(size: 20.0, weight: .medium)
-            $0.textAlignment = .center
-            $0.textColor = .white
+            $0.backgroundColor = .black.withAlphaComponent(0.1)
         }
     
-    let heightLabel: UILabel = UILabel()
+    let bottomMenuView: UIView = UIView()
         .then {
-            $0.font = UIFont.pretendard(size: 13.0, weight: .regular)
-            $0.textAlignment = .center
-            $0.textColor = .white
+            $0.backgroundColor = .black
         }
     
-    let confirmBtn: UIButton = UIButton()
+    let buttonStackView: UIStackView = UIStackView()
         .then {
-            $0.setTitle("확인", for: .normal)
-            $0.setTitleColor(.white, for: .normal)
-            $0.titleLabel?.font = UIFont.pretendard(size: 14.0, weight: .bold)
+            $0.axis = .horizontal
+            $0.spacing = 14.0
+            $0.alignment = .fill
+            $0.distribution = .fill
+        }
+    
+    let photoSelectBtn: UIButton = UIButton(type: .system)
+        .then {
+            $0.setTitle("사진 선택", for: .normal)
+            $0.titleLabel?.font = UIFont.pretendard(size: 15.0, weight: .bold)
+            $0.tintColor = .white
             
-            $0.setBackgroundColor(.systemBlue, for: .normal)
+            $0.backgroundColor = .clear
+            $0.layer.borderColor = UIColor.white.cgColor
+            $0.layer.borderWidth = 2.0
+            $0.layer.cornerRadius = 20.0
+        }
+    
+    let shareBtn: UIButton = UIButton(type: .system)
+        .then {
+            $0.setTitle("공유", for: .normal)
+            $0.titleLabel?.font = UIFont.pretendard(size: 15.0, weight: .bold)
+            $0.tintColor = .white
             
-            $0.layer.cornerRadius = 5.0
-            $0.layer.masksToBounds = true
+            $0.backgroundColor = .clear
+            $0.layer.borderColor = UIColor.white.cgColor
+            $0.layer.borderWidth = 2.0
+            $0.layer.cornerRadius = 20.0
+        }
+    
+    let saveBtn: UIButton = UIButton(type: .system)
+        .then {
+            $0.setImage(ImageAssets.saveButton, for: .normal)
+        }
+    
+    let confirmBtn: UIButton = UIButton(type: .system)
+        .then {
+            $0.setImage(ImageAssets.confirmButton, for: .normal)
+            $0.layer.cornerRadius = 20.0
         }
     
     
@@ -97,13 +121,13 @@ class RecordCompletionVC: BaseViewController {
     // MARK: - Functions
     
     func configureInfo(data: MountainListResponseModel) {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy.MM.dd"
-        let currentDateString = dateFormatter.string(from: Date())
-        
-        dateLabel.text = currentDateString
-        lowerLabel.text = "\(data.name) 완등 완료"
-        heightLabel.text = "해발 \(data.location.altitude)m"
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "yyyy.MM.dd"
+//        let currentDateString = dateFormatter.string(from: Date())
+//
+//        dateLabel.text = currentDateString
+//        lowerLabel.text = "\(data.name) 완등 완료"
+//        heightLabel.text = "해발 \(data.location.altitude)m"
     }
 }
 
@@ -113,14 +137,24 @@ class RecordCompletionVC: BaseViewController {
 extension RecordCompletionVC {
     
     private func configureInnerView() {
-        view.backgroundColor = ColorAssets.mainGreen
+        view.backgroundColor = .black
         
-        view.addSubviews([dateLabel,
-                          completeImageView,
-                          upperTitle,
-                          lowerLabel,
-                          heightLabel,
-                          confirmBtn])
+        view.addSubviews([mainImageView,
+                          bottomMenuView])
+        
+        mainImageView.addSubviews([dimmedView])
+        
+        dimmedView.addSubviews([orgoLogoImageView,
+                                orgoWaterMarkImageView])
+        
+        bottomMenuView.addSubviews([buttonStackView,
+                                    saveBtn,
+                                    confirmBtn])
+        
+        [photoSelectBtn,
+         shareBtn].forEach {
+            buttonStackView.addArrangedSubview($0)
+        }
     }
     
 }
@@ -131,38 +165,60 @@ extension RecordCompletionVC {
 extension RecordCompletionVC {
     
     private func configureLayout() {
-        dateLabel.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide)
-            $0.leading.equalToSuperview().offset(16.0)
+        bottomMenuView.snp.makeConstraints {
+            $0.leading.bottom.trailing.equalToSuperview()
+            $0.height.equalTo(50.0)
         }
         
-        completeImageView.snp.makeConstraints {
-            $0.centerX.equalToSuperview()
-            $0.top.equalTo(view.safeAreaLayoutGuide).offset(screenHeight / 3.5)
-            $0.leading.trailing.equalToSuperview().inset(90.0)
-            $0.height.equalTo(completeImageView.snp.width).dividedBy(2.4)
+        buttonStackView.snp.makeConstraints {
+            $0.leading.equalToSuperview().offset(18.0)
+            $0.centerY.equalToSuperview()
+            $0.height.equalTo(39.0)
         }
         
-        upperTitle.snp.makeConstraints {
-            $0.centerX.equalToSuperview()
-            $0.top.equalTo(completeImageView.snp.bottom).offset(screenHeight / 5.2)
+        photoSelectBtn.snp.makeConstraints {
+            $0.width.equalTo(88.0)
         }
         
-        lowerLabel.snp.makeConstraints {
-            $0.centerX.equalToSuperview()
-            $0.top.equalTo(upperTitle.snp.bottom).offset(4.0)
+        shareBtn.snp.makeConstraints {
+            $0.width.equalTo(88.0)
         }
         
-        heightLabel.snp.makeConstraints {
-            $0.centerX.equalToSuperview()
-            $0.top.equalTo(lowerLabel.snp.bottom).offset(4.0)
+        saveBtn.snp.makeConstraints {
+            $0.leading.equalTo(buttonStackView.snp.trailing).offset(18.0)
+            $0.centerY.equalToSuperview()
+            $0.width.height.equalTo(24.0)
         }
         
         confirmBtn.snp.makeConstraints {
-            $0.leading.trailing.equalToSuperview().inset(16.0)
-            $0.bottom.equalToSuperview().offset(-45.0)
-            $0.height.equalTo(36.0)
+            $0.trailing.equalToSuperview().offset(-18.0)
+            $0.centerY.equalToSuperview()
+            $0.height.width.equalTo(40.0)
         }
+        
+        mainImageView.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide)
+            $0.leading.trailing.equalToSuperview()
+            $0.bottom.equalTo(bottomMenuView.snp.top)
+        }
+        
+        dimmedView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        
+        orgoLogoImageView.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.leading.trailing.equalToSuperview().inset(86.0)
+            $0.height.equalTo(orgoLogoImageView.snp.width).dividedBy(2.47)
+        }
+        
+        orgoWaterMarkImageView.snp.makeConstraints {
+            $0.width.equalTo(46.0)
+            $0.height.equalTo(23.0)
+            $0.trailing.equalToSuperview().offset(-16.0)
+            $0.bottom.equalToSuperview().offset(-15.0)
+        }
+        
     }
     
 }
@@ -177,6 +233,27 @@ extension RecordCompletionVC {
             .withUnretained(self)
             .bind(onNext: { owner, _ in
                 owner.dismiss(animated: true)
+            })
+            .disposed(by: bag)
+        
+        photoSelectBtn.rx.tap
+            .withUnretained(self)
+            .bind(onNext: { owner, _ in
+                print("TODO: - 사진 선택")
+            })
+            .disposed(by: bag)
+        
+        shareBtn.rx.tap
+            .withUnretained(self)
+            .bind(onNext: { owner, _ in
+                print("TODO: - 공유")
+            })
+            .disposed(by: bag)
+        
+        saveBtn.rx.tap
+            .withUnretained(self)
+            .bind(onNext: { owner, _ in
+                print("TODO: - 저장")
             })
             .disposed(by: bag)
     }
