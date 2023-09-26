@@ -19,21 +19,30 @@ class MountainDetailVC: BaseNavigationViewController {
     
     // MARK: - UI components
     
-    let backgroundImageView = UIImageView()
+    let backgroundImageView: UIImageView = UIImageView()
         .then {
             $0.contentMode = .scaleToFill
         }
     
-    let mainImageView = UIImageView()
+    let backgroundDimmedView: UIView = UIView()
+        .then {
+            $0.backgroundColor = .black.withAlphaComponent(0.08)
+        }
+    
+    let mainImageShadowView: UIView = UIView()
+        .then {
+            $0.addShadow(x: 0, y: 0, blur: 13, opacity: 0.2)
+        }
+    
+    let mainImageView: UIImageView = UIImageView()
         .then {
             $0.contentMode = .scaleAspectFill
-            $0.layer.cornerRadius = 48.0
-            $0.layer.masksToBounds = true
+            $0.clipsToBounds = true
         }
     
     let mountainInfoView: MountainDetailInfoView = MountainDetailInfoView()
     
-    let upperBorder = UIView()
+    let upperBorder: UIView = UIView()
         .then {
             $0.layer.cornerRadius = 1.0
             $0.backgroundColor = .lightGray
@@ -41,7 +50,7 @@ class MountainDetailVC: BaseNavigationViewController {
     
     let iconInfoView: IconInfoView = IconInfoView()
     
-    let lowerBorder = UIView()
+    let lowerBorder: UIView = UIView()
         .then {
             $0.layer.cornerRadius = 1.0
             $0.backgroundColor = .lightGray
@@ -113,12 +122,15 @@ extension MountainDetailVC {
         navigationBar.style = .left
         
         view.addSubviews([backgroundImageView,
-                          mainImageView,
+                          mainImageShadowView,
                           mountainInfoView,
                           upperBorder,
                           iconInfoView,
                           lowerBorder,
                           restaurantCV])
+        
+        backgroundImageView.addSubview(backgroundDimmedView)
+        mainImageShadowView.addSubview(mainImageView)
         
         restaurantCV.backgroundColor = .white
         restaurantCV.register(RestaurantCVC.self, forCellWithReuseIdentifier: RestaurantCVC.className)
@@ -140,14 +152,24 @@ extension MountainDetailVC {
             $0.height.equalToSuperview().dividedBy(2.8)
         }
         
-        mainImageView.snp.makeConstraints {
+        backgroundDimmedView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        
+        mainImageShadowView.snp.makeConstraints {
             $0.top.equalTo(navigationBar.snp.bottom).offset(screenHeight / 4.0)
             $0.height.width.equalTo(screenHeight / 7.0)
             $0.centerX.equalToSuperview()
         }
         
+        mainImageView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        
+        mainImageView.layer.cornerRadius = screenHeight / 17.6
+        
         mountainInfoView.snp.makeConstraints {
-            $0.top.equalTo(mainImageView.snp.bottom).offset(28.0)
+            $0.top.equalTo(mainImageView.snp.bottom).offset(20.0)
             $0.leading.equalTo(view.safeAreaLayoutGuide).offset(16.0)
             $0.trailing.equalTo(view.safeAreaLayoutGuide).offset(-16.0)
             $0.height.equalTo(104.0)
