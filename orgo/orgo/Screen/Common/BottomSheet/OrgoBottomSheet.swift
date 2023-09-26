@@ -118,15 +118,7 @@ extension OrgoBottomSheet {
         bottomSheetView.addSubview(sheetBar)
         dimmedView.alpha = 0.0
         
-        configureShadow()
-    }
-    
-    private func configureShadow() {
-        view.layer.shadowColor = CGColor(red: 23.0 / 255.0, green: 23.0 / 255.0, blue: 23.0 / 255.0, alpha: 1)
-        view.layer.shadowOpacity = 0.1
-        view.layer.shadowRadius = 16.0
-        view.layer.shadowOffset = CGSize(width: 0, height: -4.0)
-        view.layer.masksToBounds = false
+        view.addShadow(x: 0, y: -4, blur: 50, opacity: 0.1)
     }
     
 }

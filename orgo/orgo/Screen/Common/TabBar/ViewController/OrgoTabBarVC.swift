@@ -130,6 +130,9 @@ extension OrgoTabBarVC {
             $0.horizontalEdges.equalTo(view)
             $0.bottom.equalTo(view.safeAreaLayoutGuide)
         }
+        
+        tabBarView.addShadow(x: 0, y: -4, blur: 50, opacity: 0.1)
+        tabBarView.layer.zPosition = 1
     }
     
 }
