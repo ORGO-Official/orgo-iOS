@@ -173,7 +173,8 @@ extension RecordCompletionVC {
     
     private func configureLayout() {
         bottomMenuView.snp.makeConstraints {
-            $0.leading.bottom.trailing.equalToSuperview()
+            $0.leading.trailing.equalToSuperview()
+            $0.bottom.equalTo(view.safeAreaLayoutGuide)
             $0.height.equalTo(50.0)
         }
         
