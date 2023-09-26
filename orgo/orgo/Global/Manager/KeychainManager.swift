@@ -117,10 +117,9 @@ final class KeychainManager {
 
 extension KeychainManager {
     
-    /// 업데이트를 통해 갱신된 토큰을 로컬에 저장
-    func updateToken(updatedToken: UpdateTokenResponseModel) {
-        save(key: .accessToken, value: updatedToken.accessToken)
-        save(key: .refreshToken, value: updatedToken.refreshToken)
+    /// 액세스 토큰 리프레시
+    func refresh(accessToken: String) {
+        save(key: .accessToken, value: accessToken)
     }
     
     /// 로컬 디바이스에 저장된 사용자의 기본정보 모두 제거
@@ -139,17 +138,12 @@ extension KeychainManager {
     enum Key: String, CaseIterable {
         case isFirst
         
-        case appleUserAuthID
-        case kakaoToken
         case identifier
-        
         case loginType
         
         case accessToken
         case refreshToken
-        
-        case userName
-        case memberID
+
         case email
     }
     

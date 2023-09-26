@@ -39,21 +39,11 @@ class AuthInterceptor: RequestInterceptor {
             .subscribe(onNext: { owner, result in
                 switch result {
                 case .success(_):
-                    print("토큰 갱신 성공")
                     completion(.retry)
                     
                 case .failure(let error):
                     KeychainManager.shared.removeAllKeys()
-                    
-                    guard let rootVC = UIViewController.getRootViewController(),
-                          let tabBarVC = rootVC.rootViewController as? OrgoTabBarVC,
-                          let myPageVC = tabBarVC.getTabBarInnerInstance(targetItemType: .myPage)?.rootViewController as? MyPageVC
-                    else {
-                        completion(.doNotRetryWithError(error))
-                        return
-                    }
-                    
-                    print("로그인 만료")
+                    (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootVCToLogin()
                     completion(.doNotRetryWithError(error))
                 }
             })
