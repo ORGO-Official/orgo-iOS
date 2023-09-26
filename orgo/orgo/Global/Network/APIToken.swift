@@ -16,16 +16,19 @@ struct APIToken {
     
     static func requestUpdateToken() -> Observable<Result<Bool, APIError>> {
         Observable<Result<Bool, APIError>>.create { observer in
-            guard let refreshToken = KeychainManager.shared.read(for: .refreshToken)
+            guard let accessToken = KeychainManager.shared.read(for: .accessToken),
+                  let refreshToken = KeychainManager.shared.read(for: .refreshToken)
             else {
                 observer.onNext(.failure(.unable))
                 return Disposables.create()
             }
+            
             var headers = HTTPHeaders()
             headers.add(.accept("*/*"))
-            headers.add(.authorization(bearerToken: refreshToken))
+            headers.add(name: "auth", value: accessToken)
+            headers.add(name: "refresh", value: refreshToken)
             
-            let path = "/api/auth/refresh"
+            let path = "/api/auth/reissue"
             let urlResource = URLResource<Bool>(path: path)
             
             let task = AF.request(urlResource.resultURL,
@@ -33,14 +36,12 @@ struct APIToken {
                                   encoding: URLEncoding.default,
                                   headers: headers)
                 .validate(statusCode: 200...399)
-                .responseDecodable(of: UpdateTokenResponseModel.self) { response in
+                .responseString { response in
                     switch response.result {
                     case .success(let data):
-                        KeychainManager.shared.updateToken(updatedToken: data)
+                        KeychainManager.shared.refresh(accessToken: data)
                         observer.onNext(.success(true))
-                        
-                    case .failure(let error):
-                        dump(error)
+                    case .failure:
                         guard let error = response.response else { return }
                         observer.onNext(urlResource.judgeError(statusCode: error.statusCode))
                     }
@@ -86,9 +87,7 @@ extension APIToken {
     
     private static func refreshNaverToken() {
         guard let naverLoginInstance = NaverThirdPartyLoginConnection.getSharedInstance() else { return }
-        print("previous : \(naverLoginInstance.accessToken)")
         naverLoginInstance.requestAccessTokenWithRefreshToken()
-        print("after : \(naverLoginInstance.accessToken)")
         KeychainManager.shared.save(key: .identifier, value: naverLoginInstance.accessToken)
     }
     
