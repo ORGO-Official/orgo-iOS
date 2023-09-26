@@ -29,6 +29,13 @@ class IconInfoCell: BaseView {
     
     // MARK: - Variables and Properties
     
+    var isActivate: Bool = true {
+        didSet {
+            iconImageView.tintColor = isActivate ? .black : ColorAssets.lightGray
+            iconTitleLabel.textColor = isActivate ? .black : ColorAssets.lightGray
+        }
+    }
+    
     
     // MARK: - Life Cycle
     
@@ -46,9 +53,10 @@ class IconInfoCell: BaseView {
     
     // MARK: - Functions
     
-    func configureIcon(image: UIImage?, title: String) {
+    func configureIcon(image: UIImage?, title: String, activate: Bool) {
         iconImageView.image = image
         iconTitleLabel.text = title
+        isActivate = activate
     }
     
 }
