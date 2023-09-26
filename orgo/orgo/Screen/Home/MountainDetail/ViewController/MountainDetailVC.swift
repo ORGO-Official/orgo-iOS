@@ -56,6 +56,14 @@ class MountainDetailVC: BaseNavigationViewController {
             $0.backgroundColor = .lightGray
         }
     
+    let restaurantTitle: UILabel = UILabel()
+        .then {
+            $0.text = "인근 식당"
+            $0.font = UIFont.pretendard(size: 14.0, weight: .regular)
+            $0.textAlignment = .left
+            $0.textColor = .black
+        }
+    
     let restaurantCV: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 8.0
@@ -127,6 +135,7 @@ extension MountainDetailVC {
                           upperBorder,
                           iconInfoView,
                           lowerBorder,
+                          restaurantTitle,
                           restaurantCV])
         
         backgroundImageView.addSubview(backgroundDimmedView)
@@ -193,8 +202,13 @@ extension MountainDetailVC {
             $0.height.equalTo(1.0)
         }
         
+        restaurantTitle.snp.makeConstraints {
+            $0.top.equalTo(lowerBorder.snp.bottom).offset(12.0)
+            $0.leading.equalTo(lowerBorder.snp.leading)
+        }
+        
         restaurantCV.snp.makeConstraints {
-            $0.top.equalTo(lowerBorder.snp.bottom).offset(16.0)
+            $0.top.equalTo(restaurantTitle.snp.bottom).offset(8.0)
             $0.leading.trailing.equalToSuperview()
             $0.height.equalTo((screenWidth - 80.0) / 5 + 20.0)
         }
