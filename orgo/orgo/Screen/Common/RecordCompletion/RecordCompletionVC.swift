@@ -18,7 +18,7 @@ class RecordCompletionVC: BaseViewController {
     
     // MARK: - UI components
     
-    let mainImageView: UIImageView = UIImageView()
+    private let mainImageView: UIImageView = UIImageView()
         .then {
             $0.isUserInteractionEnabled = true
             $0.image = ImageAssets.orgoBackground
@@ -27,30 +27,30 @@ class RecordCompletionVC: BaseViewController {
             $0.clipsToBounds = true
         }
     
-    let orgoLogoImageView: UIImageView = UIImageView()
+    private let orgoLogoImageView: UIImageView = UIImageView()
         .then {
             $0.image = ImageAssets.todayOrgoLogo
         }
     
-    let orgoWaterMarkImageView: UIImageView = UIImageView()
+    private let orgoWaterMarkImageView: UIImageView = UIImageView()
         .then {
             $0.image = ImageAssets.orgoLogoWhite
         }
     
-    let dimmedView: UIView = UIView()
+    private let dimmedView: UIView = UIView()
         .then {
             $0.isUserInteractionEnabled = true
             $0.backgroundColor = .black.withAlphaComponent(0.1)
         }
     
-    let mountainNameBtn: MountainButton = MountainButton()
+    private let mountainNameBtn: MountainButton = MountainButton()
     
-    let bottomMenuView: UIView = UIView()
+    private let bottomMenuView: UIView = UIView()
         .then {
             $0.backgroundColor = .black
         }
     
-    let buttonStackView: UIStackView = UIStackView()
+    private let buttonStackView: UIStackView = UIStackView()
         .then {
             $0.axis = .horizontal
             $0.spacing = 14.0
@@ -58,7 +58,7 @@ class RecordCompletionVC: BaseViewController {
             $0.distribution = .fill
         }
     
-    let photoSelectBtn: UIButton = UIButton(type: .system)
+    private let photoSelectBtn: UIButton = UIButton(type: .system)
         .then {
             $0.setTitle("사진 선택", for: .normal)
             $0.titleLabel?.font = UIFont.pretendard(size: 15.0, weight: .bold)
@@ -70,7 +70,7 @@ class RecordCompletionVC: BaseViewController {
             $0.layer.cornerRadius = 20.0
         }
     
-    let shareBtn: UIButton = UIButton(type: .system)
+    private let shareBtn: UIButton = UIButton(type: .system)
         .then {
             $0.setTitle("공유", for: .normal)
             $0.titleLabel?.font = UIFont.pretendard(size: 15.0, weight: .bold)
@@ -82,23 +82,23 @@ class RecordCompletionVC: BaseViewController {
             $0.layer.cornerRadius = 20.0
         }
     
-    let saveBtn: UIButton = UIButton(type: .system)
+    private let saveBtn: UIButton = UIButton(type: .system)
         .then {
             $0.setImage(ImageAssets.saveButton, for: .normal)
         }
     
-    let confirmBtn: UIButton = UIButton(type: .system)
+    private let confirmBtn: UIButton = UIButton(type: .system)
         .then {
             $0.setImage(ImageAssets.confirmButton, for: .normal)
             $0.layer.cornerRadius = 20.0
         }
     
-    let photoSelectMenuBox: MenuBoxView = MenuBoxView(type: .photoSelect)
+    private let photoSelectMenuBox: MenuBoxView = MenuBoxView(type: .photoSelect)
         .then {
             $0.isHidden = true
         }
     
-    let shareMenuBox: MenuBoxView = MenuBoxView(type: .share)
+    private let shareMenuBox: MenuBoxView = MenuBoxView(type: .share)
         .then {
             $0.isHidden = true
         }
