@@ -17,6 +17,7 @@
 		0E0137DB2AC06974003C4A17 /* PopUpType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0137DA2AC06974003C4A17 /* PopUpType.swift */; };
 		0E0137DD2AC2B1F1003C4A17 /* FeatureTagType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0137DC2AC2B1F1003C4A17 /* FeatureTagType.swift */; };
 		0E0137DF2AC344BB003C4A17 /* MountainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0137DE2AC344BB003C4A17 /* MountainButton.swift */; };
+		0E477DA12AC86A76008C4333 /* MenuBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E477DA02AC86A76008C4333 /* MenuBoxView.swift */; };
 		0E502B552A8E7079002C71F2 /* OrgoBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E502B542A8E7079002C71F2 /* OrgoBottomSheet.swift */; };
 		0E502B582A8E8204002C71F2 /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E502B572A8E8204002C71F2 /* HomeVM.swift */; };
 		0E502B5B2A8E82A3002C71F2 /* MountainListResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E502B5A2A8E82A3002C71F2 /* MountainListResponseModel.swift */; };
@@ -146,6 +147,7 @@
 		0E0137DA2AC06974003C4A17 /* PopUpType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpType.swift; sourceTree = "<group>"; };
 		0E0137DC2AC2B1F1003C4A17 /* FeatureTagType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureTagType.swift; sourceTree = "<group>"; };
 		0E0137DE2AC344BB003C4A17 /* MountainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainButton.swift; sourceTree = "<group>"; };
+		0E477DA02AC86A76008C4333 /* MenuBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBoxView.swift; sourceTree = "<group>"; };
 		0E502B542A8E7079002C71F2 /* OrgoBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrgoBottomSheet.swift; sourceTree = "<group>"; };
 		0E502B572A8E8204002C71F2 /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
 		0E502B5A2A8E82A3002C71F2 /* MountainListResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainListResponseModel.swift; sourceTree = "<group>"; };
@@ -325,6 +327,7 @@
 			children = (
 				0E0137B12AB747FB003C4A17 /* RecordCompletionVC.swift */,
 				0E0137DE2AC344BB003C4A17 /* MountainButton.swift */,
+				0E477DA02AC86A76008C4333 /* MenuBoxView.swift */,
 			);
 			path = RecordCompletion;
 			sourceTree = "<group>";
@@ -1171,6 +1174,7 @@
 				0E57C16F2A8BC18700BFF482 /* NavigationBar.swift in Sources */,
 				0E6793362A639433000FBE1A /* BaseViewController.swift in Sources */,
 				0E5947FB2AA4B797003C6C7D /* SearchField.swift in Sources */,
+				0E477DA12AC86A76008C4333 /* MenuBoxView.swift in Sources */,
 				0E57C15D2A8BB7A400BFF482 /* BaseNavigationController.swift in Sources */,
 				0E6793392A63946F000FBE1A /* UIViewController+Ext.swift in Sources */,
 				0EB415EB2AAF6F45008F42EC /* SettingMenu.swift in Sources */,
