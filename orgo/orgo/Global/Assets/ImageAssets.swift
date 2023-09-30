@@ -54,6 +54,10 @@ enum ImageAssets {
     static let cableCarIcon = UIImage(named: "CableCar")?.withRenderingMode(.alwaysTemplate)
     
     static let locationWhite = UIImage(named: "LocationWhite")?.withRenderingMode(.alwaysOriginal)
+    static let gallery = UIImage(named: "Gallery")?.withRenderingMode(.alwaysOriginal)
+    static let camera = UIImage(named: "Camera")?.withRenderingMode(.alwaysOriginal)
+    static let instagram = UIImage(named: "Instagram")?.withRenderingMode(.alwaysOriginal)
+    static let kakaoRound = UIImage(named: "KakaoRound")?.withRenderingMode(.alwaysOriginal)
     
     // MARK: - Search
     
