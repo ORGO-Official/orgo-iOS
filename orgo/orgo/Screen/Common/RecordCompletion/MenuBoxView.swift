@@ -18,12 +18,15 @@ class MenuBoxView: BaseView {
     
     // MARK: - UI components
     
-    private let upperTapArea: UIView = UIView()
+    let upperTapArea: UIView = UIView()
         .then {
             $0.backgroundColor = .clear
         }
     
     private let upperThumbnailImageView: UIImageView = UIImageView()
+        .then {
+            $0.contentMode = .scaleAspectFit
+        }
     
     private let upperTitleLabel: UILabel = UILabel()
         .then {
@@ -37,12 +40,15 @@ class MenuBoxView: BaseView {
             $0.backgroundColor = .white
         }
     
-    private let lowerTapArea: UIView = UIView()
+    let lowerTapArea: UIView = UIView()
         .then {
             $0.backgroundColor = .clear
         }
     
     private let lowerThumbnailImageView: UIImageView = UIImageView()
+        .then {
+            $0.contentMode = .scaleAspectFit
+        }
     
     private let lowerTitleLabel: UILabel = UILabel()
         .then {
@@ -100,6 +106,7 @@ extension MenuBoxView {
     
     private func configureInnerView() {
         backgroundColor = .black.withAlphaComponent(0.7)
+        layer.cornerRadius = 30.0
         
         addSubviews([upperTapArea,
                      borderView,

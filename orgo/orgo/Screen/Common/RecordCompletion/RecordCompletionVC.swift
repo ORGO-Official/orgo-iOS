@@ -93,6 +93,16 @@ class RecordCompletionVC: BaseViewController {
             $0.layer.cornerRadius = 20.0
         }
     
+    let photoSelectMenuBox: MenuBoxView = MenuBoxView(type: .photoSelect)
+        .then {
+            $0.isHidden = true
+        }
+    
+    let shareMenuBox: MenuBoxView = MenuBoxView(type: .share)
+        .then {
+            $0.isHidden = true
+        }
+    
     
     // MARK: - Variables and Properties
     
@@ -146,7 +156,9 @@ extension RecordCompletionVC {
         view.backgroundColor = .black
         
         view.addSubviews([mainImageView,
-                          bottomMenuView])
+                          bottomMenuView,
+                          photoSelectMenuBox,
+                          shareMenuBox])
         
         mainImageView.addSubviews([dimmedView])
         
@@ -232,6 +244,19 @@ extension RecordCompletionVC {
             $0.bottom.equalToSuperview().offset(-15.0)
         }
         
+        photoSelectMenuBox.snp.makeConstraints {
+            $0.leading.equalTo(photoSelectBtn.snp.leading)
+            $0.bottom.equalTo(bottomMenuView.snp.top).offset(-16.0)
+            $0.height.equalTo(127.0)
+            $0.width.equalTo(210.0)
+        }
+        
+        shareMenuBox.snp.makeConstraints {
+            $0.leading.equalTo(shareBtn.snp.leading)
+            $0.bottom.equalTo(bottomMenuView.snp.top).offset(-16.0)
+            $0.height.equalTo(127.0)
+            $0.width.equalTo(236.0)
+        }
     }
     
 }
@@ -252,14 +277,48 @@ extension RecordCompletionVC {
         photoSelectBtn.rx.tap
             .withUnretained(self)
             .bind(onNext: { owner, _ in
-                print("TODO: - 사진 선택")
+                owner.photoSelectMenuBox.isHidden.toggle()
+                owner.shareMenuBox.isHidden = true
             })
             .disposed(by: bag)
         
         shareBtn.rx.tap
             .withUnretained(self)
             .bind(onNext: { owner, _ in
-                print("TODO: - 공유")
+                owner.shareMenuBox.isHidden.toggle()
+                owner.photoSelectMenuBox.isHidden = true
+            })
+            .disposed(by: bag)
+        
+        photoSelectMenuBox.upperTapArea.rx.tapGesture()
+            .when(.recognized)
+            .withUnretained(self)
+            .bind(onNext: { owner, _ in
+                print("TODO: - 갤러리에서 선택")
+            })
+            .disposed(by: bag)
+        
+        photoSelectMenuBox.lowerTapArea.rx.tapGesture()
+            .when(.recognized)
+            .withUnretained(self)
+            .bind(onNext: { owner, _ in
+                print("TODO: - 사진 촬영")
+            })
+            .disposed(by: bag)
+        
+        shareMenuBox.upperTapArea.rx.tapGesture()
+            .when(.recognized)
+            .withUnretained(self)
+            .bind(onNext: { owner, _ in
+                print("TODO: - 인스타그램으로 공유")
+            })
+            .disposed(by: bag)
+        
+        shareMenuBox.lowerTapArea.rx.tapGesture()
+            .when(.recognized)
+            .withUnretained(self)
+            .bind(onNext: { owner, _ in
+                print("TODO: - 카카오톡으로 공유")
             })
             .disposed(by: bag)
         
