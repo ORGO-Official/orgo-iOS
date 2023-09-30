@@ -145,6 +145,11 @@ class RecordCompletionVC: BaseViewController {
         mountainNameBtn.setButton(name: "계양산")
     }
     
+    private func hideMenuBox() {
+        photoSelectMenuBox.isHidden = true
+        shareMenuBox.isHidden = true
+    }
+    
 }
 
 
@@ -270,6 +275,7 @@ extension RecordCompletionVC {
         confirmBtn.rx.tap
             .withUnretained(self)
             .bind(onNext: { owner, _ in
+                owner.hideMenuBox()
                 owner.dismiss(animated: true)
             })
             .disposed(by: bag)
@@ -326,6 +332,15 @@ extension RecordCompletionVC {
             .withUnretained(self)
             .bind(onNext: { owner, _ in
                 print("TODO: - 저장")
+                owner.hideMenuBox()
+            })
+            .disposed(by: bag)
+        
+        view.rx.tapGesture()
+            .when(.recognized)
+            .withUnretained(self)
+            .bind(onNext: { owner, _ in
+                owner.hideMenuBox()
             })
             .disposed(by: bag)
         
