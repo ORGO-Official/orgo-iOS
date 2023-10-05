@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import PhotosUI
 
 import RxSwift
 import RxCocoa
@@ -182,6 +183,17 @@ class RecordCompletionVC: BaseViewController {
         shareMenuBox.isHidden = true
     }
     
+    private func openGallery() {
+        var configuration = PHPickerConfiguration()
+        configuration.selectionLimit = 1
+        configuration.filter = .images
+        
+        let picker = PHPickerViewController(configuration: configuration)
+        picker.delegate = self
+        
+        present(picker, animated: true)
+    }
+    
 }
 
 
@@ -343,7 +355,7 @@ extension RecordCompletionVC {
             .when(.recognized)
             .withUnretained(self)
             .bind(onNext: { owner, _ in
-                print("TODO: - 갤러리에서 선택")
+                owner.openGallery()
             })
             .disposed(by: bag)
         
@@ -393,6 +405,27 @@ extension RecordCompletionVC {
                 owner.mountainNameBtn.isSelected.toggle()
             })
             .disposed(by: bag)
+    }
+    
+}
+
+
+extension RecordCompletionVC: PHPickerViewControllerDelegate {
+    
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        picker.dismiss(animated: true)
+        
+        guard let itemProvider = results.first?.itemProvider,
+              itemProvider.canLoadObject(ofClass: UIImage.self) else { return }
+        
+        itemProvider.loadObject(ofClass: UIImage.self) { [weak self] loadedImage, error in
+            guard let self = self,
+                  let image = loadedImage as? UIImage else { return }
+            
+            DispatchQueue.main.async {
+                self.mainImageView.image = image
+            }
+        }
     }
     
 }
