@@ -46,4 +46,13 @@ extension UIView {
         layer.shadowOffset = CGSize(width: x, height: y)
     }
     
+    /// 뷰를 캡쳐해 이미지로 반환
+    func capture() -> UIImage {
+        let renderer = UIGraphicsImageRenderer(size: self.bounds.size)
+        let capturedImage = renderer.image { _ in
+            self.drawHierarchy(in: self.bounds, afterScreenUpdates: true)
+        }
+        return capturedImage
+    }
+    
 }
