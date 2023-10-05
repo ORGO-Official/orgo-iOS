@@ -197,6 +197,8 @@ class RecordCompletionVC: BaseViewController {
     private func openCamera() {
         let pickerController = UIImagePickerController()
         pickerController.sourceType = .camera
+        pickerController.cameraDevice = .rear
+        pickerController.showsCameraControls = true
         pickerController.delegate = self
         
         present(pickerController, animated: true)
