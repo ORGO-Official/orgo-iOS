@@ -150,6 +150,7 @@
 		0E0137DE2AC344BB003C4A17 /* MountainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainButton.swift; sourceTree = "<group>"; };
 		0E477DA02AC86A76008C4333 /* MenuBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBoxView.swift; sourceTree = "<group>"; };
 		0E477DA22AC87184008C4333 /* MenuType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuType.swift; sourceTree = "<group>"; };
+		0E477E1C2ACF26F8008C4333 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 		0E502B542A8E7079002C71F2 /* OrgoBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrgoBottomSheet.swift; sourceTree = "<group>"; };
 		0E502B572A8E8204002C71F2 /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
 		0E502B5A2A8E82A3002C71F2 /* MountainListResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainListResponseModel.swift; sourceTree = "<group>"; };
@@ -733,6 +734,7 @@
 		0E6FC90E2A585276001DD709 = {
 			isa = PBXGroup;
 			children = (
+				0E477E1C2ACF26F8008C4333 /* Secrets.xcconfig */,
 				0E6FC9192A585277001DD709 /* orgo */,
 				0E6FC9182A585277001DD709 /* Products */,
 				5790C6D43082154B51C810A3 /* Pods */,
@@ -1248,6 +1250,7 @@
 /* Begin XCBuildConfiguration section */
 		0E6FC9292A585278001DD709 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E477E1C2ACF26F8008C4333 /* Secrets.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1308,6 +1311,7 @@
 		};
 		0E6FC92A2A585278001DD709 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E477E1C2ACF26F8008C4333 /* Secrets.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;

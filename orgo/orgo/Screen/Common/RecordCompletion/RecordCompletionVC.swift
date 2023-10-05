@@ -209,6 +209,23 @@ class RecordCompletionVC: BaseViewController {
         orgoLogoImageView.isHidden = true
     }
     
+    private func shareToInstagram() {
+        guard let pngImageData = mainImageView.capture().pngData(),
+              let appId = Bundle.main.object(forInfoDictionaryKey: "INSTAGRAM_APP_ID") as? String,
+              let url = URL(string: "instagram-stories://share?source_application=\(appId)") else { return }
+        
+        let pasteboardItems: [String: Any] = ["com.instagram.sharedSticker.backgroundImage": pngImageData]
+        let pasteboardOptions = [UIPasteboard.OptionsKey.expirationDate: Date().addingTimeInterval(300)]
+        
+        UIPasteboard.general.setItems([pasteboardItems], options: pasteboardOptions)
+        
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url)
+        } else {
+            print("TODO: - 인스타그램이 없을때 처리")
+        }
+    }
+    
 }
 
 
@@ -386,7 +403,7 @@ extension RecordCompletionVC {
             .when(.recognized)
             .withUnretained(self)
             .bind(onNext: { owner, _ in
-                print("TODO: - 인스타그램으로 공유")
+                owner.shareToInstagram()
             })
             .disposed(by: bag)
         
