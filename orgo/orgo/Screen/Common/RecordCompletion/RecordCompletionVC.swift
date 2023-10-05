@@ -45,6 +45,38 @@ class RecordCompletionVC: BaseViewController {
     
     private let mountainNameBtn: MountainButton = MountainButton()
     
+    private let infoStackView: UIStackView = UIStackView()
+        .then {
+            $0.axis = .vertical
+            $0.spacing = 6.0
+            $0.alignment = .fill
+            $0.distribution = .fill
+        }
+    
+    private let altitudeLabel: UILabel = UILabel()
+        .then {
+            $0.text = "000m"
+            $0.font = UIFont.pretendard(size: 15.0, weight: .bold)
+            $0.textColor = .white
+            $0.textAlignment = .left
+        }
+    
+    private let timeLabel: UILabel = UILabel()
+        .then {
+            $0.text = "00:00:00"
+            $0.font = UIFont.pretendard(size: 15.0, weight: .bold)
+            $0.textColor = .white
+            $0.textAlignment = .left
+        }
+    
+    private let dateLabel: UILabel = UILabel()
+        .then {
+            $0.text = "0000.00.00"
+            $0.font = UIFont.pretendard(size: 15.0, weight: .bold)
+            $0.textColor = .white
+            $0.textAlignment = .left
+        }
+    
     private let bottomMenuView: UIView = UIView()
         .then {
             $0.backgroundColor = .black
@@ -168,8 +200,13 @@ extension RecordCompletionVC {
         mainImageView.addSubviews([dimmedView])
         
         dimmedView.addSubviews([mountainNameBtn,
+                                infoStackView,
                                 orgoLogoImageView,
                                 orgoWaterMarkImageView])
+        
+        [altitudeLabel, timeLabel, dateLabel].forEach {
+            infoStackView.addArrangedSubview($0)
+        }
         
         bottomMenuView.addSubviews([buttonStackView,
                                     saveBtn,
@@ -234,6 +271,12 @@ extension RecordCompletionVC {
         mountainNameBtn.snp.makeConstraints {
             $0.top.equalToSuperview().offset(45.0)
             $0.leading.equalToSuperview().offset(19.0)
+        }
+        
+        infoStackView.snp.makeConstraints {
+            $0.top.equalTo(mountainNameBtn.snp.top).offset(70.0)
+            $0.leading.equalToSuperview().offset(36.0)
+            $0.trailing.equalToSuperview().offset(-36.0)
         }
         
         orgoLogoImageView.snp.makeConstraints {
