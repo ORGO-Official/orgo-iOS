@@ -194,6 +194,19 @@ class RecordCompletionVC: BaseViewController {
         present(picker, animated: true)
     }
     
+    private func openCamera() {
+        let pickerController = UIImagePickerController()
+        pickerController.sourceType = .camera
+        pickerController.delegate = self
+        
+        present(pickerController, animated: true)
+    }
+    
+    private func setMainImage(by image: UIImage) {
+        mainImageView.image = image
+        orgoLogoImageView.isHidden = true
+    }
+    
 }
 
 
@@ -363,7 +376,7 @@ extension RecordCompletionVC {
             .when(.recognized)
             .withUnretained(self)
             .bind(onNext: { owner, _ in
-                print("TODO: - 사진 촬영")
+                owner.openCamera()
             })
             .disposed(by: bag)
         
@@ -410,6 +423,8 @@ extension RecordCompletionVC {
 }
 
 
+// MARK: - PHPickerViewControllerDelegate
+
 extension RecordCompletionVC: PHPickerViewControllerDelegate {
     
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
@@ -423,9 +438,24 @@ extension RecordCompletionVC: PHPickerViewControllerDelegate {
                   let image = loadedImage as? UIImage else { return }
             
             DispatchQueue.main.async {
-                self.mainImageView.image = image
+                self.setMainImage(by: image)
             }
         }
+    }
+    
+}
+
+
+// MARK: - UIImagePickerControllerDelegate
+
+extension RecordCompletionVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true)
+        
+        guard let photoImage = info[.originalImage] as? UIImage else { return }
+        
+        setMainImage(by: photoImage)
     }
     
 }
