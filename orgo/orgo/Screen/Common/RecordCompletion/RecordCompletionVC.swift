@@ -226,6 +226,21 @@ class RecordCompletionVC: BaseViewController {
         }
     }
     
+    private func presentActivityVC() {
+        let capturedImage = mainImageView.capture()
+        let activityVC = UIActivityViewController(activityItems: [capturedImage], applicationActivities: nil)
+        activityVC.excludedActivityTypes = [.addToReadingList,
+                                            .print,
+                                            .assignToContact,
+                                            .openInIBooks,
+                                            .postToFlickr,
+                                            .postToWeibo,
+                                            .postToVimeo,
+                                            .postToTencentWeibo]
+        activityVC.popoverPresentationController?.sourceView = self.view
+        present(activityVC, animated: true)
+    }
+    
 }
 
 
@@ -411,14 +426,14 @@ extension RecordCompletionVC {
             .when(.recognized)
             .withUnretained(self)
             .bind(onNext: { owner, _ in
-                print("TODO: - 카카오톡으로 공유")
+                owner.presentActivityVC()
             })
             .disposed(by: bag)
         
         saveBtn.rx.tap
             .withUnretained(self)
             .bind(onNext: { owner, _ in
-                print("TODO: - 저장")
+                owner.presentActivityVC()
                 owner.hideMenuBox()
             })
             .disposed(by: bag)
