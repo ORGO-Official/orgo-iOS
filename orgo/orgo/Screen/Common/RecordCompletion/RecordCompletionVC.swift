@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import PhotosUI
 
 import RxSwift
 import RxCocoa
@@ -182,6 +183,64 @@ class RecordCompletionVC: BaseViewController {
         shareMenuBox.isHidden = true
     }
     
+    private func openGallery() {
+        var configuration = PHPickerConfiguration()
+        configuration.selectionLimit = 1
+        configuration.filter = .images
+        
+        let picker = PHPickerViewController(configuration: configuration)
+        picker.delegate = self
+        
+        present(picker, animated: true)
+    }
+    
+    private func openCamera() {
+        let pickerController = UIImagePickerController()
+        pickerController.sourceType = .camera
+        pickerController.cameraDevice = .rear
+        pickerController.showsCameraControls = true
+        pickerController.delegate = self
+        
+        present(pickerController, animated: true)
+    }
+    
+    private func setMainImage(by image: UIImage) {
+        mainImageView.image = image
+        orgoLogoImageView.isHidden = true
+    }
+    
+    private func shareToInstagram() {
+        guard let pngImageData = mainImageView.capture().pngData(),
+              let appId = Bundle.main.object(forInfoDictionaryKey: "INSTAGRAM_APP_ID") as? String,
+              let url = URL(string: "instagram-stories://share?source_application=\(appId)") else { return }
+        
+        let pasteboardItems: [String: Any] = ["com.instagram.sharedSticker.backgroundImage": pngImageData]
+        let pasteboardOptions = [UIPasteboard.OptionsKey.expirationDate: Date().addingTimeInterval(300)]
+        
+        UIPasteboard.general.setItems([pasteboardItems], options: pasteboardOptions)
+        
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url)
+        } else {
+            print("TODO: - 인스타그램이 없을때 처리")
+        }
+    }
+    
+    private func presentActivityVC() {
+        let capturedImage = mainImageView.capture()
+        let activityVC = UIActivityViewController(activityItems: [capturedImage], applicationActivities: nil)
+        activityVC.excludedActivityTypes = [.addToReadingList,
+                                            .print,
+                                            .assignToContact,
+                                            .openInIBooks,
+                                            .postToFlickr,
+                                            .postToWeibo,
+                                            .postToVimeo,
+                                            .postToTencentWeibo]
+        activityVC.popoverPresentationController?.sourceView = self.view
+        present(activityVC, animated: true)
+    }
+    
 }
 
 
@@ -343,7 +402,7 @@ extension RecordCompletionVC {
             .when(.recognized)
             .withUnretained(self)
             .bind(onNext: { owner, _ in
-                print("TODO: - 갤러리에서 선택")
+                owner.openGallery()
             })
             .disposed(by: bag)
         
@@ -351,7 +410,7 @@ extension RecordCompletionVC {
             .when(.recognized)
             .withUnretained(self)
             .bind(onNext: { owner, _ in
-                print("TODO: - 사진 촬영")
+                owner.openCamera()
             })
             .disposed(by: bag)
         
@@ -359,7 +418,7 @@ extension RecordCompletionVC {
             .when(.recognized)
             .withUnretained(self)
             .bind(onNext: { owner, _ in
-                print("TODO: - 인스타그램으로 공유")
+                owner.shareToInstagram()
             })
             .disposed(by: bag)
         
@@ -367,14 +426,14 @@ extension RecordCompletionVC {
             .when(.recognized)
             .withUnretained(self)
             .bind(onNext: { owner, _ in
-                print("TODO: - 카카오톡으로 공유")
+                owner.presentActivityVC()
             })
             .disposed(by: bag)
         
         saveBtn.rx.tap
             .withUnretained(self)
             .bind(onNext: { owner, _ in
-                print("TODO: - 저장")
+                owner.presentActivityVC()
                 owner.hideMenuBox()
             })
             .disposed(by: bag)
@@ -393,6 +452,44 @@ extension RecordCompletionVC {
                 owner.mountainNameBtn.isSelected.toggle()
             })
             .disposed(by: bag)
+    }
+    
+}
+
+
+// MARK: - PHPickerViewControllerDelegate
+
+extension RecordCompletionVC: PHPickerViewControllerDelegate {
+    
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        picker.dismiss(animated: true)
+        
+        guard let itemProvider = results.first?.itemProvider,
+              itemProvider.canLoadObject(ofClass: UIImage.self) else { return }
+        
+        itemProvider.loadObject(ofClass: UIImage.self) { [weak self] loadedImage, error in
+            guard let self = self,
+                  let image = loadedImage as? UIImage else { return }
+            
+            DispatchQueue.main.async {
+                self.setMainImage(by: image)
+            }
+        }
+    }
+    
+}
+
+
+// MARK: - UIImagePickerControllerDelegate
+
+extension RecordCompletionVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true)
+        
+        guard let photoImage = info[.originalImage] as? UIImage else { return }
+        
+        setMainImage(by: photoImage)
     }
     
 }

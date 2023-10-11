@@ -23,6 +23,8 @@
 			</array>
 		</dict>
 	</array>
+	<key>INSTAGRAM_APP_ID</key>
+	<string>$(INSTAGRAM_APP_ID)</string>
 	<key>KAKAO_APP_KEY</key>
 	<string>b1b723afefa032d26ee82ad68f03ea9d</string>
 	<key>LSApplicationQueriesSchemes</key>
@@ -31,6 +33,7 @@
 		<string>kakaolink</string>
 		<string>naversearchapp</string>
 		<string>naversearchthirdlogin</string>
+		<string>instagram-stories</string>
 	</array>
 	<key>NSAppTransportSecurity</key>
 	<dict>
