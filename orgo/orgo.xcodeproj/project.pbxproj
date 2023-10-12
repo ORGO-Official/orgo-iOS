@@ -20,6 +20,7 @@
 		0E477DA12AC86A76008C4333 /* MenuBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E477DA02AC86A76008C4333 /* MenuBoxView.swift */; };
 		0E477DA32AC87184008C4333 /* MenuType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E477DA22AC87184008C4333 /* MenuType.swift */; };
 		0E477E552AD94B8D008C4333 /* Mountain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E477E542AD94B8C008C4333 /* Mountain.swift */; };
+		0E477E532AD8539B008C4333 /* BadgeListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E477E522AD8539B008C4333 /* BadgeListVC.swift */; };
 		0E502B552A8E7079002C71F2 /* OrgoBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E502B542A8E7079002C71F2 /* OrgoBottomSheet.swift */; };
 		0E502B582A8E8204002C71F2 /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E502B572A8E8204002C71F2 /* HomeVM.swift */; };
 		0E502B5B2A8E82A3002C71F2 /* MountainListResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E502B5A2A8E82A3002C71F2 /* MountainListResponseModel.swift */; };
@@ -153,6 +154,7 @@
 		0E477DA22AC87184008C4333 /* MenuType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuType.swift; sourceTree = "<group>"; };
 		0E477E1C2ACF26F8008C4333 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 		0E477E542AD94B8C008C4333 /* Mountain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mountain.swift; sourceTree = "<group>"; };
+		0E477E522AD8539B008C4333 /* BadgeListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeListVC.swift; sourceTree = "<group>"; };
 		0E502B542A8E7079002C71F2 /* OrgoBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrgoBottomSheet.swift; sourceTree = "<group>"; };
 		0E502B572A8E8204002C71F2 /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
 		0E502B5A2A8E82A3002C71F2 /* MountainListResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainListResponseModel.swift; sourceTree = "<group>"; };
@@ -353,6 +355,22 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
+		0E477E502AD8537A008C4333 /* Badge */ = {
+			isa = PBXGroup;
+			children = (
+				0E477E512AD85389008C4333 /* ViewController */,
+			);
+			path = Badge;
+			sourceTree = "<group>";
+		};
+		0E477E512AD85389008C4333 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0E477E522AD8539B008C4333 /* BadgeListVC.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		0E502B532A8E704B002C71F2 /* BottomSheet */ = {
 			isa = PBXGroup;
 			children = (
@@ -476,6 +494,7 @@
 				0E57C15E2A8BBBF900BFF482 /* Common */,
 				0E57C1572A8BB55300BFF482 /* Login */,
 				0E57C1742A8BC6F200BFF482 /* Home */,
+				0E477E502AD8537A008C4333 /* Badge */,
 				0E57C1792A8BC84000BFF482 /* MyPage */,
 			);
 			path = Screen;
@@ -1226,6 +1245,7 @@
 				0EB416042AB21149008F42EC /* UIImage+.swift in Sources */,
 				0E502B662A90EA2E002C71F2 /* PretendardWeight.swift in Sources */,
 				0E9B77382A8BF17D00F2117B /* AuthInterceptor.swift in Sources */,
+				0E477E532AD8539B008C4333 /* BadgeListVC.swift in Sources */,
 				0E57C15B2A8BB63F00BFF482 /* LoginVC.swift in Sources */,
 				0E502BAF2A9CFCC5002C71F2 /* RestaurantCVC.swift in Sources */,
 				0E6FC91D2A585277001DD709 /* SceneDelegate.swift in Sources */,

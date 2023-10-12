@@ -9,6 +9,7 @@ import UIKit
 
 enum TabBarItem: String {
     case home
+    case badge
     case myPage
 }
 
@@ -26,6 +27,8 @@ extension TabBarItem {
         switch self {
         case .home:
             return ImageAssets.selectedHouse
+        case .badge:
+            return ImageAssets.selectedBadge
         case .myPage:
             return ImageAssets.selectedUser
         }
@@ -35,6 +38,8 @@ extension TabBarItem {
         switch self {
         case .home:
             return ImageAssets.unselectedHouse
+        case .badge:
+            return ImageAssets.unselectedBadge
         case .myPage:
             return ImageAssets.unselectedUser
         }
@@ -55,6 +60,8 @@ extension TabBarItem {
         switch self {
         case .home:
             return HomeVC()
+        case .badge:
+            return BadgeListVC()
         case .myPage:
             return MyPageVC()
         }
