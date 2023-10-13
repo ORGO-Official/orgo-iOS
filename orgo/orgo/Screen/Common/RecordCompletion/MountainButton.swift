@@ -12,6 +12,8 @@ import SnapKit
 
 class MountainButton: UIButton {
     
+    // MARK: - UI Componenets
+    
     private let iconImageView: UIImageView = UIImageView()
         .then {
             $0.image = ImageAssets.locationWhite
@@ -25,9 +27,12 @@ class MountainButton: UIButton {
             $0.textAlignment = .center
         }
     
+    
+    // MARK: - Properties
+    
     override var isSelected: Bool {
         didSet {
-            mountainNameLabel.text = isSelected ? "계양산" : "Gyeyang"
+            mountainNameLabel.text = isSelected ? mountain?.englishName : mountain?.rawValue
             sizeToFit()
         }
     }
@@ -38,6 +43,11 @@ class MountainButton: UIButton {
         }
     }
     
+    private var mountain: Mountain?
+    
+    
+    // MARK: - Initialize
+    
     override init(frame: CGRect = .zero) {
         super.init(frame: frame)
 
@@ -47,6 +57,9 @@ class MountainButton: UIButton {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    
+    // MARK: - Methods
     
     private func configureButton() {
         backgroundColor = .black.withAlphaComponent(0.3)
@@ -93,6 +106,7 @@ class MountainButton: UIButton {
     }
     
     func setButton(name: String) {
+        mountain = Mountain(rawValue: name)
         mountainNameLabel.text = name
         sizeToFit()
     }

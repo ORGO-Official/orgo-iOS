@@ -168,14 +168,14 @@ class RecordCompletionVC: BaseViewController {
     // MARK: - Functions
     
     func configureInfo(data: MountainListResponseModel) {
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "yyyy.MM.dd"
-//        let currentDateString = dateFormatter.string(from: Date())
-//
-//        dateLabel.text = currentDateString
-//        lowerLabel.text = "\(data.name) 완등 완료"
-//        heightLabel.text = "해발 \(data.location.altitude)m"
-        mountainNameBtn.setButton(name: "계양산")
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy.MM.dd"
+        let currentDateString = dateFormatter.string(from: Date())
+
+        altitudeLabel.text = "\(data.location.altitude)m"
+        timeLabel.isHidden = true
+        dateLabel.text = currentDateString
+        mountainNameBtn.setButton(name: data.name)
     }
     
     private func hideMenuBox() {
