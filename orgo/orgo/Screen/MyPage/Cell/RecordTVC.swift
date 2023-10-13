@@ -86,7 +86,7 @@ class RecordTVC: BaseTableViewCell {
     
     // TODO: - 더미 데이터 수정
     func configureRecord(data: ClimbingRecord) {
-        var dateList = data.date.components(separatedBy: "T")
+        let dateList = data.date.components(separatedBy: "T")
         
         recordDateLabel.text = dateList.dropLast().joined()
         mountainNameLabel.text = data.mountainName
@@ -113,7 +113,7 @@ extension RecordTVC {
         backgroundColor = .white
         selectionStyle = .none
         contentView.backgroundColor = ColorAssets.lightGray
-        contentView.layer.cornerRadius = 5.0
+        contentView.layer.cornerRadius = 30.0
         contentView.layer.masksToBounds = true
     }
     
