@@ -72,14 +72,7 @@ extension MountainBottomSheetVM {
                                                         altitude: location.altitude,
                                                         date: currentDateString)
         
-        // 아차산 더미 데이터
-        let tempRecord = MountainRecordRequestModel(mountainId: id,
-                                                    latitude: 37.57149,
-                                                    longitude: 127.103764,
-                                                    altitude: 282.66,
-                                                    date: currentDateString)
-        
-        apiSession.requestPost(urlResource: resource, parameter: tempRecord.parameter)
+        apiSession.requestPost(urlResource: resource, parameter: mountainRecord.parameter)
             .withUnretained(self)
             .subscribe(onNext: { owner, result in
                 switch result {

@@ -127,8 +127,9 @@ extension OrgoTabBarVC {
         view.addSubview(tabBarView)
         
         tabBarView.snp.makeConstraints {
-            $0.horizontalEdges.equalTo(view)
-            $0.bottom.equalTo(view.safeAreaLayoutGuide)
+            $0.leading.trailing.equalToSuperview()
+            $0.height.equalTo(80.0)
+            $0.bottom.equalTo(view.snp.bottom)
         }
         
         tabBarView.addShadow(x: 0, y: -4, blur: 50, opacity: 0.1)

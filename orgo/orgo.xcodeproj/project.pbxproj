@@ -19,6 +19,7 @@
 		0E0137DF2AC344BB003C4A17 /* MountainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0137DE2AC344BB003C4A17 /* MountainButton.swift */; };
 		0E477DA12AC86A76008C4333 /* MenuBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E477DA02AC86A76008C4333 /* MenuBoxView.swift */; };
 		0E477DA32AC87184008C4333 /* MenuType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E477DA22AC87184008C4333 /* MenuType.swift */; };
+		0E477E552AD94B8D008C4333 /* Mountain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E477E542AD94B8C008C4333 /* Mountain.swift */; };
 		0E502B552A8E7079002C71F2 /* OrgoBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E502B542A8E7079002C71F2 /* OrgoBottomSheet.swift */; };
 		0E502B582A8E8204002C71F2 /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E502B572A8E8204002C71F2 /* HomeVM.swift */; };
 		0E502B5B2A8E82A3002C71F2 /* MountainListResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E502B5A2A8E82A3002C71F2 /* MountainListResponseModel.swift */; };
@@ -151,6 +152,7 @@
 		0E477DA02AC86A76008C4333 /* MenuBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBoxView.swift; sourceTree = "<group>"; };
 		0E477DA22AC87184008C4333 /* MenuType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuType.swift; sourceTree = "<group>"; };
 		0E477E1C2ACF26F8008C4333 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
+		0E477E542AD94B8C008C4333 /* Mountain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mountain.swift; sourceTree = "<group>"; };
 		0E502B542A8E7079002C71F2 /* OrgoBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrgoBottomSheet.swift; sourceTree = "<group>"; };
 		0E502B572A8E8204002C71F2 /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
 		0E502B5A2A8E82A3002C71F2 /* MountainListResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainListResponseModel.swift; sourceTree = "<group>"; };
@@ -548,6 +550,7 @@
 				0E0137DA2AC06974003C4A17 /* PopUpType.swift */,
 				0E0137DC2AC2B1F1003C4A17 /* FeatureTagType.swift */,
 				0E477DA22AC87184008C4333 /* MenuType.swift */,
+				0E477E542AD94B8C008C4333 /* Mountain.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -1192,6 +1195,7 @@
 				0E5948002AA4CACB003C6C7D /* SearchVM.swift in Sources */,
 				0E6793542A639AB6000FBE1A /* UIImageView+Ext.swift in Sources */,
 				0E0137AF2AB73947003C4A17 /* MountainBottomSheetVM.swift in Sources */,
+				0E477E552AD94B8D008C4333 /* Mountain.swift in Sources */,
 				0E0137DD2AC2B1F1003C4A17 /* FeatureTagType.swift in Sources */,
 				0E6793452A63963D000FBE1A /* APIService.swift in Sources */,
 				0E67934A2A639687000FBE1A /* URLResource.swift in Sources */,
@@ -1394,7 +1398,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.orgo.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1434,7 +1438,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.orgo.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

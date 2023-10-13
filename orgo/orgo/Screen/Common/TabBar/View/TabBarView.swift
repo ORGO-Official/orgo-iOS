@@ -65,7 +65,7 @@ extension TabBarView {
     private func configureLayout() {
         stackView.snp.makeConstraints {
             $0.height.equalTo(50.0)
-            $0.top.horizontalEdges.bottom.equalTo(self)
+            $0.top.horizontalEdges.equalTo(self)
         }
     }
     

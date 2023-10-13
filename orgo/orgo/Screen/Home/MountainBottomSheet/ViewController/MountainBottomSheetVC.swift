@@ -24,7 +24,7 @@ class MountainBottomSheetVC: OrgoBottomSheet {
     private let authenticateBtn = UIButton(type: .system)
         .then {
             $0.titleLabel?.font = UIFont.pretendard(size: 14.0, weight: .bold)
-            $0.setTitle("등반 시작하기", for: .normal)
+            $0.setTitle("완등 인증하기", for: .normal)
             $0.setTitleColor(.white, for: .normal)
             $0.setTitleColor(.gray, for: .disabled)
             
@@ -219,14 +219,13 @@ extension MountainBottomSheetVC {
                       let mountainInformation = mountainInformation else { return }
                 
                 if isRecordSuccess {
-                    print("성공")
+                    let recordCompletionVC = RecordCompletionVC()
+                    recordCompletionVC.modalPresentationStyle = .fullScreen
+                    recordCompletionVC.configureInfo(data: mountainInformation)
+                    self.present(recordCompletionVC, animated: true)
                 } else {
-                    print("실패")
+                    self.makeAlert(title: "조금 더 힘내세요!", message: "정상까지 아직 충분히 가깝지 않아요.")
                 }
-                let recordCompletionVC = RecordCompletionVC()
-                recordCompletionVC.modalPresentationStyle = .fullScreen
-                recordCompletionVC.configureInfo(data: mountainInformation)
-                self.present(recordCompletionVC, animated: true)
             })
             .disposed(by: bag)
     }

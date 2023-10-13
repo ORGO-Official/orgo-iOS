@@ -44,7 +44,7 @@ final class MyPageVM: BaseViewModel {
         var recordList = PublishRelay<RecordListResponseModel>()
         var recordDataSource: Observable<Array<RecordDataSource>> {
             recordList
-                .map({ $0.climbingRecordDtoList })
+                .map({ $0.climbingRecordDtoList.reversed() })
                 .map({ [RecordDataSource(items: $0)] })
         }
         var totalRecord = BehaviorRelay(value: (0.0, 0))
