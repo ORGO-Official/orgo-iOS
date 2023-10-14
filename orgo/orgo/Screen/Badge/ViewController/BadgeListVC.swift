@@ -29,6 +29,7 @@ final class BadgeListVC: BaseViewController {
             backgroundView.layer.masksToBounds = true
             
             $0.backgroundView = backgroundView
+            $0.showsVerticalScrollIndicator = false
             
             $0.contentInset = UIEdgeInsets(top: Const.contentVerticalInset,
                                            left: 0,
