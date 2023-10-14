@@ -82,18 +82,16 @@ extension BadgeListVM {
     
     private func updateDataSource(by data: [BadgeResponseModel]) {
         let currentBadgeList = output.badgeList.value
+        let aquiredBadgeIds = data.map { $0.id }
         
-        for newData in data {
-            for category in currentBadgeList {
-                for badge in category.items {
-                    if badge.id == newData.id {
-                        badge.isAcquired = true
-                    }
+        for category in currentBadgeList {
+            for badge in category.items {
+                if aquiredBadgeIds.contains(badge.id) {
+                    badge.isAcquired = true
                 }
             }
         }
         
-        // 업데이트된 뱃지 목록을 BehaviorRelay에 반영합니다.
         output.badgeList.accept(currentBadgeList)
     }
 }
