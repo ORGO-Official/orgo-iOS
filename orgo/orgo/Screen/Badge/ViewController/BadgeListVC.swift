@@ -181,7 +181,11 @@ extension BadgeListVC {
         badgeCollectionView.rx.modelSelected(Badge.self)
             .withUnretained(self)
             .bind(onNext: { owner, badge in
-                dump(badge)
+                let badgeBottomSheetVC = BadgeBottomSheetVC()
+                badgeBottomSheetVC.configureBottomSheet(by: badge)
+                
+                badgeBottomSheetVC.modalPresentationStyle = .overFullScreen
+                owner.present(badgeBottomSheetVC, animated: false)
             })
             .disposed(by: bag)
     }

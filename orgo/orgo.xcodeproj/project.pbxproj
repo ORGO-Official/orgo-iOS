@@ -84,6 +84,7 @@
 		0E9430C22ADA8CB600249365 /* BadgeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9430C12ADA8CB600249365 /* BadgeHeaderView.swift */; };
 		0E9430C52ADAC28400249365 /* CenterAlignedCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9430C42ADAC28400249365 /* CenterAlignedCollectionViewFlowLayout.swift */; };
 		0E9430C72ADACE8400249365 /* BadgeResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9430C62ADACE8400249365 /* BadgeResponseModel.swift */; };
+		0E9430CA2ADAF22400249365 /* BadgeBottomSheetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9430C92ADAF22400249365 /* BadgeBottomSheetVC.swift */; };
 		0E9B77342A8BF0A800F2117B /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9B77332A8BF0A800F2117B /* LoginVM.swift */; };
 		0E9B77362A8BF13B00F2117B /* APISession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9B77352A8BF13B00F2117B /* APISession.swift */; };
 		0E9B77382A8BF17D00F2117B /* AuthInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9B77372A8BF17D00F2117B /* AuthInterceptor.swift */; };
@@ -229,6 +230,7 @@
 		0E9430C12ADA8CB600249365 /* BadgeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeHeaderView.swift; sourceTree = "<group>"; };
 		0E9430C42ADAC28400249365 /* CenterAlignedCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterAlignedCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		0E9430C62ADACE8400249365 /* BadgeResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeResponseModel.swift; sourceTree = "<group>"; };
+		0E9430C92ADAF22400249365 /* BadgeBottomSheetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeBottomSheetVC.swift; sourceTree = "<group>"; };
 		0E9B77332A8BF0A800F2117B /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
 		0E9B77352A8BF13B00F2117B /* APISession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APISession.swift; sourceTree = "<group>"; };
 		0E9B77372A8BF17D00F2117B /* AuthInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInterceptor.swift; sourceTree = "<group>"; };
@@ -376,6 +378,7 @@
 		0E477E502AD8537A008C4333 /* Badge */ = {
 			isa = PBXGroup;
 			children = (
+				0E9430C82ADAF21500249365 /* BadgeBottomSheet */,
 				0E9430C02ADA8CAB00249365 /* View */,
 				0E9430B92ADA877100249365 /* Model */,
 				0E9430B42ADA866500249365 /* ViewModel */,
@@ -863,6 +866,14 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
+		0E9430C82ADAF21500249365 /* BadgeBottomSheet */ = {
+			isa = PBXGroup;
+			children = (
+				0E9430C92ADAF22400249365 /* BadgeBottomSheetVC.swift */,
+			);
+			path = BadgeBottomSheet;
+			sourceTree = "<group>";
+		};
 		0E9B77322A8BF09200F2117B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -1311,6 +1322,7 @@
 				0EB415E12AAF60D4008F42EC /* RecordTVC.swift in Sources */,
 				0EB416022AB208BF008F42EC /* UserInfoResponseModel.swift in Sources */,
 				0E502B7B2A93B0B3002C71F2 /* MountainDetailVC.swift in Sources */,
+				0E9430CA2ADAF22400249365 /* BadgeBottomSheetVC.swift in Sources */,
 				0E502B6B2A90F2A3002C71F2 /* MountainInfoView.swift in Sources */,
 				0E6793422A639608000FBE1A /* Input.swift in Sources */,
 				0E6FC91B2A585277001DD709 /* AppDelegate.swift in Sources */,
