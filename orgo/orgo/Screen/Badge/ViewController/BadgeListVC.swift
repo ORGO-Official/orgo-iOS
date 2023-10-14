@@ -60,6 +60,12 @@ final class BadgeListVC: BaseViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        viewModel.requestGetBadgeList()
+    }
+    
     override func configureView() {
         super.configureView()
         

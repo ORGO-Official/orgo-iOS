@@ -16,38 +16,40 @@ enum BadgeCategory: String, CaseIterable {
 
 extension BadgeCategory {
     
+    static let earlyBirdBadge = [Badge(type: BadgeType.earlyBird)]
+    static let accumulatedAltitudeBadges = [Badge(type: BadgeType.meter500),
+                                            Badge(type: BadgeType.meter1000),
+                                            Badge(type: BadgeType.meter3000)]
+    static let montlyBadges = [Badge(type: BadgeType.january),
+                               Badge(type: BadgeType.february),
+                               Badge(type: BadgeType.march),
+                               Badge(type: BadgeType.april),
+                               Badge(type: BadgeType.may),
+                               Badge(type: BadgeType.june),
+                               Badge(type: BadgeType.july),
+                               Badge(type: BadgeType.august),
+                               Badge(type: BadgeType.septeber),
+                               Badge(type: BadgeType.october),
+                               Badge(type: BadgeType.november),
+                               Badge(type: BadgeType.december)]
+    static let completeMountainBadges = [Badge(type: BadgeType.acha),
+                                         Badge(type: BadgeType.inwang),
+                                         Badge(type: BadgeType.cheonggye),
+                                         Badge(type: BadgeType.bukhan),
+                                         Badge(type: BadgeType.gwanak),
+                                         Badge(type: BadgeType.yongma),
+                                         Badge(type: BadgeType.surak),
+                                         Badge(type: BadgeType.an),
+                                         Badge(type: BadgeType.dobong),
+                                         Badge(type: BadgeType.buram)]
+
     var items: [Badge] {
         switch self {
-        case .earlyBird:
-            return [BadgeType.earlyBird.badge]
-        case .accumulatedAltitude:
-            return [BadgeType.meter500.badge,
-                    BadgeType.meter1000.badge,
-                    BadgeType.meter3000.badge]
-        case .monthly:
-            return [BadgeType.january.badge,
-                    BadgeType.february.badge,
-                    BadgeType.march.badge,
-                    BadgeType.april.badge,
-                    BadgeType.may.badge,
-                    BadgeType.june.badge,
-                    BadgeType.july.badge,
-                    BadgeType.august.badge,
-                    BadgeType.septeber.badge,
-                    BadgeType.october.badge,
-                    BadgeType.november.badge,
-                    BadgeType.december.badge]
-        case .completeMountain:
-            return [BadgeType.acha.badge,
-                    BadgeType.inwang.badge,
-                    BadgeType.cheonggye.badge,
-                    BadgeType.bukhan.badge,
-                    BadgeType.gwanak.badge,
-                    BadgeType.yongma.badge,
-                    BadgeType.surak.badge,
-                    BadgeType.an.badge,
-                    BadgeType.dobong.badge,
-                    BadgeType.buram.badge,]
+        case .earlyBird: return BadgeCategory.earlyBirdBadge
+        case .accumulatedAltitude: return BadgeCategory.accumulatedAltitudeBadges
+        case .monthly: return BadgeCategory.montlyBadges
+        case .completeMountain: return BadgeCategory.completeMountainBadges
         }
     }
+    
 }

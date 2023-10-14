@@ -40,11 +40,7 @@ enum BadgeType: String, CaseIterable {
 }
 
 extension BadgeType {
-    
-    var badge: Badge {
-        Badge(type: self)
-    }
-    
+
     var content: String {
         switch self {
         case .earlyBird: return "출시 1개월 이내 회원가입 시 얻을 수 있는 뱃지입니다!"
@@ -62,6 +58,29 @@ extension BadgeType {
     
     var badgeImage: UIImage? {
         ImageAssets.earlyBirdBadge
+    }
+    
+    var id: Int {
+        switch self {
+        case .acha: return 1
+        case .inwang: return 4
+        case .cheonggye: return 7
+        case .bukhan: return 10
+        case .gwanak: return 13
+        case .yongma: return 16
+        case .surak: return 19
+        case .an: return 22
+        case .dobong: return 25
+        case .buram: return 28
+        case .meter500: return 31
+        case .meter1000: return 32
+        case .meter3000: return 33
+        case .septeber: return 34
+        case .october: return 35
+        case .november: return 36
+        case .december: return 37
+        default: return -1
+        }
     }
     
 }

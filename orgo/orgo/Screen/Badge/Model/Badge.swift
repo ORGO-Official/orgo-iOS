@@ -7,8 +7,9 @@
 
 import UIKit
 
-struct Badge {
+class Badge {
     let type: BadgeType
+    let id: Int
     let name: String
     let content: String
     let badgeImage: UIImage?
@@ -16,6 +17,7 @@ struct Badge {
     
     init(type: BadgeType) {
         self.type = type
+        self.id = type.id
         self.name = type.rawValue
         self.content = type.content
         self.badgeImage = type.badgeImage

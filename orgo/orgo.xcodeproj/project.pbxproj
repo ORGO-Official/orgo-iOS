@@ -83,6 +83,7 @@
 		0E9430BF2ADA88C300249365 /* BadgeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9430BE2ADA88C300249365 /* BadgeType.swift */; };
 		0E9430C22ADA8CB600249365 /* BadgeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9430C12ADA8CB600249365 /* BadgeHeaderView.swift */; };
 		0E9430C52ADAC28400249365 /* CenterAlignedCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9430C42ADAC28400249365 /* CenterAlignedCollectionViewFlowLayout.swift */; };
+		0E9430C72ADACE8400249365 /* BadgeResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9430C62ADACE8400249365 /* BadgeResponseModel.swift */; };
 		0E9B77342A8BF0A800F2117B /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9B77332A8BF0A800F2117B /* LoginVM.swift */; };
 		0E9B77362A8BF13B00F2117B /* APISession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9B77352A8BF13B00F2117B /* APISession.swift */; };
 		0E9B77382A8BF17D00F2117B /* AuthInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9B77372A8BF17D00F2117B /* AuthInterceptor.swift */; };
@@ -227,6 +228,7 @@
 		0E9430BE2ADA88C300249365 /* BadgeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeType.swift; sourceTree = "<group>"; };
 		0E9430C12ADA8CB600249365 /* BadgeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeHeaderView.swift; sourceTree = "<group>"; };
 		0E9430C42ADAC28400249365 /* CenterAlignedCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterAlignedCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		0E9430C62ADACE8400249365 /* BadgeResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeResponseModel.swift; sourceTree = "<group>"; };
 		0E9B77332A8BF0A800F2117B /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
 		0E9B77352A8BF13B00F2117B /* APISession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APISession.swift; sourceTree = "<group>"; };
 		0E9B77372A8BF17D00F2117B /* AuthInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInterceptor.swift; sourceTree = "<group>"; };
@@ -840,6 +842,7 @@
 			isa = PBXGroup;
 			children = (
 				0E9430BA2ADA877700249365 /* Badge.swift */,
+				0E9430C62ADACE8400249365 /* BadgeResponseModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1302,6 +1305,7 @@
 				0E502B812A9B40F2002C71F2 /* UIButton+Ext.swift in Sources */,
 				0E0137DB2AC06974003C4A17 /* PopUpType.swift in Sources */,
 				0E9B77402A8BF29500F2117B /* KeychainManager.swift in Sources */,
+				0E9430C72ADACE8400249365 /* BadgeResponseModel.swift in Sources */,
 				0EB415F12AAF7248008F42EC /* SettingVM.swift in Sources */,
 				0E57C1802A8BC9E500BFF482 /* TabBarItemButton.swift in Sources */,
 				0EB415E12AAF60D4008F42EC /* RecordTVC.swift in Sources */,
