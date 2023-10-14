@@ -69,4 +69,9 @@ enum ImageAssets {
     // MARK: - Setting
     
     static let setting = UIImage(named: "Setting")?.withRenderingMode(.alwaysOriginal)
+    
+    // MARK: - Badges
+    
+    static let earlyBirdBadge = UIImage(named: "EarlyBirdBadge")?.withRenderingMode(.alwaysOriginal)
+    
 }

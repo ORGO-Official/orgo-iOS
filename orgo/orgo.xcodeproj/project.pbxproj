@@ -19,8 +19,8 @@
 		0E0137DF2AC344BB003C4A17 /* MountainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0137DE2AC344BB003C4A17 /* MountainButton.swift */; };
 		0E477DA12AC86A76008C4333 /* MenuBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E477DA02AC86A76008C4333 /* MenuBoxView.swift */; };
 		0E477DA32AC87184008C4333 /* MenuType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E477DA22AC87184008C4333 /* MenuType.swift */; };
-		0E477E552AD94B8D008C4333 /* Mountain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E477E542AD94B8C008C4333 /* Mountain.swift */; };
 		0E477E532AD8539B008C4333 /* BadgeListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E477E522AD8539B008C4333 /* BadgeListVC.swift */; };
+		0E477E552AD94B8D008C4333 /* Mountain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E477E542AD94B8C008C4333 /* Mountain.swift */; };
 		0E502B552A8E7079002C71F2 /* OrgoBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E502B542A8E7079002C71F2 /* OrgoBottomSheet.swift */; };
 		0E502B582A8E8204002C71F2 /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E502B572A8E8204002C71F2 /* HomeVM.swift */; };
 		0E502B5B2A8E82A3002C71F2 /* MountainListResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E502B5A2A8E82A3002C71F2 /* MountainListResponseModel.swift */; };
@@ -75,6 +75,7 @@
 		0E6FC91D2A585277001DD709 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6FC91C2A585277001DD709 /* SceneDelegate.swift */; };
 		0E6FC9242A585278001DD709 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E6FC9232A585278001DD709 /* Assets.xcassets */; };
 		0E6FC9272A585278001DD709 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E6FC9252A585278001DD709 /* LaunchScreen.storyboard */; };
+		0E9430B32ADA803500249365 /* BadgeCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9430B22ADA803500249365 /* BadgeCVC.swift */; };
 		0E9B77342A8BF0A800F2117B /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9B77332A8BF0A800F2117B /* LoginVM.swift */; };
 		0E9B77362A8BF13B00F2117B /* APISession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9B77352A8BF13B00F2117B /* APISession.swift */; };
 		0E9B77382A8BF17D00F2117B /* AuthInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9B77372A8BF17D00F2117B /* AuthInterceptor.swift */; };
@@ -153,8 +154,8 @@
 		0E477DA02AC86A76008C4333 /* MenuBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBoxView.swift; sourceTree = "<group>"; };
 		0E477DA22AC87184008C4333 /* MenuType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuType.swift; sourceTree = "<group>"; };
 		0E477E1C2ACF26F8008C4333 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
-		0E477E542AD94B8C008C4333 /* Mountain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mountain.swift; sourceTree = "<group>"; };
 		0E477E522AD8539B008C4333 /* BadgeListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeListVC.swift; sourceTree = "<group>"; };
+		0E477E542AD94B8C008C4333 /* Mountain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mountain.swift; sourceTree = "<group>"; };
 		0E502B542A8E7079002C71F2 /* OrgoBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrgoBottomSheet.swift; sourceTree = "<group>"; };
 		0E502B572A8E8204002C71F2 /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
 		0E502B5A2A8E82A3002C71F2 /* MountainListResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainListResponseModel.swift; sourceTree = "<group>"; };
@@ -211,6 +212,7 @@
 		0E6FC9232A585278001DD709 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0E6FC9262A585278001DD709 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0E6FC9282A585278001DD709 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0E9430B22ADA803500249365 /* BadgeCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeCVC.swift; sourceTree = "<group>"; };
 		0E9B77332A8BF0A800F2117B /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
 		0E9B77352A8BF13B00F2117B /* APISession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APISession.swift; sourceTree = "<group>"; };
 		0E9B77372A8BF17D00F2117B /* AuthInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInterceptor.swift; sourceTree = "<group>"; };
@@ -358,6 +360,7 @@
 		0E477E502AD8537A008C4333 /* Badge */ = {
 			isa = PBXGroup;
 			children = (
+				0E9430B12ADA802000249365 /* Cell */,
 				0E477E512AD85389008C4333 /* ViewController */,
 			);
 			path = Badge;
@@ -796,6 +799,14 @@
 			path = Support;
 			sourceTree = "<group>";
 		};
+		0E9430B12ADA802000249365 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				0E9430B22ADA803500249365 /* BadgeCVC.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		0E9B77322A8BF09200F2117B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -1184,6 +1195,7 @@
 				0E502B5B2A8E82A3002C71F2 /* MountainListResponseModel.swift in Sources */,
 				0EB415EE2AAF7013008F42EC /* SettingMenuTVC.swift in Sources */,
 				0E5948062AA4E7D4003C6C7D /* SearchResultDataSource.swift in Sources */,
+				0E9430B32ADA803500249365 /* BadgeCVC.swift in Sources */,
 				0E502B892A9BA31E002C71F2 /* MountainDetailVM.swift in Sources */,
 				0E0137AC2AB73880003C4A17 /* MountainRecordRequestModel.swift in Sources */,
 				0E0137D92AC062F8003C4A17 /* OrgoPopUpVC.swift in Sources */,
