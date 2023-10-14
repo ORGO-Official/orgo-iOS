@@ -26,7 +26,7 @@ class BadgeCVC: BaseCollectionViewCell {
     private let badgeTitle: UILabel = UILabel()
         .then {
             $0.font = .pretendard(size: 14.0, weight: .regular)
-            $0.textColor = .label
+            $0.textColor = .white
             $0.textAlignment = .center
         }
     
@@ -46,6 +46,14 @@ class BadgeCVC: BaseCollectionViewCell {
         super.layoutView()
         
         configureLayout()
+    }
+    
+    
+    // MARK: - Methods
+    
+    func configureCell(with badge: Badge) {
+        badgeImageView.image = badge.isAcquired ? badge.badgeImage : nil
+        badgeTitle.text = badge.name
     }
     
 }

@@ -111,13 +111,13 @@ extension BadgeListVC {
     
     private func configureCollectionViewLayout() {
         let collectionViewWidth: CGFloat = screenWidth - (Const.collectionViewHorizontalInset + Const.contentHorizontalInset + 20) * 2
-        let interval: CGFloat = 3
+        let interval: CGFloat = 10
         let cellWidth: CGFloat = (collectionViewWidth - interval * 2) / 3
         
         let columnLayout = CenterAlignedCollectionViewFlowLayout(
-                itemSize: CGSize(width: cellWidth, height: cellWidth * 1.2),
+                itemSize: CGSize(width: cellWidth, height: cellWidth * 1.3),
                 minimumInteritemSpacing: interval,
-                minimumLineSpacing: 12.0,
+                minimumLineSpacing: 16.0,
                 sectionInset: UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
             )
         columnLayout.headerReferenceSize = CGSize(width: collectionViewWidth, height: 20.0)
@@ -137,13 +137,15 @@ extension BadgeListVC {
             _,
             collectionView,
             indexPath,
-            badgeList in
+            badge in
             
             guard let cell = collectionView
                 .dequeueReusableCell(withReuseIdentifier: BadgeCVC.className,
                                      for: indexPath) as? BadgeCVC else {
                 fatalError("Cannot deqeue cells named DetailCategoryChipCVC")
             }
+            
+            cell.configureCell(with: badge)
 
             return cell
         }, configureSupplementaryView: {
