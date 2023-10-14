@@ -40,6 +40,19 @@ enum BadgeType: String, CaseIterable {
 }
 
 extension BadgeType {
+    
+    var title: String {
+        switch self {
+        case .earlyBird:
+            return "당신은 명예 초기 회원"
+        case .meter500, .meter1000, .meter3000:
+            return "누적 고도 \(self.rawValue) 달성"
+        case .january, .february, .march, .april, .may, .june, .july, .august, .septeber, .october, .november, .december:
+            return "\(self.rawValue)도 오르GO와 함께"
+        case .acha, .inwang, .cheonggye, .bukhan, .gwanak, .yongma, .surak, .an, .dobong, .buram:
+            return "\(self.rawValue) 정복 완료"
+        }
+    }
 
     var content: String {
         switch self {

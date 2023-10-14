@@ -60,7 +60,7 @@ class BadgeBottomSheetVC: OrgoBottomSheet {
     
     func configureBottomSheet(by badge: Badge) {
         badgeImageView.image = badge.badgeImage
-        badgeTitleLabel.text = badge.name
+        badgeTitleLabel.text = badge.title
         badgeContentLabel.text = badge.content
     }
     
