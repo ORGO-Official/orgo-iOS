@@ -105,4 +105,38 @@ extension UIViewController {
         
         targetVC.present(popUpVC, animated: false)
     }
+    
+    /// 토스트 메세지 노출
+    func showToast(message: String) {
+        let toastLabel = UILabel()
+        toastLabel.text = message
+        toastLabel.font = .pretendard(size: 14.0, weight: .medium)
+        toastLabel.textColor = .white
+        toastLabel.textAlignment = .center
+
+        let blurEffect = UIBlurEffect(style: .dark)
+        let blurView = UIVisualEffectView(effect: blurEffect)
+        blurView.layer.cornerRadius = 26.0
+        blurView.clipsToBounds = true
+        
+        view.addSubview(blurView)
+        blurView.contentView.addSubview(toastLabel)
+        
+        blurView.snp.makeConstraints {
+            $0.width.equalTo(200)
+            $0.height.equalTo(52)
+            $0.center.equalTo(view.snp.center)
+        }
+        
+        toastLabel.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        
+        UIView.animate(withDuration: 0.5, delay: 2.0, options: .curveEaseOut, animations: {
+            blurView.alpha = 0.0
+        }, completion: {(isCompleted) in
+            blurView.removeFromSuperview()
+        })
+    }
+    
 }

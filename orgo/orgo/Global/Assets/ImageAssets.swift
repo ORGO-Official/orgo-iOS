@@ -30,6 +30,8 @@ enum ImageAssets {
     
     static let selectedHouse = UIImage(named: "SelectedHouse")?.withRenderingMode(.alwaysOriginal)
     static let unselectedHouse = UIImage(named: "UnselectedHouse")?.withRenderingMode(.alwaysOriginal)
+    static let selectedBadge = UIImage(named: "SelectedBadge")?.withRenderingMode(.alwaysOriginal)
+    static let unselectedBadge = UIImage(named: "UnselectedBadge")?.withRenderingMode(.alwaysOriginal)
     static let selectedUser = UIImage(named: "SelectedUser")?.withRenderingMode(.alwaysOriginal)
     static let unselectedUser = UIImage(named: "UnselectedUser")?.withRenderingMode(.alwaysOriginal)
     
@@ -67,4 +69,9 @@ enum ImageAssets {
     // MARK: - Setting
     
     static let setting = UIImage(named: "Setting")?.withRenderingMode(.alwaysOriginal)
+    
+    // MARK: - Badges
+    
+    static let earlyBirdBadge = UIImage(named: "EarlyBirdBadge")?.withRenderingMode(.alwaysOriginal)
+    
 }
