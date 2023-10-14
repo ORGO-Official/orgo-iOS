@@ -181,11 +181,15 @@ extension BadgeListVC {
         badgeCollectionView.rx.modelSelected(Badge.self)
             .withUnretained(self)
             .bind(onNext: { owner, badge in
-                let badgeBottomSheetVC = BadgeBottomSheetVC()
-                badgeBottomSheetVC.configureBottomSheet(by: badge)
-                
-                badgeBottomSheetVC.modalPresentationStyle = .overFullScreen
-                owner.present(badgeBottomSheetVC, animated: false)
+                if badge.isAcquired {
+                    let badgeBottomSheetVC = BadgeBottomSheetVC()
+                    badgeBottomSheetVC.configureBottomSheet(by: badge)
+                    
+                    badgeBottomSheetVC.modalPresentationStyle = .overFullScreen
+                    owner.present(badgeBottomSheetVC, animated: false)
+                } else {
+                    owner.showToast(message: "아직 획득하지 못했어요!")
+                }
             })
             .disposed(by: bag)
     }
