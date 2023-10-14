@@ -82,6 +82,7 @@ final class BadgeListVC: BaseViewController {
         super.bindOutput()
         
         bindBadgeDataSource()
+        bindCollectionView()
     }
     
     // MARK: - Functions
@@ -173,6 +174,15 @@ extension BadgeListVC {
 
         viewModel.output.badgeListDataSource
             .bind(to: badgeCollectionView.rx.items(dataSource: dataSource))
+            .disposed(by: bag)
+    }
+    
+    private func bindCollectionView() {
+        badgeCollectionView.rx.modelSelected(Badge.self)
+            .withUnretained(self)
+            .bind(onNext: { owner, badge in
+                dump(badge)
+            })
             .disposed(by: bag)
     }
     

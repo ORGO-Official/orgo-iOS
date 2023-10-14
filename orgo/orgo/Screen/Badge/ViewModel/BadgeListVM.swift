@@ -81,17 +81,13 @@ extension BadgeListVM {
     }
     
     private func updateDataSource(by data: [BadgeResponseModel]) {
-        let currentBadgeList = output.badgeList.value // 현재 뱃지 목록을 가져옵니다
+        let currentBadgeList = output.badgeList.value
         
         for newData in data {
             for category in currentBadgeList {
                 for badge in category.items {
                     if badge.id == newData.id {
-                        // 해당 ID를 가진 뱃지를 찾았습니다.
-                        // 이제 해당 뱃지의 isCorrect 값을 newData에서 가져온 값으로 업데이트합니다.
-                        dump(badge)
                         badge.isAcquired = true
-                        print("here")
                     }
                 }
             }
