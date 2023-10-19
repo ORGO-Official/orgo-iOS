@@ -70,7 +70,27 @@ extension BadgeType {
     }
     
     var badgeImage: UIImage? {
-        ImageAssets.earlyBirdBadge
+        switch self {
+        case .acha: return ImageAssets.achaBadge
+        case .inwang: return ImageAssets.inwangBadge
+        case .cheonggye: return ImageAssets.cheonggyeBadge
+        case .bukhan: return ImageAssets.bukhanBadge
+        case .gwanak: return ImageAssets.gwanakBadge
+        case .yongma: return ImageAssets.yongmaBadge
+        case .surak: return ImageAssets.surakBadge
+        case .an: return ImageAssets.anBadge
+        case .dobong: return ImageAssets.dobongBadge
+        case .buram: return ImageAssets.buramBadge
+        case .meter500: return ImageAssets.meter500Badge
+        case .meter1000: return ImageAssets.meter1000Badge
+        case .meter3000: return ImageAssets.meter3000Badge
+        case .septeber: return ImageAssets.septemberBadge
+        case .october: return ImageAssets.octoberBadge
+        case .november: return ImageAssets.novemberBadge
+        case .december: return ImageAssets.decemberBadge
+        case .earlyBird: return ImageAssets.earlyBirdBadge
+        default: return ImageAssets.defaultBadge
+        }
     }
     
     var id: Int {

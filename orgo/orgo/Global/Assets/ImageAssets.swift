@@ -73,5 +73,33 @@ enum ImageAssets {
     // MARK: - Badges
     
     static let earlyBirdBadge = UIImage(named: "EarlyBirdBadge")?.withRenderingMode(.alwaysOriginal)
+    static let defaultBadge = UIImage(named: "DefaultBadge")?.withRenderingMode(.alwaysOriginal)
     
+    static let meter500Badge = UIImage(named: "Meter500Badge")?.withRenderingMode(.alwaysOriginal)
+    static let meter1000Badge = UIImage(named: "Meter1000Badge")?.withRenderingMode(.alwaysOriginal)
+    static let meter3000Badge = UIImage(named: "Meter3000Badge")?.withRenderingMode(.alwaysOriginal)
+    
+    static let januaryBadge = UIImage(named: "JanuaryBadge")?.withRenderingMode(.alwaysOriginal)
+    static let februaryBadge = UIImage(named: "FebruaryBadge")?.withRenderingMode(.alwaysOriginal)
+    static let marchBadge = UIImage(named: "MarchBadge")?.withRenderingMode(.alwaysOriginal)
+    static let aprilBadge = UIImage(named: "AprilBadge")?.withRenderingMode(.alwaysOriginal)
+    static let mayBadge = UIImage(named: "MayBadge")?.withRenderingMode(.alwaysOriginal)
+    static let juneBadge = UIImage(named: "JuneBadge")?.withRenderingMode(.alwaysOriginal)
+    static let julyBadge = UIImage(named: "JulyBadge")?.withRenderingMode(.alwaysOriginal)
+    static let augustBadge = UIImage(named: "AugustBadge")?.withRenderingMode(.alwaysOriginal)
+    static let septemberBadge = UIImage(named: "SeptemberBadge")?.withRenderingMode(.alwaysOriginal)
+    static let octoberBadge = UIImage(named: "OctoberBadge")?.withRenderingMode(.alwaysOriginal)
+    static let novemberBadge = UIImage(named: "NovemberBadge")?.withRenderingMode(.alwaysOriginal)
+    static let decemberBadge = UIImage(named: "DecemberBadge")?.withRenderingMode(.alwaysOriginal)
+    
+    static let achaBadge = UIImage(named: "AchaBadge")?.withRenderingMode(.alwaysOriginal)
+    static let inwangBadge = UIImage(named: "InwangBadge")?.withRenderingMode(.alwaysOriginal)
+    static let cheonggyeBadge = UIImage(named: "CheonggyeBadge")?.withRenderingMode(.alwaysOriginal)
+    static let bukhanBadge = UIImage(named: "BukhanBadge")?.withRenderingMode(.alwaysOriginal)
+    static let gwanakBadge = UIImage(named: "GwanakBadge")?.withRenderingMode(.alwaysOriginal)
+    static let yongmaBadge = UIImage(named: "YongmaBadge")?.withRenderingMode(.alwaysOriginal)
+    static let surakBadge = UIImage(named: "SurakBadge")?.withRenderingMode(.alwaysOriginal)
+    static let anBadge = UIImage(named: "AnBadge")?.withRenderingMode(.alwaysOriginal)
+    static let dobongBadge = UIImage(named: "DobongBadge")?.withRenderingMode(.alwaysOriginal)
+    static let buramBadge = UIImage(named: "BuramBadge")?.withRenderingMode(.alwaysOriginal)
 }
