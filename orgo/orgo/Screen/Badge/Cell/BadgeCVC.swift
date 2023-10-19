@@ -52,7 +52,7 @@ class BadgeCVC: BaseCollectionViewCell {
     // MARK: - Methods
     
     func configureCell(with badge: Badge) {
-        badgeImageView.image = badge.isAcquired ? badge.badgeImage : nil
+        badgeImageView.image = badge.isAcquired ? badge.badgeImage : ImageAssets.defaultBadge
         badgeTitle.text = badge.name
     }
     
